@@ -3,6 +3,7 @@ class_name Nomad
 # C.R.E.A.M
 var money: int = 100
 
+
 # Properties
 var quarters: Modifiers.Quarters = null
 var pet: Modifiers.Pet = null
@@ -23,3 +24,8 @@ var hunger: int = 0
 var health: int = 100
 var mood: int = 50
 var karma: int = 50
+var rating: int = 1
+
+
+# Course (NOTE: done state)
+var courses: []

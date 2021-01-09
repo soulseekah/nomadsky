@@ -3,7 +3,7 @@ class_name Modifiers
 
 # Where you are in the world
 class Location:
-	var cost: float
+	var cost: int
 	var bonus: float
 	
 	class Beijing extends Location:
@@ -14,7 +14,7 @@ class Location:
 
 # What you do your work on
 class Workstation:
-	var cost: float
+	var cost: int
 	var bonus: float
 
 	class Renovo extends Workstation:
@@ -30,7 +30,7 @@ class Workstation:
 
 # Where you live
 class Quarters:
-	var cost: float
+	var cost: int
 	var bonus: float
 	
 	class Hostel extends Quarters:
@@ -51,7 +51,7 @@ class Quarters:
 
 # What your pet is
 class Pet:
-	var cost: float
+	var cost: int
 	var bonus: float
 	
 	class Cat extends Pet:

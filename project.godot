@@ -13,15 +13,25 @@ _global_script_classes=[ {
 "class": "Modifiers",
 "language": "GDScript",
 "path": "res://src/Modifiers.gd"
+}, {
+"base": "Reference",
+"class": "Nomad",
+"language": "GDScript",
+"path": "res://src/Nomad.gd"
 } ]
 _global_script_class_icons={
-"Modifiers": ""
+"Modifiers": "",
+"Nomad": ""
 }
 
 [application]
 
 config/name="Nomansky"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://Main.tscn"
+
+[autoload]
+
+Courses="*res://src/Courses.gd"
 
 [rendering]
 
