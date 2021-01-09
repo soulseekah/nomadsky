@@ -79,7 +79,7 @@ func _ready():
 				},
 				{
 					'question': 'Is it worth buying 10,000 links to your post?', 'answer': 'yes',
-					'filler': ['need to consult with roommate', 'you still haven't bought them?'],
+					'filler': ['need to consult with roommate', "you still haven't bought them?"],
 				},
 				{
 					'question': 'What is the name of the Google tool for webmasters?', 'answer': 'search console',
@@ -91,12 +91,12 @@ func _ready():
 			'name': 'Beginner Gamedev: ____', 'type': 'gamedev', 'cost': 7,
 			'quiz': [
 				{
-					'question': 'What's the name of Mario's brother?', 'answer': 'Luigi',
+					'question': "What's the name of Mario's brother?", 'answer': 'Luigi',
 					'filler': ['Mario', 'that green dude'],
 				},
 				{
 					'question': 'What is the best game of all?', 'answer': 'this game',
-					'filler': ['wrong answer', 'why haven't answered yet?'],
+					'filler': ['wrong answer', "why haven't answered yet?"],
 				},
 				{
 					'question': 'In the production of which game was Keanu Reeves actively involved?', 'answer': 'cyberpunk 2077',
@@ -108,12 +108,12 @@ func _ready():
 			'name': 'Intermediate Gamedev: Hello Games', 'type': 'gamedev', 'cost': 15,
 			'quiz': [
 				{
-					'question': 'What's the name of the lady who's always raiding tombs?', 'answer': 'Lara Croft',
+					'question': "What's the name of the lady who's always raiding tombs?", 'answer': 'Lara Croft',
 					'filler': ['Angelina Jolie', 'Marge Simpson'],
 				},
 				{
 					'question': 'If you were developing a game now, what would be the deadline?', 'answer': 'january 29',
-					'filler': ['early access, I'll finish it later', 'july 29'],
+					'filler': ["early access, I'll finish it later", 'july 29'],
 				},
 				{
 					'question': 'What should you do if you are being chased by a zombie?', 'answer': 'to kill him',
@@ -134,7 +134,7 @@ func _ready():
 				},
 				{
 					'question': 'What happens if you defuse a bomb?', 'answer': 'counter terrorist win',
-					'filler': ['you will receive a state award', 'you'll be a hero'],
+					'filler': ['you will receive a state award', "you'll be a hero"],
 				},
 			],
 		},
