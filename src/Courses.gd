@@ -43,6 +43,31 @@ func _ready():
 					'question': 'What is the plural of cat?', 'answer': 'cats',
 					'filler': ['cattes', 'chats'],
 				},
+				{
+					'question': 'What is the plural of cat?', 'answer': 'cats',
+					'filler': ['cattes', 'chats'],
+				},
+				{
+					'question': 'What is the plural of cat?', 'answer': 'cats',
+					'filler': ['cattes', 'chats'],
+				},
 			],
-		}
+		},
+		{
+			'name': 'Intermediate Beginner Level English', 'type': 'copywriting', 'cost': 15,
+			'quiz': [
+				{
+					'question': 'What is the plural of cat?', 'answer': 'cats',
+					'filler': ['cattes', 'chats'],
+				},
+				{
+					'question': 'What is the plural of cat?', 'answer': 'cats',
+					'filler': ['cattes', 'chats'],
+				},
+				{
+					'question': 'What is the plural of cat?', 'answer': 'cats',
+					'filler': ['cattes', 'chats'],
+				},
+			],
+		},
 	]: courses.append(Course.new(course))
