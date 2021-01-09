@@ -49,7 +49,7 @@ func _ready():
 			'chance': 0.1,
 			'actions': {
 				'accept': {
-					'money': 50,
+					'money': 60,
 					'time': 8,
 					'karma': -10,
 				},
