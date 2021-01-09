@@ -16,6 +16,7 @@ class Location:
 class Workstation:
 	var cost: int
 	var bonus: float
+	var health: int
 
 	class Renovo extends Workstation:
 		func _init():
@@ -32,6 +33,11 @@ class Workstation:
 class Quarters:
 	var cost: int
 	var bonus: float
+
+	class Camping extends Quarters:
+		func _init():
+			cost = 0
+			bonus = 0
 	
 	class Hostel extends Quarters:
 		func _init():

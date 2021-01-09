@@ -7,9 +7,7 @@ var courses: Array = []
 class Course:
 	var name: String
 	var type: String
-
 	var cost: int
-
 	var quizzes: Array = []
 
 	class Quiz:

@@ -1,31 +1,33 @@
+extends Node
+
 class_name Nomad
 
 # C.R.E.A.M
-var money: int = 100
+var money: int
 
 
 # Properties
-var quarters: Modifiers.Quarters = null
-var pet: Modifiers.Pet = null
-var location: Modifiers.Location = Modifiers.Location.Beijing.new()
-var workstation: Modifiers.Workstation = Modifiers.Workstation.Renovo.new()
+var quarters: Modifiers.Quarters
+var pet: Modifiers.Pet
+var location: Modifiers.Location
+var workstation: Modifiers.Workstation
 
 
 # Skills
-var copywriting: int = 0
-var design: int = 0
-var code: int = 0
-var gamedev: int = 0
-var soft: int = 0
+var copywriting: int
+var design: int
+var code: int
+var gamedev: int
+var soft: int
 
 
 # Stats
-var hunger: int = 0
-var health: int = 100
-var mood: int = 50
-var karma: int = 50
-var rating: int = 1
+var hunger: int
+var health: int
+var mood: int
+var karma: int
+var rating: int
 
 
-# Course (NOTE: done state)
-var courses: []
+# Courses
+var courses: Array = []
