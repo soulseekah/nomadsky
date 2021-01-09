@@ -29,7 +29,7 @@ func _process(delta):
 		print(Cards.pick())
 		last_pick = int(time)
 
-	$Timer.text = str(int(time));
+	$Timer.text = str(int(time))
 
 func to_workstation():
 	$Workstation.show()
