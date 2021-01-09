@@ -19,6 +19,7 @@ func _ready():
 	$Location/Button.connect('pressed', self, 'to_workstation')
 	$Workstation/Button.connect('pressed', self, 'to_location')
 
+	$Timer.text = str(time);
 
 func _process(delta):
 	time += delta
@@ -27,6 +28,8 @@ func _process(delta):
 	if int(time) - last_pick > 4:
 		print(Cards.pick())
 		last_pick = int(time)
+
+	$Timer.text = str(int(time));
 
 func to_workstation():
 	$Workstation.show()

@@ -36,3 +36,14 @@ scale = Vector2( 0.581483, 0.581483 )
 stream = ExtResource( 4 )
 volume_db = -24.738
 autoplay = true
+
+[node name="Timer" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 496.0
+margin_top = 16.0
+margin_right = 536.0
+margin_bottom = 30.0
+text = "23434"
+__meta__ = {
+"_edit_use_anchors_": false
+}
