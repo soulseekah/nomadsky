@@ -45,11 +45,11 @@ func _ready():
 				},
 				{
 					'question': 'What punctuation mark is placed at the end of a sentence?', 'answer': 'dot',
-					'filler': ['comma', 'colon'],
+					'filler': ['comma', 'bot'],
 				},
 				{
 					'question': 'How many mistakes can you make in a text (write a number)?', 'answer': '0',
-					'filler': ['cattes', 'chats'],
+					'filler': ['1', '001010'],
 				},
 			],
 		},
@@ -58,15 +58,15 @@ func _ready():
 			'quiz': [
 				{
 					'question': 'What html tag is used to wrap the first title in the text?', 'answer': 'h1',
-					'filler': ['cattes', 'chats'],
+					'filler': ['1h', '1inch'],
 				},
 				{
 					'question': 'In what case should you write the first character in a sentence?', 'answer': 'uppercase',
-					'filler': ['cattes', 'chats'],
+					'filler': ['top', 'high'],
 				},
 				{
 					'question': 'What should be added after each word in the text?', 'answer': 'keyword',
-					'filler': ['cattes', 'chats'],
+					'filler': ['advertising', 'referral link'],
 				},
 			],
 		},
@@ -75,15 +75,15 @@ func _ready():
 			'quiz': [
 				{
 					'question': 'How often should the keyword appear in the text?', 'answer': 'constantly',
-					'filler': ['cattes', 'chats'],
+					'filler': ['after each word', 'once'],
 				},
 				{
 					'question': 'Is it worth buying 10,000 links to your post?', 'answer': 'yes',
-					'filler': ['cattes', 'chats'],
+					'filler': ['need to consult with roommate', 'you still haven't bought them?'],
 				},
 				{
 					'question': 'What is the name of the Google tool for webmasters?', 'answer': 'search console',
-					'filler': ['cattes', 'chats'],
+					'filler': ['webmaster', 'amigo browser'],
 				},
 			],
 		},
@@ -92,15 +92,15 @@ func _ready():
 			'quiz': [
 				{
 					'question': 'What's the name of Mario's brother?', 'answer': 'Luigi',
-					'filler': ['cattes', 'chats'],
+					'filler': ['Mario', 'that green dude'],
 				},
 				{
 					'question': 'What is the best game of all?', 'answer': 'this game',
-					'filler': ['cattes', 'chats'],
+					'filler': ['wrong answer', 'why haven't answered yet?'],
 				},
 				{
 					'question': 'In the production of which game was Keanu Reeves actively involved?', 'answer': 'cyberpunk 2077',
-					'filler': ['cattes', 'chats'],
+					'filler': ['matrita', 'superdrunk 2021'],
 				},
 			],
 		},
@@ -109,15 +109,15 @@ func _ready():
 			'quiz': [
 				{
 					'question': 'What's the name of the lady who's always raiding tombs?', 'answer': 'Lara Croft',
-					'filler': ['cattes', 'chats'],
+					'filler': ['Angelina Jolie', 'Marge Simpson'],
 				},
 				{
 					'question': 'If you were developing a game now, what would be the deadline?', 'answer': 'january 29',
-					'filler': ['cattes', 'chats'],
+					'filler': ['early access, I'll finish it later', 'july 29'],
 				},
 				{
 					'question': 'What should you do if you are being chased by a zombie?', 'answer': 'to kill him',
-					'filler': ['cattes', 'chats'],
+					'filler': ['say hello', 'invite him to become a tester'],
 				},
 			],
 		},
@@ -126,15 +126,15 @@ func _ready():
 			'quiz': [
 				{
 					'question': 'At what stage in the development of a game in early access should you finish working on it?', 'answer': 'early access',
-					'filler': ['cattes', 'chats'],
+					'filler': ['when game is done', 'at release stage'],
 				},
 				{
 					'question': 'Who gets fresh meat with a hook?', 'answer': 'Pudge',
-					'filler': ['Hoodwink', 'Io'],
+					'filler': ['Hoodwink', 'Donald Crab'],
 				},
 				{
 					'question': 'What happens if you defuse a bomb?', 'answer': 'counter terrorist win',
-					'filler': ['cattes', 'chats'],
+					'filler': ['you will receive a state award', 'you'll be a hero'],
 				},
 			],
 		},

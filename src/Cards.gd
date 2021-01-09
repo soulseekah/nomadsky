@@ -31,7 +31,9 @@ class Card:
 		actions = card.get('actions', {})
 
 		requirements = card.get('requirements', {})
-		sound = card.get('sound', null)
+		
+		if card.get('sound'):
+			sound = card.get('sound')
 
 	func _to_string():
 		return '[%s] %s (done: %s)' % [type, title, done]
@@ -47,8 +49,8 @@ func _ready():
 			'chance': 0.1,
 			'actions': {
 				'accept': {
-					'money': 50, * soft_skillG
-					'time': 8, - soft_skill
+					'money': 50,
+					'time': 8,
 					'karma': -10,
 				},
 				'decline': {
@@ -192,18 +194,17 @@ func _ready():
 					'mood': -1,
 				},
 			},
-			'sound': 'woof',
+			'sound': 'dota',
 		},
 
 		# Tutorial
 		{
 			'type': 'info',
 			'title': 'Courses',
-			'description': "Hey, don't forget to level up your skills, mate. Click the courses icon on your laptop."
+			'description': "Hey, don't forget to level up your skills, mate. Click the courses icon on your laptop.",
 			'chance': 1.0,
 			'requirements': {
 				'time': 24,
 			},
-			'sound': 'woof',
 		},
 	]: cards.append(Card.new(card))
