@@ -10,7 +10,7 @@ func pick(type: String) -> Card:
 
 
 class Card:
-	var type: String # one of work, accident, gift, decision
+	var type: String # one of work, accident, gift, decision, info
 
 	var title: String
 	var description: String
@@ -28,11 +28,10 @@ class Card:
 		title = card['title']
 		description = card['description']
 		chance = card['chance']
-		requirements = card['requirements']
-		actions = card['actions']
+		actions = card.get('actions', {})
 
-		if card.get('sound'):
-			sound = card['sound']
+		requirements = card.get('requirements', {})
+		sound = card.get('sound', null)
 
 	func _to_string():
 		return '[%s] %s (done: %s)' % [type, title, done]
@@ -46,11 +45,10 @@ func _ready():
 			'title': 'Post my comment to 500 blogs',
 			'description': "I'm trying to get people to buy my new game. I need someone to advertise a link to it on gaming blogs. Help!",
 			'chance': 0.1,
-			'requirements': {},
 			'actions': {
 				'accept': {
-					'money': 50,
-					'time': 8,
+					'money': 50, * soft_skillG
+					'time': 8, - soft_skill
 					'karma': -10,
 				},
 				'decline': {
@@ -131,7 +129,6 @@ func _ready():
 			'title': 'Keep your eyes up.',
 			'description': "You just found $10 lying on the floor.",
 			'chance': 0.5,
-			'requirements': {},
 			'actions': {
 				'okay': {
 					'mood': 5,
@@ -178,6 +175,34 @@ func _ready():
 					'karma': -10,
 					'mood': -10,
 				},
+			},
+			'sound': 'woof',
+		},
+		{
+			'type': 'decision',
+			'title': 'dota2.exe',
+			'description': 'Your mates are calling you for a game of Dotes.',
+			'chance': 0.05,
+			'actions': {
+				'accept': {
+					'time': 4,
+					'mood': -10,
+				},
+				'decline': {
+					'mood': -1,
+				},
+			},
+			'sound': 'woof',
+		},
+
+		# Tutorial
+		{
+			'type': 'info',
+			'title': 'Courses',
+			'description': "Hey, don't forget to level up your skills, mate. Click the courses icon on your laptop."
+			'chance': 1.0,
+			'requirements': {
+				'time': 24,
 			},
 			'sound': 'woof',
 		},
