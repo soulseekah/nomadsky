@@ -1,6 +1,38 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Main.gd" type="Script" id=1]
+[ext_resource path="res://assets/art/backgrounds/pyongyang.jpg" type="Texture" id=2]
+[ext_resource path="res://scenes/Workstation.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sound/bgm/pyongyang.ogg" type="AudioStream" id=4]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
+
+[node name="Location" type="Node2D" parent="."]
+position = Vector2( 3.05176e-05, 1.52588e-05 )
+scale = Vector2( 1, 1 )
+
+[node name="pyongyang" type="Sprite" parent="Location"]
+position = Vector2( 314.609, 182.482 )
+scale = Vector2( 0.48457, 0.48457 )
+texture = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="Location"]
+margin_left = 203.113
+margin_top = 303.921
+margin_right = 406.113
+margin_bottom = 341.921
+text = "workstation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Workstation" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 314.609, 214.482 )
+scale = Vector2( 0.581483, 0.581483 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -24.738
+autoplay = true

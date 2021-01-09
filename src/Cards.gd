@@ -4,7 +4,7 @@ extends Node
 var cards: Array = []
 
 
-func pick(type: String) -> Card:
+func pick() -> Card:
 	cards.shuffle()
 	return cards.front()
 
@@ -198,6 +198,19 @@ func _ready():
 		},
 
 		# Tutorial
+		{
+			'type': 'info',
+			'title': 'The Motherland bears Opportunity',
+			'description': "Pssst! I heard you were looking for a laptop. Don't tell anyone, and use VPN.",
+			'chance': 2.0,
+			'actions': {
+				'okay': {
+					'workstation': 'red',
+					'money': -80,
+				},
+			},
+			'sound': 'psst',
+		},
 		{
 			'type': 'info',
 			'title': 'Courses',

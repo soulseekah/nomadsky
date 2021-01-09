@@ -27,12 +27,18 @@ _global_script_class_icons={
 [application]
 
 config/name="Nomadsky"
+config/description="Godot Wild Jam #29"
 run/main_scene="res://scenes/Main.tscn"
 
 [autoload]
 
 Courses="*res://src/Courses.gd"
 Cards="*res://src/Cards.gd"
+
+[display]
+
+window/size/width=640
+window/size/height=360
 
 [rendering]
 

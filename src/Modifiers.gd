@@ -6,7 +6,7 @@ class Location:
 	var cost: int
 	var bonus: float
 	
-	class Beijing extends Location:
+	class Pyongyang extends Location:
 		func _init():
 			cost = 100
 			bonus = 10 
@@ -17,7 +17,12 @@ class Workstation:
 	var cost: int
 	var bonus: float
 	var health: int
-
+	
+	class Red extends Workstation:
+		func _init():
+			cost = 5
+			bonus = 0
+	
 	class Renovo extends Workstation:
 		func _init():
 			cost = 10
