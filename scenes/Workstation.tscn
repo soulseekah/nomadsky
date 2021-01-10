@@ -5,46 +5,51 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="red" type="Sprite" parent="."]
-position = Vector2( -4.3602, -3.89334 )
-scale = Vector2( 0.611681, 0.611681 )
+position = Vector2( -0.391703, 12.7744 )
+scale = Vector2( 0.504055, 0.507919 )
 texture = ExtResource( 1 )
 
-[node name="Shutdown" type="Button" parent="."]
-margin_left = -233.0
-margin_top = 56.0
-margin_right = -80.0
-margin_bottom = 97.0
+[node name="Actions" type="Node2D" parent="."]
+
+[node name="Shutdown" type="Button" parent="Actions"]
+margin_left = -177.441
+margin_top = 36.9512
+margin_right = -24.441
+margin_bottom = 77.9512
 text = "Shutdown"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Work" type="Button" parent="."]
-margin_left = -232.645
-margin_top = -53.0021
-margin_right = -79.6447
-margin_bottom = -12.0021
-text = "Browse DownWork"
+[node name="Work" type="Button" parent="Actions"]
+margin_left = -177.086
+margin_top = -72.0509
+margin_right = -24.0856
+margin_bottom = -31.0509
+text = "Work"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Courses" type="Button" parent="."]
-margin_left = -232.645
-margin_top = 1.08112
-margin_right = -79.6447
-margin_bottom = 42.0811
+[node name="Courses" type="Button" parent="Actions"]
+margin_left = -177.086
+margin_top = -17.9677
+margin_right = -24.0856
+margin_bottom = 23.0323
 text = "Courses"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sleep" type="Button" parent="."]
-margin_left = -232.645
-margin_top = -105.919
-margin_right = -79.6447
-margin_bottom = -64.9189
-text = "Sleep"
+[node name="Loading" type="Label" parent="."]
+visible = false
+margin_left = -112.244
+margin_top = -37.4308
+margin_right = 50.7563
+margin_bottom = -10.4308
+rect_scale = Vector2( 1.93717, 1.93717 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Looking for work..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
