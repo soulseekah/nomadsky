@@ -69,10 +69,13 @@ visible = false
 position = Vector2( 325.948, 200.623 )
 z_as_relative = false
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -24.738
 autoplay = true
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+volume_db = -24.738
 
 [node name="Timer" type="Label" parent="."]
 modulate = Color( 0, 0, 0, 1 )
