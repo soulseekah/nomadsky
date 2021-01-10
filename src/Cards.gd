@@ -89,6 +89,283 @@ func _ready():
 				},
 			},
 		},
+		
+		{
+		'type': 'work',
+			'title': 'Put up 1000 ads in the city',
+			'description': 'Need to put up 1000 ads for a recently opened store.',
+			'chance': 0.1,
+			'actions': {
+				'accept': {
+					'money': 20,
+					'time': 6,
+				},
+				'ignore': {
+					'skip': true,
+				},
+			},
+		},
+		
+		{
+			'type': 'work',
+			'title': 'Write 6 advertising articles about cheap hosting services.',
+			'description': 'It is necessary to increase traffic to the sites of bad hosting companies.',
+			'chance': 0.5,
+			'requirements': {
+				'code': 1,
+				'copywriting': 2,
+				'Design':1,
+			},
+			'actions': {
+				'accept': {
+					'money': 140,
+					'time': 8,
+				},
+				'decline': {
+					'karma': -10,
+				},
+				'ignore': {
+					'skip': true,
+				},
+			},
+		},
+
+		{
+			'type': 'work',
+			'title': 'Hi. My website doesnt work! =(.',
+			'description': 'I bought a Rolex for $11.89 and now my website is giving out a 500 error.',
+			'chance': 0.1,
+			'requirements': {
+				'code': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 50,
+					'time': 2,
+				},
+				'decline': {
+					'karma': +5,
+				},
+				'ignore': {
+					'skip': true,
+				},
+			},
+		},
+		
+		{
+			'type': 'work',
+			'title': 'Set up goals in google Analytics.',
+			'description': 'Set up goals on the site for the sale of original Rolex for $11.89.',
+			'chance': 0.1,
+			'requirements': {
+				'code': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 30,
+					'time': 1,
+				},
+				'decline': {
+					'karma': -30,
+				},
+				'ignore': {
+					'skip': true,
+				},
+			},
+		},
+
+{
+			'type': 'work',
+			'title': 'Set up goals in google Analytics.',
+			'description': 'Record a positive video review of the Original Rolex for $11.89',
+			'chance': 0.4,
+			'requirements': {
+				'copywriting': 2
+			},
+			'actions': {
+				'accept': {
+					'money': 30,
+					'time': 1,
+				},
+				'decline': {
+					'karma': -30,
+				},
+				'ignore': {
+					'skip': true,
+				},
+			},
+		},
+		
+		
+		{
+			'type': 'work',
+			'title': 'Make 13 simple landing pages as FAST as POSSIBLE!.',
+			'description': 'I sell handmade paper airplanes and want to fully occupy a niche.',
+			'chance': 0.6,
+			'requirements': {
+				'code': 2,
+				'copywriting': 1,
+				'Design':1,
+			},
+			'actions': {
+				'accept': {
+					'money': 200,
+					'time': 10,
+				},
+				'decline': {
+					'karma': 0,
+				},
+				'ignore': {
+					'skip': true,
+				},
+			},
+		},
+		
+		{
+			'type': 'work',
+			'title': 'Elderly lady Eduard Panasyuk asks for help.',
+			'description': 'Need to move the lady across the road... 19 times O_O... Come on, dont be gnilushka.',
+			'chance': 0.1,
+			'actions': {
+				'accept': {
+					'money': 10,
+					'time': 4,
+				},
+				'decline': {
+					'karma': +30,
+				},
+				'ignore': {
+					'skip': true,
+				},
+			},
+		},
+
+		{
+			'type': 'work',
+			'title': 'Beautifully design a showcase on Instagram.',
+			'description': 'Im just a beautiful girl and I want more followers.',
+			'chance': 0.3,
+			'requirements': {
+				'copywriting': 1,
+				'Design':2,
+			},
+			'actions': {
+				'accept': {
+					'money': 100,
+					'time': 4,
+				},
+				'decline': {
+					'karma': 0,
+				},
+				'ignore': {
+					'skip': true,
+				},
+			},
+		},
+
+{
+			'type': 'work',
+			'title': 'The website acceleration.',
+			'description': 'Hello. I have all the most popular acceleration plugins installed on my site, 314 in total, but it is still slow..',
+			'chance': 0.6,
+			'requirements': {
+				'code': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 120,
+					'time': 6,
+				},
+				'decline': {
+					'karma': +2,
+				},
+				'ignore': {
+					'skip': true,
+				},
+			},
+		},
+
+		{
+			'type': 'work',
+			'title': 'Temporary pizza boy.',
+			'description': 'The courier had lunch at our restaurant and got food poisoning. We need someone who will be able to deliver the orders',
+			'chance': 0.1,
+			'actions': {
+				'accept': {
+					'money': 40,
+					'time': 12,
+				},
+				'decline': {
+					'karma': -20,
+				},
+				'ignore': {
+					'skip': true,
+				},
+			},
+		},
+		
+		{
+			'type': 'work',
+			'title': 'Help a neighbor.',
+			'description': 'Hi Im your neighbor. I have a blown light bulb in my room, I would change it myself, but Im afraid of heights!=( Will you help? ps: grab the ladder.',
+			'chance': 0.1,
+			'actions': {
+				'accept': {
+					'money': 10,
+					'time': 1,
+				},
+				'decline': {
+					'karma': +10,
+				},
+				'ignore': {
+					'skip': true,
+				},
+			},
+		},
+		
+		{
+			'type': 'work',
+			'title': 'Slippery business.',
+			'description': 'I need some website not to work all day. I hear you do that kind of thing...',
+			'chance': 0.7,
+			'requirements': {
+				'code': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 375,
+					'time': 12,
+				},
+				'decline': {
+					'karma': -40,
+				},
+				'ignore': {
+					'skip': true,
+				},
+			},
+		},
+
+		{
+			'type': 'work',
+			'title': 'Compress images on the site.',
+			'description': 'So the thing requires some modern image formats. Will you do it?',
+			'chance': 0.1,
+			'requirements': {
+				'code': 1,
+			},
+			'actions': {
+				'accept': {
+					'money': 30,
+					'time': 3,
+				},
+				'decline': {
+					'karma': +10,
+				},
+				'ignore': {
+					'skip': true,
+				},
+			},
+		},
 
 		# Accidents
 		{
