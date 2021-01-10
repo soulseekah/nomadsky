@@ -4,16 +4,39 @@ extends Node
 var cards: Array = []
 
 
-func pick() -> Card:
-	cards.shuffle()
-	
+func pick(types: Array, main: Main) -> Card:
+	var valid = []
+	var total = 0
+
 	for card in cards:
 		if card.done:
 			continue
-			
-		return card
+		
+		if types and not card.type in types:
+			continue
+
+		if card.requirements.has('time') and card.requirements['time'] > main.time:
+			continue
+
+		valid.append(card)
+		total += int(card.chance * 1000)
+		
+	if not valid.front():
+		return null
+		
+	if valid.front().chance >= 1.0:
+		return valid.front()
+
+	var choice = (randi() % total) + 1
+	for card in valid:
+		choice -= int(card.chance * 1000)
+		if choice <= 0:
+			return card
 
 	return null
+	
+func sort_cards(a, b):
+	return a.chance > b.chance
 
 class Card:
 	var type: String # one of work, accident, gift, decision, info
@@ -487,7 +510,6 @@ func _ready():
 					'mood': -1,
 				},
 			},
-			'sound': 'dota',
 		},
 
 		# Tutorial
@@ -517,3 +539,5 @@ func _ready():
 			},
 		},
 	]: cards.append(Card.new(card))
+	
+	cards.sort_custom(Cards, 'sort_cards')

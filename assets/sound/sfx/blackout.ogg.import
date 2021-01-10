@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/blackout.ogg-aa4af709b668de9cdc38695a26ff6da4.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/sfx/blackout.ogg"
+dest_files=[ "res://.import/blackout.ogg-aa4af709b668de9cdc38695a26ff6da4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/DejaVuSansMono.tres" type="DynamicFont" id=1]
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://assets/DejaVuSansMono.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = SubResource( 2 )
+
+[sub_resource type="ButtonGroup" id=4]
+
+[node name="Courses" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 373.0
+margin_bottom = 276.0
+rect_pivot_offset = Vector2( -240.6, -30.3639 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 10.0
+margin_top = 14.0
+margin_right = 103.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Courses"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Course1" type="CheckBox" parent="."]
+margin_left = 8.0
+margin_top = 64.0
+margin_right = 276.0
+margin_bottom = 101.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+group = SubResource( 4 )
+text = "Course Title Goes Here, $40"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Course2" type="CheckBox" parent="."]
+margin_left = 8.0
+margin_top = 95.0
+margin_right = 276.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+group = SubResource( 4 )
+text = "Another Course, $50"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Course3" type="CheckBox" parent="."]
+margin_left = 8.0
+margin_top = 126.0
+margin_right = 276.0
+margin_bottom = 163.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+group = SubResource( 4 )
+text = "Another Course, $50"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Submit" type="Button" parent="."]
+margin_left = 25.0
+margin_top = 202.0
+margin_right = 126.0
+margin_bottom = 247.0
+text = "Do it"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" type="Button" parent="."]
+margin_left = 135.0
+margin_top = 202.0
+margin_right = 277.0
+margin_bottom = 247.0
+text = "Maybe Next Time"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Doing" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Doing"]
+margin_right = 374.0
+margin_bottom = 277.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Doing/ColorRect"]
+margin_left = 111.0
+margin_top = 119.0
+margin_right = 243.0
+margin_bottom = 148.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Learning..."
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/DejaVuSansMono.tres" type="DynamicFont" id=1]
+
+[sub_resource type="ButtonGroup" id=1]
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://assets/DejaVuSansMono.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = SubResource( 2 )
+
+[node name="Quiz" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = 1.0
+margin_right = 378.0
+margin_bottom = 255.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer1" type="CheckBox" parent="."]
+margin_left = 36.4183
+margin_top = 101.855
+margin_right = 88.4183
+margin_bottom = 126.855
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+group = SubResource( 1 )
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer2" type="CheckBox" parent="."]
+margin_left = 36.0
+margin_top = 126.0
+margin_right = 296.0
+margin_bottom = 151.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+group = SubResource( 1 )
+text = "Need to consult with roommate"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer3" type="CheckBox" parent="."]
+margin_left = 36.0
+margin_top = 149.272
+margin_right = 304.0
+margin_bottom = 174.272
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+group = SubResource( 1 )
+text = "You still haven't bought them?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Submit" type="Button" parent="."]
+margin_left = 42.5455
+margin_top = 187.964
+margin_right = 132.546
+margin_bottom = 225.964
+text = "Submit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 19.6189
+margin_top = 19.2063
+margin_right = 70.6189
+margin_bottom = 45.2063
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Quiz"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Question" type="Label" parent="."]
+margin_left = 19.0
+margin_top = 49.0
+margin_right = 366.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Is it worth buying 10,000 links to your post?"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

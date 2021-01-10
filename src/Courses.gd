@@ -1,12 +1,27 @@
 extends Node
 
+func available(main: Main) -> Array:
+	var valid = []
+	courses.shuffle()
+
+	for course in courses:
+		if course.done:
+			continue
+		
+		# TODO: Requirements
+		
+		valid.append(course)
+		if valid.size() >= 3:
+			break
+
+	return valid
 
 var courses: Array = []
-
 
 class Course:
 	var name: String
 	var type: String
+	var done: bool
 
 	var cost: int
 
@@ -26,6 +41,7 @@ class Course:
 		name = course['name']
 		type = course['type'] # copywriting, design, code, soft, gamedev
 		cost = course['cost']
+		done = false
 
 		for quiz in course.quiz:
 			quizzes.append(Quiz.new(quiz))
