@@ -20,6 +20,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../BackgroundAudio:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -25.0, -70.0 ]
+}
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -71,11 +83,11 @@ z_as_relative = false
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -24.738
+volume_db = -25.0
 autoplay = true
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
-volume_db = -24.738
+volume_db = -15.0
 
 [node name="Timer" type="Label" parent="."]
 modulate = Color( 0, 0, 0, 1 )

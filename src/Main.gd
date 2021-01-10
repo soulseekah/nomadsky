@@ -178,6 +178,8 @@ func eat():
 	$Blackout.hide()
 
 func find_work():
+	call_deferred('play', 'click1')
+	
 	$Workstation/Loading.show()
 	$Workstation/Actions.hide()
 	var rng = RandomNumberGenerator.new()
@@ -197,6 +199,12 @@ func find_work():
 	$Workstation/Actions.show()
 
 func show_card(card):
+	if card.sound:
+		play(card.sound)
+	else:
+		if card.type == 'work':
+			play('work')
+	
 	$Card/Text.bbcode_text = '[b]%s[/b]\n\n%s' % [card.title, card.description]
 
 	# Hide all actions
@@ -218,11 +226,15 @@ func show_card(card):
 func workstation_open():
 	if current_card:
 		return
+		
+	call_deferred('play', 'click1')
 
 	$Workstation.show()
 	$Actions.hide()
 
 func workstation_close():
+	call_deferred('play', 'click2')
+	
 	if current_card:
 		return
 
@@ -230,6 +242,8 @@ func workstation_close():
 	$Actions.show()
 	
 func show_courses():
+	call_deferred('play', 'click1')
+	
 	valid_courses = Courses.available(self)
 	var placeholders = [$Workstation/Courses/Course1, $Workstation/Courses/Course2, $Workstation/Courses/Course3]
 
@@ -248,9 +262,13 @@ func show_courses():
 	$Workstation/Courses.show()
 
 func hide_courses():
+	call_deferred('play', 'click2')
+	
 	$Workstation/Courses.hide()
 
 func do_course():
+	call_deferred('play', 'click1')
+	
 	$Workstation/Courses/Doing.show()
 	yield(get_tree().create_timer(3.0), 'timeout')
 
@@ -258,9 +276,16 @@ func do_course():
 	$Workstation/Courses/Doing.hide()
 
 func do_action(index):
-	var action = current_card.actions[actions[index].text.to_lower()]
+	var action_name = actions[index].text.to_lower()
+	var action = current_card.actions[action_name]
 
 	var success: bool = true # TODO: calcs
+	
+	match action_name:
+		'ignore': play('ignore')
+		'accept': play('click2')
+		'okay': play('ignore')
+		'decline': play('reject')
 
 	if (action.has('time')):
 		time += action['time']
@@ -291,6 +316,11 @@ func do_action(index):
 	current_card = null
 	$Card.hide()
 	emit_signal('card_closed')
+
+func play(sound: String):
+	$SFX.stream = load("res://assets/sound/sfx/%s.ogg" % sound)
+	$SFX.stream.loop = false
+	$SFX.play()
 
 func do_action_1():
 	return self.do_action(0)
