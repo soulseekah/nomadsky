@@ -7,7 +7,6 @@ signal dead(why)
 # C.R.E.A.M
 var money: int
 
-
 # Properties
 var quarters: Modifiers.Quarters
 var pet: Modifiers.Pet

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/art/laptops/red.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Quiz.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Courses.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" type="Node2D"]
 
@@ -53,3 +55,11 @@ text = "Looking for work..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Quiz" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( -190.064, -165.065 )
+
+[node name="Courses" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( -190.772, -175.267 )

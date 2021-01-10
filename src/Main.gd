@@ -1,5 +1,9 @@
 extends Node
 
+signal card_closed
+
+class_name Main
+
 var time: float
 var nomad: Nomad
 
@@ -7,12 +11,15 @@ var location: Modifiers.Location
 
 var last_pick: int
 var current_card
+var queued_card
 var actions
-
+var valid_courses: Array
 
 func _ready():
+	randomize()
+
 	nomad = Nomad.new()
-	nomad.money = 15
+	nomad.money = 200
 	nomad.health = 90
 	nomad.karma = 50
 	nomad.energy = 90
@@ -22,7 +29,7 @@ func _ready():
 	location = Modifiers.Location.Pyongyang.new()
 	actions = [$Card/Action1, $Card/Action2, $Card/Action3]
 	
-	$Actions.show()
+	$Actions.hide()
 	$Workstation.hide()
 	
 	$Actions/Work.connect('pressed', self, 'workstation_open')
@@ -31,6 +38,10 @@ func _ready():
 	
 	$Workstation/Actions/Shutdown.connect('pressed', self, 'workstation_close')
 	$Workstation/Actions/Work.connect('pressed', self, 'find_work')
+
+	$Workstation/Actions/Courses.connect('pressed', self, 'show_courses')
+	$Workstation/Courses/Cancel.connect('pressed', self, 'hide_courses')
+	$Workstation/Courses/Submit.connect('pressed', self, 'do_course')
 	
 	$Error/Okay.connect('pressed', self, 'dismiss_error')
 	
@@ -40,18 +51,77 @@ func _ready():
 	
 	nomad.connect('dead', self, 'dead')
 
+	#yield(get_tree().create_timer(3.0), 'timeout')
+
+	# First card
+	current_card = Cards.pick(['info'], self)
+	self.show_card(current_card)
+	
+	yield(self, 'card_closed')
+	$Actions.show()
+	
+	var timer = Timer.new()
+	timer.set_wait_time(5.0)
+	timer.set_one_shot(false)
+	timer.connect('timeout', self, 'maybe_pick_card')
+	self.add_child(timer)
+	timer.start()
+
 	$Timer.text = str(time);
 
 func _process(delta):
 	$Timer.text = 'Time: %s' % str(int(time))
 	$Stats.text = str(nomad)
+	
+	if queued_card and self.is_idle():
+		current_card = queued_card
+		
+		if $Workstation.visible:
+			$Workstation/Actions.hide()
+		else:
+			$Actions.hide()
+		
+		self.show_card(current_card)
+		yield(self, 'card_closed')
+		queued_card = null
+		
+		if $Workstation.visible:
+			$Workstation/Actions.show()
+		else:
+			$Actions.show()
 
+func is_idle():
+	if $Blackout.visible:
+		return false
+		
+	if $Error.visible:
+		return false
+		
+	if $Card.visible:
+		return false
+		
+	if $Workstation/Loading.visible:
+		return false
+		
+	if current_card:
+		return false
+		
+	if $Workstation/Courses.visible:
+		return false
+		
+	return true
+	
+		
 func dismiss_error():
 	$Error.hide()
+	
+func maybe_pick_card():
+	if randf() > 0.9 and not queued_card:
+		queued_card = Cards.pick(['info', 'accident', 'gift', 'decision'], self)
 
 func dead(why):
 	var reasons = {
-		'hunger': 'You so hungry, you dead.'
+		'hunger': 'You so hungry, you so dead.'
 	}
 
 	$Blackout.show()
@@ -120,21 +190,27 @@ func find_work():
 	nomad.hunger(-1)
 
 	# Pick a card
-	current_card = Cards.pick()
-	$Card/Text.bbcode_text = '[b]%s[/b]\n\n%s' % [current_card.title, current_card.description]
+	current_card = Cards.pick(['work'], self)
+	self.show_card(current_card)
+	
+	yield(self, 'card_closed')
+	$Workstation/Actions.show()
+
+func show_card(card):
+	$Card/Text.bbcode_text = '[b]%s[/b]\n\n%s' % [card.title, card.description]
 
 	# Hide all actions
 	for action in actions:
 		action.hide()
 
 	var i = 0
-	for action in current_card.actions:
+	for action in card.actions:
 		actions[i].text = action.capitalize()
 		actions[i].show()
 		i += 1
 
-	if current_card.type == 'work':
-		var accept = current_card.actions['accept']
+	if card.type == 'work':
+		var accept = card.actions['accept']
 		$Card/Text.bbcode_text += '\n\n$%d, ~%d hrs' % [accept['money'], accept['time']]
 
 	$Card.show()
@@ -152,23 +228,59 @@ func workstation_close():
 
 	$Workstation.hide()
 	$Actions.show()
+	
+func show_courses():
+	valid_courses = Courses.available(self)
+	var placeholders = [$Workstation/Courses/Course1, $Workstation/Courses/Course2, $Workstation/Courses/Course3]
+
+	for label in placeholders:
+		label.hide()
+		label.pressed = false
+		
+	var i = 0
+	for course in valid_courses:
+		placeholders[i].text = '%s, $%d' % [course.name, course.cost]
+		placeholders[i].show()
+		i += 1
+
+	placeholders.front().pressed = true
+
+	$Workstation/Courses.show()
+
+func hide_courses():
+	$Workstation/Courses.hide()
+
+func do_course():
+	$Workstation/Courses/Doing.show()
+	yield(get_tree().create_timer(3.0), 'timeout')
+
+	$Workstation/Courses.hide()
+	$Workstation/Courses/Doing.hide()
 
 func do_action(index):
 	var action = current_card.actions[actions[index].text.to_lower()]
+
+	var success: bool = true # TODO: calcs
 
 	if (action.has('time')):
 		time += action['time']
 		nomad.energy(-action['time'] * 2)
 		nomad.hunger(-action['time'])
-		
-	if (action.has('karma')):
-		nomad.karma(action['karma'])
-		
-	if (action.has('money')):
-		nomad.money(action['money'])
-	
-	if (action.has('mood')):
-		nomad.mood(action['mood'])
+
+	if success:
+		if (action.has('karma')):
+			nomad.karma(action['karma'])
+			
+		if (action.has('money')):
+			nomad.money(action['money'])
+
+		if (action.has('mood')):
+			nomad.mood(action['mood'])
+			
+		nomad.rating(+1)
+	else:
+		nomad.rating(-1)
+		nomad.mood(-1)
 
 	print('Action: %s' % action)
 	print('Nomad: %s' % nomad)
@@ -178,7 +290,7 @@ func do_action(index):
 
 	current_card = null
 	$Card.hide()
-	$Workstation/Actions.show()
+	emit_signal('card_closed')
 
 func do_action_1():
 	return self.do_action(0)
