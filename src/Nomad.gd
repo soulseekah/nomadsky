@@ -27,7 +27,19 @@ var health: int
 var mood: int
 var karma: int
 var rating: int
+var energy: int
 
 
 # Courses
 var courses: Array = []
+
+func _to_string():
+	return JSON.print({
+		'money': money,
+		'hunger': hunger,
+		'health': health,
+		'mood': mood,
+		'karma': karma,
+		'rating': rating,
+		'energy': energy,
+	})

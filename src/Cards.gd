@@ -6,8 +6,14 @@ var cards: Array = []
 
 func pick() -> Card:
 	cards.shuffle()
-	return cards.front()
+	
+	for card in cards:
+		if card.done:
+			continue
+			
+		return card
 
+	return null
 
 class Card:
 	var type: String # one of work, accident, gift, decision, info
@@ -56,6 +62,10 @@ func _ready():
 				'decline': {
 					'karma': 5,
 				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				}
 			},
 		},
 		{
@@ -70,6 +80,12 @@ func _ready():
 				'accept': {
 					'money': 20,
 					'time': 2,
+				},
+				'decline': {
+					'karma': -1,
+				},
+				'ignore': {
+					'skip': true,
 				},
 			},
 		},
@@ -216,6 +232,9 @@ func _ready():
 			'title': 'Courses',
 			'description': "Hey, don't forget to level up your skills, mate. Click the courses icon on your laptop.",
 			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
 			'requirements': {
 				'time': 24,
 			},
