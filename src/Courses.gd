@@ -46,6 +46,10 @@ class Course:
 		for quiz in course.quiz:
 			quizzes.append(Quiz.new(quiz))
 	
+	func pick_quiz():
+		self.quizzes.shuffle()
+		return self.quizzes.front()
+	
 	func _to_string():
 		return '[%s] %s $%d' % [type, name, cost]
 

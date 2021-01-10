@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/DejaVuSansMono.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/Quiz.tscn" type="PackedScene" id=2]
 
 [sub_resource type="DynamicFontData" id=2]
 font_path = "res://assets/DejaVuSansMono.ttf"
@@ -100,6 +101,10 @@ text = "Maybe Next Time"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Quiz" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( -1, 0 )
 
 [node name="Doing" type="Node2D" parent="."]
 visible = false

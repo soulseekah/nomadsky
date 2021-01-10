@@ -1,6 +1,7 @@
 extends Node
 
 signal card_closed
+signal quiz_closed
 
 class_name Main
 
@@ -24,6 +25,7 @@ func _ready():
 	nomad.karma = 50
 	nomad.energy = 90
 	nomad.hunger = 80
+	nomad.mood = 80
 	nomad.rating = 0
 
 	location = Modifiers.Location.Pyongyang.new()
@@ -42,8 +44,10 @@ func _ready():
 	$Workstation/Actions/Courses.connect('pressed', self, 'show_courses')
 	$Workstation/Courses/Cancel.connect('pressed', self, 'hide_courses')
 	$Workstation/Courses/Submit.connect('pressed', self, 'do_course')
+	$Workstation/Courses/Quiz/Submit.connect('pressed', self, 'do_quiz')
 	
 	$Error/Okay.connect('pressed', self, 'dismiss_error')
+	$Success/Okay.connect('pressed', self, 'dismiss_success')
 	
 	$Card/Action1.connect('pressed', self, 'do_action_1')
 	$Card/Action2.connect('pressed', self, 'do_action_2')
@@ -115,6 +119,9 @@ func is_idle():
 func dismiss_error():
 	$Error.hide()
 	
+func dismiss_success():
+	$Success.hide()
+	
 func maybe_pick_card():
 	if randf() > 0.9 and not queued_card:
 		queued_card = Cards.pick(['info', 'accident', 'gift', 'decision'], self)
@@ -150,14 +157,21 @@ func sleep():
 	yield($Blackout/Fade, 'animation_finished')
 	$Blackout.hide()
 
+func error(message: String):
+	$Error/Label.text = message
+	$Error.show()
+	
+func success(message: String):
+	$Success/Label.text = message
+	$Success.show()
+
 func eat():
 	var cost = 10
-	
+
 	if nomad.money < cost:
-		$Error/Label.text = 'You can\'t afford to eat.'
-		$Error.show()
+		self.error('You can\'t afford to eat.')
 		return
-		
+
 	$Blackout.show()
 	$Blackout/Fade.play('Fade')
 	yield($Blackout/Fade, 'animation_finished')
@@ -231,6 +245,11 @@ func workstation_close():
 	
 func show_courses():
 	valid_courses = Courses.available(self)
+	
+	if valid_courses.size() < 1:
+		self.error('No courses available at this time')
+		return
+	
 	var placeholders = [$Workstation/Courses/Course1, $Workstation/Courses/Course2, $Workstation/Courses/Course3]
 
 	for label in placeholders:
@@ -251,11 +270,72 @@ func hide_courses():
 	$Workstation/Courses.hide()
 
 func do_course():
+	if nomad.mood < 5:
+		self.error('Not in the mood for learning.')
+		return
+		
+	if nomad.energy < 10:
+		self.error('Not enough energy. Perhaps I could use some sleep.')
+		return
+
+	var placeholders = [$Workstation/Courses/Course1, $Workstation/Courses/Course2, $Workstation/Courses/Course3]
+	var i = 0
+	for radio in placeholders:
+		if radio.is_pressed():
+			break
+		i += 1
+	
+	var course = valid_courses[i]
+	
+	if nomad.money < course.cost:
+		self.error('Not enough money for this course.')
+		return
+
+	# Pay for the course
+	nomad.money(-course.cost)
+
 	$Workstation/Courses/Doing.show()
 	yield(get_tree().create_timer(3.0), 'timeout')
+	
+	course.quizzes.shuffle()
+	var quiz = course.quizzes.front()
+	var answers = [$Workstation/Courses/Quiz/Answer1, $Workstation/Courses/Quiz/Answer2, $Workstation/Courses/Quiz/Answer3]
 
-	$Workstation/Courses.hide()
+	$Workstation/Courses/Quiz/Question.text = quiz.question
+	
+	for answer in answers:
+		answer.pressed = false
+	
+	answers.shuffle()
+	$Workstation/Courses/Quiz/Answer1.pressed = true
+	
+	answers[0].text = quiz.answer
+	answers[1].text = quiz.filler[0]
+	answers[2].text = quiz.filler[1]
+	
+	$Workstation/Courses/Quiz.show()
 	$Workstation/Courses/Doing.hide()
+	yield(self, 'quiz_closed')
+
+	# Correct answer
+	if answers[0].is_pressed():
+		course.done = true
+		nomad.mood(+10)
+	else:
+		nomad.mood(-10)
+
+	$Workstation/Courses/Quiz.hide()
+	$Workstation/Courses.hide()
+
+	if course.done:
+		self.success('You passed the course. Congrats!')
+		return
+
+	self.error('You failed the course. Better luck next time!')
+	return
+
+func do_quiz():
+	emit_signal('quiz_closed')
 
 func do_action(index):
 	var action = current_card.actions[actions[index].text.to_lower()]
