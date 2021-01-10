@@ -233,7 +233,6 @@ func _ready():
 					'mood': -1,
 				},
 			},
-			'sound': 'dota',
 		},
 
 		# Tutorial
