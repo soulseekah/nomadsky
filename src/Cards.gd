@@ -270,7 +270,7 @@ func _ready():
 			'chance': 0.3,
 			'requirements': {
 				'copywriting': 1,
-				'Design':2,
+				'design':2,
 			},
 			'actions': {
 				'accept': {
@@ -380,6 +380,29 @@ func _ready():
 				'accept': {
 					'money': 30,
 					'time': 3,
+				},
+				'decline': {
+					'karma': +10,
+				},
+				'ignore': {
+					'skip': true,
+				},
+			},
+		},
+
+		{
+			'type': 'work',
+			'title': 'Code firmware for iphone.',
+			'description': 'Need to code the firmware on the Iphone in order for my favorite game Nomadsky to run on Android.',
+			'chance': 0.2,
+			'requirements': {
+				'code': 3,
+				'design':1,
+			},
+			'actions': {
+				'accept': {
+					'money': 345,
+					'time': 10,
 				},
 				'decline': {
 					'karma': +10,
