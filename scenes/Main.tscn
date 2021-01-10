@@ -20,6 +20,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../BackgroundAudio:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -25.0, -70.0 ]
+}
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -71,11 +83,11 @@ z_as_relative = false
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -24.738
+volume_db = -25.0
 autoplay = true
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
-volume_db = -24.738
+volume_db = -15.0
 
 [node name="Timer" type="Label" parent="."]
 modulate = Color( 0, 0, 0, 1 )
@@ -162,6 +174,45 @@ __meta__ = {
 }
 
 [node name="Okay" type="Button" parent="Error"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = 10.0
+margin_right = 40.0
+margin_bottom = 38.0
+text = "Okay"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Success" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.180392, 0.541176, 0.337255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Success"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -258.0
+margin_top = -73.0
+margin_right = 259.0
+margin_bottom = 26.0
+text = "Something went right"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Okay" type="Button" parent="Success"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
