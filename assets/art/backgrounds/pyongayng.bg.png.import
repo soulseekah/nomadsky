@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pyongyang.jpg-6146a776df2391dccf1fa9a820fd4fac.stex"
+path="res://.import/pyongayng.bg.png-6768570c943231b52239a0f87409bbdd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/backgrounds/pyongyang.jpg"
-dest_files=[ "res://.import/pyongyang.jpg-6146a776df2391dccf1fa9a820fd4fac.stex" ]
+source_file="res://assets/art/backgrounds/pyongayng.bg.png"
+dest_files=[ "res://.import/pyongayng.bg.png-6768570c943231b52239a0f87409bbdd.stex" ]
 
 [params]
 
