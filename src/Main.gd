@@ -54,6 +54,11 @@ func _ready():
 	$Card/Action3.connect('pressed', self, 'do_action_3')
 	
 	nomad.connect('dead', self, 'dead')
+	
+	# Connect location events
+	$Locations/Pyongyang.connect('food', self, 'click_food')
+	$Locations/Pyongyang.connect('mood', self, 'click_mood')
+	$Locations/Pyongyang.connect('exit', self, 'click_exit')
 
 	#yield(get_tree().create_timer(3.0), 'timeout')
 
@@ -410,3 +415,12 @@ func do_action_2():
 
 func do_action_3():
 	return self.do_action(2)
+
+func click_mood(node: Node):
+	print('Mood clicked in %s' % node.name)
+	
+func click_food(node: Node):
+	print('Food clicked in %s' % node.name)
+	
+func click_exit(node: Node):
+	print('Exit clicked in %s' % node.name)
