@@ -60,6 +60,14 @@ func _ready():
 	$Locations/Pyongyang.connect('mood', self, 'click_mood')
 	$Locations/Pyongyang.connect('exit', self, 'click_exit')
 
+	$Locations/Mongolia.connect('food', self, 'click_food')
+	$Locations/Mongolia.connect('mood', self, 'click_mood')
+	$Locations/Mongolia.connect('mood', self, 'click_tech')
+	$Locations/Mongolia.connect('exit', self, 'click_exit')
+
+	# The first location
+	$Locations/Pyongyang.show()
+
 	#yield(get_tree().create_timer(3.0), 'timeout')
 
 	# First card
@@ -421,6 +429,9 @@ func click_mood(node: Node):
 	
 func click_food(node: Node):
 	print('Food clicked in %s' % node.name)
+
+func click_tech(node: Node):
+	print('Tech clicked in %s' % node.name)
 	
 func click_exit(node: Node):
 	print('Exit clicked in %s' % node.name)
