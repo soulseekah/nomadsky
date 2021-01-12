@@ -213,7 +213,7 @@ func _ready():
 			'name': 'Beginner Dev: #;$', 'type': 'code', 'cost': 7,
 			'quiz': [
 				{
-					'question': What is the name of the longest key on the keyboard?', 'answer': 'space',
+					'question': 'What is the name of the longest key on the keyboard?', 'answer': 'space',
 					'filler': ['a', 'f13'],
 				},
 				{
@@ -230,16 +230,16 @@ func _ready():
 			'name': 'Intermediate Dev: Hello Darknet', 'type': 'code', 'cost': 15,
 			'quiz': [
 				{
-					'question': What programming language is like a snake?', 'answer': 'python',
+					'question': 'What programming language is like a snake?', 'answer': 'python',
 					'filler': ['worm', 'crocodile'],
 				},
 				{
 					'question': 'As a programmer, would you develop a computer game?', 'answer': 'no',
-					'filler': ['yeah, I'll make a lot of money lol', 'yes, I won't earn anything =('],
+					'filler': ['yeah, Ill make a lot of money lol', 'yes, I wont earn anything =('],
 				},
 				{
-					'question': 'You've been working all day and you're hungry:', 'answer': 'I'll order a pizza',
-					'filler': ['I'll cook something', "I'll have a coffee, I'm a hipster"],
+					'question': 'Youve been working all day and youre hungry:', 'answer': 'Ill order a pizza',
+					'filler': ['Ill cook something', "Ill have a coffee, Im a hipster"],
 				},
 			],
 		},
@@ -247,7 +247,7 @@ func _ready():
 			'name': 'God Level Dev: 1010011110111111101011101100111001111001011100101110101111000011101000', 'type': 'code', 'cost': 30,
 			'quiz': [
 				{
-					'question': How many processors are there in an 8 core processor?', 'answer': '1',
+					'question': 'How many processors are there in an 8 core processor?', 'answer': '1',
 					'filler': ['8', '16 threads'],
 				},
 				{
