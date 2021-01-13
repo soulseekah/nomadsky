@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/locations/Pyongyang.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/sound/bgm/pyongyang.ogg" type="AudioStream" id=4]
 [ext_resource path="res://scenes/Card.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/locations/Mongolia.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/locations/NewYork.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/locations/NewYork.gd" type="Script" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fade"
@@ -38,12 +40,15 @@ tracks/1/keys = {
 script = ExtResource( 1 )
 
 [node name="Locations" type="Node" parent="."]
+script = ExtResource( 8 )
 
 [node name="Pyongyang" parent="Locations" instance=ExtResource( 2 )]
 visible = false
 
 [node name="Mongolia" parent="Locations" instance=ExtResource( 6 )]
 visible = false
+
+[node name="NewYork" parent="Locations" instance=ExtResource( 7 )]
 
 [node name="Actions" type="Node2D" parent="."]
 

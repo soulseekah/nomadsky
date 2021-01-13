@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mongolia.ogg-950a96049d5207e4e95f2086b66f8365.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/bgm/mongolia.ogg"
+dest_files=[ "res://.import/mongolia.ogg-950a96049d5207e4e95f2086b66f8365.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
