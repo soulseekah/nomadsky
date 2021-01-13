@@ -2,6 +2,7 @@ extends Node
 
 signal card_closed
 signal quiz_closed
+signal confirm_closed(action)
 
 class_name Main
 
@@ -24,7 +25,7 @@ func _ready():
 	nomad.health = 90
 	nomad.karma = 50
 	nomad.energy = 90
-	nomad.hunger = 80
+	nomad.hunger = 10
 	nomad.mood = 80
 	nomad.rating = 0
 
@@ -36,7 +37,6 @@ func _ready():
 	
 	$Actions/Work.connect('pressed', self, 'workstation_open')
 	$Actions/Sleep.connect('pressed', self, 'sleep')
-	$Actions/Eat.connect('pressed', self, 'eat')
 	
 	$Workstation/Actions/Shutdown.connect('pressed', self, 'workstation_close')
 	$Workstation/Actions/Work.connect('pressed', self, 'find_work')
@@ -48,6 +48,8 @@ func _ready():
 	
 	$Error/Okay.connect('pressed', self, 'dismiss_error')
 	$Success/Okay.connect('pressed', self, 'dismiss_success')
+	$Confirm/Cancel.connect('pressed', self, 'confirm_cancel')
+	$Confirm/Okay.connect('pressed', self, 'confirm_okay')
 	
 	$Card/Action1.connect('pressed', self, 'do_action_1')
 	$Card/Action2.connect('pressed', self, 'do_action_2')
@@ -134,22 +136,37 @@ func dismiss_error():
 	
 func dismiss_success():
 	$Success.hide()
+
+func confirm(message: String):
+	$Confirm/Label.text = message
+	$Confirm.show()
+
+func confirm_cancel():
+	$Confirm.hide()
+	emit_signal('confirm_closed', 'cancel')
+	
+func confirm_okay():
+	$Confirm.hide()
+	emit_signal('confirm_closed', 'okay')
 	
 func maybe_pick_card():
 	if randf() > 0.9 and not queued_card:
 		queued_card = Cards.pick(['info', 'accident', 'gift', 'decision'], self)
 
 func dead(why):
+	print('died')
 	var reasons = {
-		'hunger': 'You so hungry, you so dead.'
+		'hunger': 'You so hungry, you so dead.',
+		'health': 'You so unhealthy, you so dead.'
 	}
 
-	$Blackout.show()
-	$Blackout/Fade.play('Fade')
-	yield($Blackout/Fade, 'animation_finished')
+	$Death.show()
+	$Death/Fade.play('Fade')
+	$Death/Label.hide()
+	yield($Death/Fade, 'animation_finished')
 	
-	$Blackout/Label.text = reasons[why]
-	$Blackout/Label.show()
+	$Death/Label.text = reasons[why]
+	$Death/Label.show()
 
 func sleep():
 	$Blackout.show()
@@ -178,8 +195,18 @@ func success(message: String):
 	$Success/Label.text = message
 	$Success.show()
 
-func eat():
-	var cost = 10
+func click_food(node: Node):
+	print('Food clicked in %s' % node.name)
+	var cost = 0
+	var message = ''
+
+	match node.name:
+		'Pyongyang':
+			cost = 10
+			message = 'You got some bread...'
+		'Mongolia':
+			cost = 50
+			message = 'This horse milk is good.'
 
 	if nomad.money < cost:
 		self.error('You can\'t afford to eat.')
@@ -189,7 +216,7 @@ func eat():
 	$Blackout/Fade.play('Fade')
 	yield($Blackout/Fade, 'animation_finished')
 	
-	$Blackout/Label.text = 'Nom nom nom nom...'
+	$Blackout/Label.text = message
 	$Blackout/Label.show()
 	yield(get_tree().create_timer(3.0), 'timeout')
 	$Blackout/Label.hide()
@@ -205,6 +232,19 @@ func eat():
 	$Blackout.hide()
 
 func find_work():
+	var energy_cost = 1
+	if nomad.energy < energy_cost:
+		self.error('Not enough energy to work right now. Maybe I should take a nap...')
+		return
+		
+	if nomad.mood < 5:
+		self.error('Not in the mood for working right now.')
+		return
+		
+	if nomad.hunger < 10:
+		self.error('Too hungry to work. Maybe I should eat something.')
+		return
+
 	call_deferred('play', 'click1')
 	
 	$Workstation/Loading.show()
@@ -371,8 +411,18 @@ func do_quiz():
 func do_action(index):
 	var action_name = actions[index].text.to_lower()
 	var action = current_card.actions[action_name]
+	var energy_cost = 1
+	
+	if action.has('time'):
+		energy_cost = action['time'] * 2
 
 	var success: bool = true # TODO: calcs
+	
+	if current_card.type == 'work' and nomad.energy < energy_cost:
+		success = false
+		nomad.energy(+10 + energy_cost)
+		nomad.health(-10)
+		self.error('You fell asleep during assignment.')
 	
 	match action_name:
 		'ignore': play('ignore')
@@ -382,7 +432,7 @@ func do_action(index):
 
 	if (action.has('time')):
 		time += action['time']
-		nomad.energy(-action['time'] * 2)
+		nomad.energy(-energy_cost)
 		nomad.hunger(-action['time'])
 
 	if success:
@@ -409,6 +459,52 @@ func do_action(index):
 	current_card = null
 	$Card.hide()
 	emit_signal('card_closed')
+	
+func click_exit(node: Node):
+	print('Exit clicked in %s' % node.name)
+	var cost = 0
+	var action = ''
+	var message = ''
+	var next
+
+	if node.name == 'Pyongyang':
+		cost = 1
+
+		if nomad.money < cost:
+			self.error('Doesn\'t look like I have enough money to leave this place. The guards want $1k to look away while I climb the fence.')
+			return
+			
+		self.confirm('I think I\'m ready to leave this place. Pay the guards to look away while I climb the fence?')
+		action = yield(self, 'confirm_closed')
+		if action == 'cancel':
+			return
+
+		message = 'Heading to Mongolia'
+		next = $Locations/Mongolia
+
+	$Blackout/Label.hide()
+	$Blackout.show()
+	$Blackout/Fade.play('Fade')
+	yield($Blackout/Fade, 'animation_finished')
+
+	$Blackout/Label.text = message
+	$Blackout/Label.show()
+	yield(get_tree().create_timer(3.0), 'timeout')
+	$Blackout/Label.hide()
+
+	time += 8
+	nomad.money(-cost)
+	nomad.mood(+10)
+	
+	node.hide()
+	next.show()
+	
+	$BackgroundAudio.stream = load("res://assets/sound/bgm/%s.ogg" % next.name.to_lower())
+	$BackgroundAudio.play()
+
+	$Blackout/Fade.play_backwards('Fade')
+	yield($Blackout/Fade, 'animation_finished')
+	$Blackout.hide()
 
 func play(sound: String):
 	$SFX.stream = load("res://assets/sound/sfx/%s.ogg" % sound)
@@ -427,11 +523,6 @@ func do_action_3():
 func click_mood(node: Node):
 	print('Mood clicked in %s' % node.name)
 	
-func click_food(node: Node):
-	print('Food clicked in %s' % node.name)
-
 func click_tech(node: Node):
 	print('Tech clicked in %s' % node.name)
 	
-func click_exit(node: Node):
-	print('Exit clicked in %s' % node.name)

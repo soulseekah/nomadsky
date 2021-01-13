@@ -43,6 +43,8 @@ func hunger(amount: int):
 
 func health(amount: int):
 	health = self.limit(health + amount)
+	if health == 0:
+		emit_signal('dead', 'health')
 
 func mood(amount: int):
 	mood = self.limit(mood + amount)

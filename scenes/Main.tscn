@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/locations/Pyongyang.tscn" type="PackedScene" id=2]
@@ -6,8 +6,36 @@
 [ext_resource path="res://assets/sound/bgm/pyongyang.ogg" type="AudioStream" id=4]
 [ext_resource path="res://scenes/Card.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/locations/Mongolia.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/locations/Mongolia.gd" type="Script" id=7]
 
 [sub_resource type="Animation" id=1]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../BackgroundAudio:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -25.0, -70.0 ]
+}
+
+[sub_resource type="Animation" id=2]
 resource_name = "Fade"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -44,6 +72,7 @@ visible = false
 
 [node name="Mongolia" parent="Locations" instance=ExtResource( 6 )]
 visible = false
+script = ExtResource( 7 )
 
 [node name="Actions" type="Node2D" parent="."]
 
@@ -63,16 +92,6 @@ margin_top = 310.0
 margin_right = 270.216
 margin_bottom = 348.0
 text = "Go to sleep"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Eat" type="Button" parent="Actions"]
-margin_left = 282.028
-margin_top = 310.0
-margin_right = 405.028
-margin_bottom = 348.0
-text = "Get some food"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -124,7 +143,7 @@ position = Vector2( 83, 55 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -163,13 +182,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -94.5
-margin_top = -73.5
-margin_right = 94.5
-margin_bottom = 25.5
+margin_left = -209.0
+margin_top = -73.0
+margin_right = 210.0
+margin_bottom = 26.0
 text = "Something went wrong"
 align = 1
 valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -223,6 +243,89 @@ margin_top = 10.0
 margin_right = 40.0
 margin_bottom = 38.0
 text = "Okay"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Confirm" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.180392, 0.541176, 0.337255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Confirm"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -258.0
+margin_top = -73.0
+margin_right = 259.0
+margin_bottom = 26.0
+text = "Something went right"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Okay" type="Button" parent="Confirm"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -89.1369
+margin_top = 10.0
+margin_right = -9.1369
+margin_bottom = 38.0
+text = "Okay"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" type="Button" parent="Confirm"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 11.6567
+margin_top = 10.0
+margin_right = 91.6567
+margin_bottom = 38.0
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Death" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fade" type="AnimationPlayer" parent="Death"]
+anims/Fade = SubResource( 2 )
+
+[node name="Label" type="Label" parent="Death"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -94.5
+margin_top = -49.5
+margin_right = 94.5
+margin_bottom = 49.5
+text = "Dead"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

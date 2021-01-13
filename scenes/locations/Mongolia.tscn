@@ -60,7 +60,7 @@ position = Vector2( 322.692, 182.535 )
 scale = Vector2( 1.59184, 1.19722 )
 texture = ExtResource( 1 )
 
-[node name="Interactive" type="Node" parent="."]
+[node name="Interactive" type="Node2D" parent="."]
 
 [node name="Mood" type="Sprite" parent="Interactive"]
 position = Vector2( 168.49, 242.403 )
