@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/madrid.ogg-42a607f76da09b9c61e1a28a08df74b1.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/bgm/madrid.ogg"
+dest_files=[ "res://.import/madrid.ogg-42a607f76da09b9c61e1a28a08df74b1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
