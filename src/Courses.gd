@@ -68,7 +68,7 @@ func _ready():
 					'filler': ['comma', 'bot'],
 				},
 				{
-					'question': 'How many mistakes can you make in a text (write a number)?', 'answer': '0',
+					'question': 'How many mistakes can you make in your texts?', 'answer': '0',
 					'filler': ['1', '001010'],
 				},
 			],
@@ -85,8 +85,8 @@ func _ready():
 					'filler': ['top', 'high'],
 				},
 				{
-					'question': 'What should be added after each word in the text?', 'answer': 'keyword',
-					'filler': ['advertising', 'referral link'],
+					'question': 'What should your text be generously sprinkled with?', 'answer': 'keywords',
+					'filler': ['advertising', 'referral links'],
 				},
 			],
 		},
@@ -94,33 +94,33 @@ func _ready():
 			'name': 'God Level English: ‘Ello, gov’nor!', 'type': 'copywriting', 'cost': 30,
 			'quiz': [
 				{
-					'question': 'How often should the keyword appear in the text?', 'answer': 'constantly',
-					'filler': ['after each word', 'once'],
+					'question': 'How often should a keyword appear in the text?', 'answer': 'every word should be key',
+					'filler': ['every other word', 'just once'],
 				},
 				{
 					'question': 'Is it worth buying 10,000 links to your post?', 'answer': 'yes',
-					'filler': ['need to consult with roommate', "you still haven't bought them?"],
+					'filler': ['only after consulting your roommate', 'depends on how much they cost'],
 				},
 				{
-					'question': 'What is the name of the Google tool for webmasters?', 'answer': 'search console',
-					'filler': ['webmaster', 'amigo browser'],
+					'question': 'What is Google\'s tool for webmasters called?', 'answer': 'Search Console',
+					'filler': ['Google Webmaster', 'Amigo browser'],
 				},
 			],
 		},
 		{
-			'name': 'Beginner Gamedev: ____', 'type': 'gamedev', 'cost': 7,
+			'name': 'Beginner Gamedev: Elon Musk', 'type': 'gamedev', 'cost': 7,
 			'quiz': [
 				{
 					'question': "What's the name of Mario's brother?", 'answer': 'Luigi',
-					'filler': ['Mario', 'that green dude'],
+					'filler': ['Super Mario', 'that green dude'],
 				},
 				{
 					'question': 'What is the best game of all?', 'answer': 'this game',
-					'filler': ['wrong answer', "why haven't answered yet?"],
+					'filler': ['wrong answer', '---'],
 				},
 				{
-					'question': 'In the production of which game was Keanu Reeves actively involved?', 'answer': 'cyberpunk 2077',
-					'filler': ['matrita', 'superdrunk 2021'],
+					'question': 'In the production of which game was Keanu Reeves actively involved?', 'answer': 'Cyberpunk 2077',
+					'filler': ['Mission Impossible', 'Superdrunk 2021'],
 				},
 			],
 		},
@@ -132,21 +132,21 @@ func _ready():
 					'filler': ['Angelina Jolie', 'Marge Simpson'],
 				},
 				{
-					'question': 'If you were developing a game now, what would be the deadline?', 'answer': 'january 29',
-					'filler': ["early access, I'll finish it later", 'july 29'],
+					'question': 'Which is the best open-source game engine?', 'answer': 'Godot',
+					'filler': ["Unity", 'Allegro'],
 				},
 				{
-					'question': 'What should you do if you are being chased by a zombie?', 'answer': 'to kill him',
-					'filler': ['say hello', 'invite him to become a tester'],
+					'question': 'What is E3?', 'answer': 'a conference to show your prerenders at',
+					'filler': ['a video card', 'the sequel to The Three Musketeers'],
 				},
 			],
 		},
 		{
-			'name': 'God Level Gamedev: Gaben', 'type': 'gamedev', 'cost': 30,
+			'name': 'God Level Gamedev: GabeN', 'type': 'gamedev', 'cost': 30,
 			'quiz': [
 				{
-					'question': 'At what stage in the development of a game in early access should you finish working on it?', 'answer': 'early access',
-					'filler': ['when game is done', 'at release stage'],
+					'question': 'Are mirrors hard to implement?', 'answer': 'yes',
+					'filler': ['sure', 'absolutely'],
 				},
 				{
 					'question': 'Who gets fresh meat with a hook?', 'answer': 'Pudge',
@@ -159,104 +159,104 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Design: Bigginer', 'type': 'design', 'cost': 7,
+			'name': 'Design: Photoshop.exe', 'type': 'design', 'cost': 7,
 			'quiz': [
 				{
-					'question': 'What color should the text be?', 'answer': 'black on white background',
-					'filler': ['white on white background', 'red - you should read this'],
+					'question': 'What does the alpha value denote?', 'answer': 'opacity',
+					'filler': ["it's the currency in Zambia", 'how much of a man one is'],
 				},
 				{
-					'question': 'What color is the taxi?', 'answer': 'yellow',
-					'filler': ['azure', 'like skittles'],
+					'question': 'What color are taxies usually?', 'answer': 'yellow',
+					'filler': ['azure', 'like Skittles'],
 				},
 				{
-					'question': 'What does the abbreviation rgb mean?', 'answer': 'red green blue',
-					'filler': ['robot good bot', "risotto gazpacho bacon"],
+					'question': 'What does the abbreviation RGB mean?', 'answer': 'red green blue',
+					'filler': ['rarely green boys', "risotto wth gaspaccio bacon, please"],
 				},
 			],
 		},
 		{
-			'name': 'Design: Cool lvl', 'type': 'design', 'cost': 15,
+			'name': 'Design: Asperite', 'type': 'design', 'cost': 15,
 			'quiz': [
 				{
-					'question': 'You want to place an image 4000x3000px what should I do with it?', 'answer': 'to reduce',
-					'filler': ['nothing', 'apply a beautiful filter'],
+					'question': 'What should pixel art never contain?', 'answer': 'double pixels',
+					'filler': ['colour', 'pixels'],
 				},
 				{
-					'question': 'How many shades of absolute black are there?', 'answer': '1',
+					'question': 'How many shades of absolute black are there?', 'answer': 'just the one',
 					'filler': ['3brg', '10000rgb'],
 				},
 				{
-					'question': 'What is a gradient?', 'answer': 'switching from one color to another',
-					'filler': ['pedestrian crossing', "both"],
+					'question': 'What is a gradient?', 'answer': 'gradual change in color',
+					'filler': ['pedestrians crossing', 'one who applies to 50 Shades of Gray philosophies'],
 				},
 			],
 		},
 		{
-			'name': 'Gangsta of design', 'type': 'design', 'cost': 30,
+			'name': 'Design: hexdump to .asperite', 'type': 'design', 'cost': 30,
 			'quiz': [
 				{
-					'question': 'What popular color scheme is used for correction?', 'answer': 'orange-blue',
-					'filler': ['blue light-blue dark-blue', 'blue. Why do something else?'],
-				},
-				{
-					'question': 'How many shades of gray are there in 50 shades of gray?', 'answer': '50',
+					'question': 'How many shades of gray are there in 50 Shades of Gray?', 'answer': '50',
 					'filler': ['1', 'I only remember the red room'],
 				},
 				{
 					'question': 'Is there an arrow on the Fedex logo?', 'answer': 'yes',
-					'filler': ['no', "there are 5 of them"],
+					'filler': ['now I see it', "there are actually 5 of them"],
+				},
+				{
+					'question': 'What are Bezier curves?', 'answer': 'mathematically-described curves in space',
+					'filler': ['the shortest distance from points A to B', 'this guy Bezier had a really nice body'],
 				},
 			],
 		},
 		{
-			'name': 'Beginner Dev: #;$', 'type': 'code', 'cost': 7,
+			'name': 'Beginner Dev: ^(*.?)$', 'type': 'code', 'cost': 7,
 			'quiz': [
 				{
-					'question': 'What is the name of the longest key on the keyboard?', 'answer': 'space',
-					'filler': ['a', 'f13'],
+					'question': 'What is the name of the longest key on the keyboard?', 'answer': 'the space bar',
+					'filler': ['the galaxy pub', 'F13'],
 				},
 				{
-					'question': 'What is the name of the text markup language?', 'answer': 'html',
-					'filler': ['jaga', 'nomadsky'],
+					'question': 'What does HTML stand for?', 'answer': 'hypertext markup language',
+					'filler': ["it's not a programming language", 'hold the machine learning'],
 				},
 				{
-					'question': 'What is the main thing in a computer after the CPU?', 'answer': 'to make it work',
-					'filler': ['heating for the cup', "enternet connection"],
+					'question': 'What are PCREs?', 'answer': 'Perl-compatible regular expressions',
+					'filler': ['poopy-crap rectal exhaust', 'processor-complete reverse engineering'],
 				},
 			],
 		},
 		{
-			'name': 'Intermediate Dev: Hello Darknet', 'type': 'code', 'cost': 15,
+			'name': 'Intermediate Dev: Darknet', 'type': 'code', 'cost': 15,
 			'quiz': [
 				{
-					'question': 'What programming language is like a snake?', 'answer': 'python',
-					'filler': ['worm', 'crocodile'],
+					'question': 'Which programming language hisses?', 'answer': 'C++',
+					'filler': ['Reptile', 'Python']
 				},
 				{
 					'question': 'As a programmer, would you develop a computer game?', 'answer': 'no',
 					'filler': ['yeah, Ill make a lot of money lol', 'yes, I wont earn anything =('],
 				},
 				{
-					'question': 'Youve been working all day and youre hungry:', 'answer': 'Ill order a pizza',
-					'filler': ['Ill cook something', "Ill have a coffee, Im a hipster"],
+					'question': "You've been working all day and you're hungry. Best course of action?', 'answer': 'order a pizza',
+					'filler': ['cook a 3-course meal', 'ignore everything, keep working'],
 				},
 			],
 		},
 		{
-			'name': 'God Level Dev: 1010011110111111101011101100111001111001011100101110101111000011101000', 'type': 'code', 'cost': 30,
+			'name': 'God Level Dev: 0x29efebb39e5cbaf0e8', 'type': 'code', 'cost': 30,
 			'quiz': [
 				{
 					'question': 'How many processors are there in an 8 core processor?', 'answer': '1',
-					'filler': ['8', '16 threads'],
+					'filler': ['8', '16'],
 				},
 				{
-					'question': '11010001101001111111', 'answer': '11010001101001',
-					'filler': ['111100111001011110011', '11011101101111'],
+					'question': '11010001101001111111 + 1', 'answer': '11010001101010000000',
+					'filler': ['110100011010011111111', 'integer overflow'],
 				},
 				{
-					'question': 'What hardware platform is the Raspberry Pi built on?', 'answer': 'arm',
-					'filler': ['amd', "x32"],
+					'question': 'What architecture does the Raspberry Pi function on?', 'answer': 'arm',
+					'filler': ['amd', 'x86'],
 				},
 			],
 		},
