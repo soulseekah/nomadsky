@@ -260,4 +260,55 @@ func _ready():
 				},
 			],
 		},
+		{
+			'name': 'Soft Beginner Level', 'type': 'softskills', 'cost': 7,
+			'quiz': [
+				{
+					'question': 'You were typing very loudly and the neighbor came to swear:', 'answer': 'Say youll keep it down',
+					'filler': ['Say in response that he is sleeping loudly and also disturbs you', 'Dont open the door'],
+				},
+				{
+					'question': 'Scammers sent you an email and want to get your credit card details', 'answer': 'send made-up data',
+					'filler': ['curse of', 'send bank card details'],
+				},
+				{
+					'question': 'This hot dog looks so delicious, but you dont have enough money', 'answer': 'offer a service in exchange for a hotdog',
+					'filler': ['tell a tearful story and try to beg', "stay hungry"],
+				},
+			],
+		},
+		{
+			'name': 'Intermediate Softskills', 'type': 'softskills', 'cost': 15,
+			'quiz': [
+				{
+					'question': 'Youve got a job, but you cant do it on your own', 'answer': 'find a partner',
+					'filler': ['refuse to work', 'fail the job'],
+				},
+				{
+					'question': 'You and the man on the other side of the street are waiting for the same taxi:', 'answer': 'Im ready to fight for the opportunity to leave!',
+					'filler': ['Ill walk at 3 am through a dangerous area', 'It turns out that we have to go let go and we can pay equally'],
+				},
+				{
+					'question': 'Your house is being renovated, the electricity has been cut off, but you need to work', 'answer': 'Ill order a pizza and go to my neighbors',
+					'filler': ['Ill go for a walk, do it later', "Ill go swear, let them turn it on"],
+				},
+			],
+		},
+		{
+			'name': 'Softskills: Flexible Joe Lvl', 'type': 'softskills', 'cost': 30,
+			'quiz': [
+				{
+					'question': 'You want to go to the toilet, but theres a queue 100 meters away', 'answer': 'pretend that you are an employee and confidently walk past the queue',
+					'filler': ['make a pee-pee', 'ask everyone in line to let you pass'],
+				},
+				{
+					'question': 'You have a profitable project, but you do not have enough knowledge', 'answer': 'become a project manager and find the right people',
+					'filler': ['to hell with it, Ill try it myself', 'I will go to study for 2 weeks'],
+				},
+				{
+					'question': 'you make a game, but you dont make it to the deadline', 'answer': 'this is not a bug, but a feature!',
+					'filler': ['let it be as it will be', "Ill finish later, but everything will be ready"],
+				},
+			],
+		},
 	]: courses.append(Course.new(course))
