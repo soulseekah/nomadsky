@@ -57,7 +57,7 @@ class Course:
 func _ready():
 	for course in [
 		{
-			'name': 'Beginner Level English: Hello', 'type': 'copywriting', 'cost': 7,
+			'name': 'Beginner Level English: Hello', 'type': 'copywriting', 'cost': 7, 'level': 1,
 			'quiz': [
 				{
 					'question': 'What is the plural of cat?', 'answer': 'cats',
@@ -74,7 +74,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Intermediate Level English: Greetings', 'type': 'copywriting', 'cost': 15,
+			'name': 'Intermediate Level English: Greetings', 'type': 'copywriting', 'cost': 15, 'level': 2,
 			'quiz': [
 				{
 					'question': 'What html tag is used to wrap the first title in the text?', 'answer': 'h1',
@@ -91,7 +91,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'God Level English: ‘Ello, gov’nor!', 'type': 'copywriting', 'cost': 30,
+			'name': 'God Level English: ‘Ello, gov’nor!', 'type': 'copywriting', 'cost': 30, 'level': 3,
 			'quiz': [
 				{
 					'question': 'How often should a keyword appear in the text?', 'answer': 'every word should be key',
@@ -108,7 +108,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Beginner Gamedev: Elon Musk', 'type': 'gamedev', 'cost': 7,
+			'name': 'Beginner Gamedev: Elon Musk', 'type': 'gamedev', 'cost': 7, 'level': 1,
 			'quiz': [
 				{
 					'question': "What's the name of Mario's brother?", 'answer': 'Luigi',
@@ -125,7 +125,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Intermediate Gamedev: Hello Games', 'type': 'gamedev', 'cost': 15,
+			'name': 'Intermediate Gamedev: Hello Games', 'type': 'gamedev', 'cost': 15, 'level': 2,
 			'quiz': [
 				{
 					'question': "What's the name of the lady who's always raiding tombs?", 'answer': 'Lara Croft',
@@ -142,7 +142,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'God Level Gamedev: GabeN', 'type': 'gamedev', 'cost': 30,
+			'name': 'God Level Gamedev: GabeN', 'type': 'gamedev', 'cost': 30, 'level': 3,
 			'quiz': [
 				{
 					'question': 'Are mirrors hard to implement?', 'answer': 'yes',
@@ -159,7 +159,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Design: Photoshop.exe', 'type': 'design', 'cost': 7,
+			'name': 'Photoshop.exe', 'type': 'design', 'cost': 7, 'level': 1,
 			'quiz': [
 				{
 					'question': 'What does the alpha value denote?', 'answer': 'opacity',
@@ -176,7 +176,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Design: Asperite', 'type': 'design', 'cost': 15,
+			'name': 'Asperite', 'type': 'design', 'cost': 15, 'level': 2,
 			'quiz': [
 				{
 					'question': 'What should pixel art never contain?', 'answer': 'double pixels',
@@ -193,7 +193,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Design: hexdump to .asperite', 'type': 'design', 'cost': 30,
+			'name': 'hexdump to .asperite', 'type': 'design', 'cost': 30, 'level': 3,
 			'quiz': [
 				{
 					'question': 'How many shades of gray are there in 50 Shades of Gray?', 'answer': '50',
@@ -210,7 +210,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Beginner Dev: ^(*.?)$', 'type': 'code', 'cost': 7,
+			'name': 'Beginner: ^(*.?)$', 'type': 'code', 'cost': 7, 'level': 1,
 			'quiz': [
 				{
 					'question': 'What is the name of the longest key on the keyboard?', 'answer': 'the space bar',
@@ -227,7 +227,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Intermediate Dev: Darknet', 'type': 'code', 'cost': 15,
+			'name': 'Intermediate: Darknet', 'type': 'code', 'cost': 15, 'level': 2,
 			'quiz': [
 				{
 					'question': 'Which programming language hisses?', 'answer': 'C++',
@@ -244,7 +244,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'God Level Dev: 0x29efebb39e5cbaf0e8', 'type': 'code', 'cost': 30,
+			'name': 'God Level: 0x29efebb39e5cbaf0e8', 'type': 'code', 'cost': 30, 'level': 3,
 			'quiz': [
 				{
 					'question': 'How many processors are there in an 8 core processor?', 'answer': '1',
@@ -261,53 +261,53 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Soft Beginner Level', 'type': 'softskills', 'cost': 7,
+			'name': 'Softskills: 101', 'type': 'soft', 'cost': 7, 'level': 1,
 			'quiz': [
 				{
-					'question': 'You were typing very loudly and the neighbor came to swear:', 'answer': 'Say youll keep it down',
-					'filler': ['Say in response that he is sleeping loudly and also disturbs you', 'Dont open the door'],
+					'question': 'Your mechanical keyboard woke the neighbours up.', 'answer': 'Apologize profusely, promising new o-rings',
+					'filler': ["Keep the door shut and pretend you're not there", 'Confrontationally send them back where they came from'],
 				},
 				{
-					'question': 'Scammers sent you an email and want to get your credit card details', 'answer': 'send made-up data',
-					'filler': ['curse of', 'send bank card details'],
+					'question': 'A dead Nigerian prince wants to deliver your gold ineritance.', 'answer': "It's fake!",
+					'filler': ['Travel to Nigeria to meet his laywers', 'Take care of all transaction fees upfront.'],
 				},
 				{
-					'question': 'This hot dog looks so delicious, but you dont have enough money', 'answer': 'offer a service in exchange for a hotdog',
-					'filler': ['tell a tearful story and try to beg', "stay hungry"],
+					'question': 'A co-worker is acting like an asshole', 'answer': 'Voice your concerns privately, work it out',
+					'filler': ['Set her up and get her fired', "Call her out publically, while keeping her in a wrestling chokehold"],
 				},
 			],
 		},
 		{
-			'name': 'Intermediate Softskills', 'type': 'softskills', 'cost': 15,
+			'name': 'Softskills: 201', 'type': 'soft', 'cost': 15, 'level': 2,
 			'quiz': [
 				{
-					'question': 'Youve got a job, but you cant do it on your own', 'answer': 'find a partner',
-					'filler': ['refuse to work', 'fail the job'],
+					'question': 'You have more work than you can handle...', 'answer': "Don't bite more than you can't chew",
+					'filler': ['Outsource, outsource, outsource', 'Take it on, sleep less, drink more, fail half'],
 				},
 				{
-					'question': 'You and the man on the other side of the street are waiting for the same taxi:', 'answer': 'Im ready to fight for the opportunity to leave!',
-					'filler': ['Ill walk at 3 am through a dangerous area', 'It turns out that we have to go let go and we can pay equally'],
+					'question': 'Tip your Eats courier:', 'answer': '$1.00',
+					'filler': ['"Don't do anything till you know you're ready."', '"Delete your lawyer, hit the Facebook, buy a gym"'],
 				},
 				{
-					'question': 'Your house is being renovated, the electricity has been cut off, but you need to work', 'answer': 'Ill order a pizza and go to my neighbors',
-					'filler': ['Ill go for a walk, do it later', "Ill go swear, let them turn it on"],
+					'question': 'Your friend tells you about this new cryptocurrency HYIP with 1% returns/day.', 'answer': "Say you're broke",
+					'filler': ['Invest 30% of your savings', 'Treat her with some anti-MLM essential oils'],
 				},
 			],
 		},
 		{
-			'name': 'Softskills: Flexible Joe Lvl', 'type': 'softskills', 'cost': 30,
+			'name': 'Skills softer than Vicuna wool', 'type': 'soft', 'cost': 30, 'level': 3,
 			'quiz': [
 				{
-					'question': 'You want to go to the toilet, but theres a queue 100 meters away', 'answer': 'pretend that you are an employee and confidently walk past the queue',
-					'filler': ['make a pee-pee', 'ask everyone in line to let you pass'],
+					'question': 'You need to pee. Real hard. The queue is huge.', 'answer': 'Stand on a table and announce the problem, the reprecussions, the solution.',
+					'filler': ["Pee ya' pants.", "Pretend to be an employee of this place and use the management's toilet"],
 				},
 				{
-					'question': 'You have a profitable project, but you do not have enough knowledge', 'answer': 'become a project manager and find the right people',
-					'filler': ['to hell with it, Ill try it myself', 'I will go to study for 2 weeks'],
+					'question': 'Making a friends is easy:', 'answer': 'name repetition, personality mirroring and never breaking off a handshake',
+					'filler': ['jump to conclusions, complain and interrupt', 'keep quiet and just listen, listen, listen'],
 				},
 				{
-					'question': 'you make a game, but you dont make it to the deadline', 'answer': 'this is not a bug, but a feature!',
-					'filler': ['let it be as it will be', "Ill finish later, but everything will be ready"],
+					'question': 'What kind of bear is best?', 'answer': 'False! Black bear.',
+					'filler': ["That's a ridculous question.", 'There are basically two schools of thoughts...'],
 				},
 			],
 		},
