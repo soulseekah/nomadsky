@@ -24,10 +24,10 @@ func _ready():
 	nomad.main = self
 	nomad.money = 200
 	nomad.health = 90
-	nomad.karma = 50
+	nomad.karma = 100
 	nomad.energy = 90
 	nomad.hunger = 90
-	nomad.mood = 80
+	nomad.mood = 90
 	nomad.rating = 0
 
 	nomad.location = Modifiers.Location.Pyongyang.new()
@@ -515,7 +515,7 @@ func do_action(index):
 	var rate = 100
 
 	rate = rate - (100 - nomad.mood) * 0.20
-	rate = rate - (100 - nomad.karma) * 0.20
+	rate = rate - (100 - nomad.karma) * 0.10
 
 	if current_card.type == 'work' and nomad.energy < energy_cost and action_name == 'accept':
 		success = false

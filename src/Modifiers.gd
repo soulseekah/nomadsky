@@ -44,7 +44,7 @@ class Location:
 	class NewYork extends Location:
 		func _init():
 			cost = 100
-			bonus = 4.0
+			bonus = 5.0
 			name = 'New York'
 			tech = Workstation.Wacbook
 			slug = 'newyork'
