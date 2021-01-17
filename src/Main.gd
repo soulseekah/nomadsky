@@ -38,7 +38,9 @@ func _ready():
 	
 	$Status/Actions/Work.connect('pressed', self, 'workstation_open')
 	$Status/Actions/Sleep.connect('pressed', self, 'sleep')
-	
+	$Status/Actions/Pet/Cat.connect('pressed', self, 'meow')
+	$Status/Actions/Pet/Dog.connect('pressed', self, 'woof')
+
 	$Workstation/Actions/Shutdown.connect('pressed', self, 'workstation_close')
 	$Workstation/Actions/Work.connect('pressed', self, 'find_work')
 
@@ -325,7 +327,7 @@ func find_work():
 		return
 
 	call_deferred('play', 'click1')
-	
+
 	$Workstation/Loading.show()
 	$Workstation/Actions.hide()
 	var rng = RandomNumberGenerator.new()
@@ -560,11 +562,12 @@ func do_action(index):
 			
 		if (action.has('pet')):
 			var pets = {
-				'cat': Modifiers.Pet.Cat,
-				'dog': Modifiers.Pet.Dog,
+				'cat': [Modifiers.Pet.Cat, $Status/Actions/Pet/Cat],
+				'dog': [Modifiers.Pet.Dog, $Status/Actions/Pet/Dog],
 			}
 			
-			nomad.pet = pets[action['pet']].new()
+			nomad.pet = pets[action['pet']][0].new()
+			pets[action['pet']][1].show()
 			
 		nomad.rating(+1)
 	else:
@@ -807,3 +810,11 @@ func click_tech(node: Node):
 
 	self.tick(1)	
 	self.success('New workstation, perfect.')
+
+func meow():
+	if randf() > 0.9:
+		play('meow')
+	
+func woof():
+	if randf() > 0.9:
+		play('woof')

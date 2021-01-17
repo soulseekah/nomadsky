@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://src/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/locations/Pyongyang.tscn" type="PackedScene" id=2]
@@ -18,6 +18,8 @@
 [ext_resource path="res://scenes/locations/Moscow.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/locations/Spain.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/locations/Spain.gd" type="Script" id=18]
+[ext_resource path="res://assets/art/dog.png" type="Texture" id=19]
+[ext_resource path="res://assets/art/cat.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 10 )
@@ -287,6 +289,40 @@ __meta__ = {
 }
 
 [node name="Actions" type="Node2D" parent="Status"]
+
+[node name="Pet" type="Node2D" parent="Status/Actions"]
+
+[node name="Dog" type="Button" parent="Status/Actions/Pet"]
+visible = false
+margin_left = 742.0
+margin_top = 48.0
+margin_right = 782.0
+margin_bottom = 88.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DogSprite" type="Sprite" parent="Status/Actions/Pet/Dog"]
+position = Vector2( 20, 17 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 19 )
+
+[node name="Cat" type="Button" parent="Status/Actions/Pet"]
+visible = false
+margin_left = 742.0
+margin_top = 48.0
+margin_right = 782.0
+margin_bottom = 88.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CatSprite" type="Sprite" parent="Status/Actions/Pet/Cat"]
+position = Vector2( 20, 17 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 20 )
 
 [node name="Work" type="Button" parent="Status/Actions"]
 margin_left = 397.0
