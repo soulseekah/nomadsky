@@ -8,14 +8,16 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Button.connect('pressed', self, 'play_pressed')
-	$CreditsButton.connect('pressed', self, 'credits_open')
+	$Actions.hide()
+	$Actions/Button.connect('pressed', self, 'play_pressed')
+	$Actions/CreditsButton.connect('pressed', self, 'credits_open')
 	$Credits/Okay.connect('pressed', self, 'credits_close')
 	
 	$Overlay.show()
 	$Overlay/Fade.play('Fade')
 	yield($Overlay/Fade, 'animation_finished')
 	$Overlay.hide()
+	$Actions.show()
 
 func play_pressed():
 	$Overlay.show()

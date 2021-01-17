@@ -45,7 +45,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="mongoliaexit" type="Sprite" parent="."]
+position = Vector2( 164.064, 143 )
+scale = Vector2( 0.176678, 0.176678 )
+texture = ExtResource( 1 )
+
+[node name="Actions" type="Node2D" parent="."]
+visible = false
+
+[node name="Button" type="Button" parent="Actions"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -60,7 +68,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CreditsButton" type="Button" parent="."]
+[node name="CreditsButton" type="Button" parent="Actions"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -74,11 +82,6 @@ text = "Credits"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="mongoliaexit" type="Sprite" parent="."]
-position = Vector2( 164.064, 143 )
-scale = Vector2( 0.176678, 0.176678 )
-texture = ExtResource( 1 )
 
 [node name="Credits" type="ColorRect" parent="."]
 visible = false
@@ -104,7 +107,7 @@ Programming: kovshenin, soulseekah
 Audio: soulseekah, FitchChamp, kovshenin
 Text: FitchChamp, kovshenin, soulseekah
 
-https://github.com/soulseekah/nomadsky"
+github.com/soulseekah/nomadsky"
 __meta__ = {
 "_edit_use_anchors_": false
 }
