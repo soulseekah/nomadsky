@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/spain.ogg-4eebf91283db88d86e575a1ca0ab287f.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/bgm/spain.ogg"
+dest_files=[ "res://.import/spain.ogg-4eebf91283db88d86e575a1ca0ab287f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
