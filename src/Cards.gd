@@ -1036,7 +1036,344 @@ func _ready():
 			},
 		},
 		{ # Design
-		}
+			'type': 'work',
+			'title': 'Flyers for a kids party',
+			'description': 'Our budget is low but we\'ll tell the rest of the parents about how good of a designer you are.',
+			'chance': 0.5,
+			'requirements': {
+				'design': 1,
+			},
+			'actions': {
+				'accept': {
+					'money': 10,
+					'time': 8,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Resize a bunch of photos',
+			'description': 'Google Photos is charging me an arm and a leg for my vacation photos. I heard resizing can help bring costs down. Lossless resizing only!',
+			'chance': 0.1,
+			'requirements': {
+				'design': 1,
+			},
+			'actions': {
+				'accept': {
+					'money': 90,
+					'time': 24,
+					'mood': -5,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Take photos of our handmade crafts for our website',
+			'description': 'We have 200 items to take photos of. 4 sides per product + closup shots. We can only pay for about 8 hours of work total.',
+			'chance': 0.6,
+			'requirements': {
+				'design': 1,
+			},
+			'actions': {
+				'accept': {
+					'money': 200,
+					'time': 24,
+					'mood': -30,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Custom tshirt designs',
+			'description': 'We need to put our company logos on some tshirts. Our expo is in 2 days so please make haste.',
+			'chance': 0.3,
+			'requirements': {
+				'design': 1,
+			},
+			'actions': {
+				'accept': {
+					'money': 100,
+					'time': 4,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Cut my boyfriend out of these pictures',
+			'description': 'We broke up. Please crop/cut out, erase all the photos with him in my iCloud.',
+			'chance': 0.1,
+			'requirements': {
+				'design': 1,
+			},
+			'actions': {
+				'accept': {
+					'money': 300,
+					'time': 16,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Help design milk cartons',
+			'description': 'Our cows voiced a lot of concern regarding our current cartons underplaying CDD (cow depression disorder) at milk factories. The union demanded us to rebrand and add awareness.',
+			'chance': 0.5,
+			'requirements': {
+				'design': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 240,
+					'time': 8,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Create happy face stickers',
+			'description': 'Office morale has to go up. We are thinking of handing out happy stickers and increasing work hours and unpaid overtime perhaps.',
+			'chance': 0.1,
+			'requirements': {
+				'design': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 250,
+					'time': 6,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Zoom and enhance!',
+			'description': 'We require help of an image processing genius. Someone scratched our Mazda and we need to find the perp. Police will not help us.',
+			'chance': 0.04,
+			'requirements': {
+				'design': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 400,
+					'time': 20,
+					'karma': 10,
+				},
+				'decline': {
+					'karma': -10,
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': '5 book covers',
+			'description': 'We wrote 5 books about business. You can use stock photography but we will not pay extra for it.',
+			'chance': 0.3,
+			'requirements': {
+				'design': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 500,
+					'time': 12,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Design 3D parts for a plastic gun',
+			'description': 'Freedom to protecc!!! Hurrr-durr! MURICA! (_oo_)',
+			'chance': 0.1,
+			'requirements': {
+				'design': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 300,
+					'time': 18,
+					'karma': -30,
+				},
+				'decline': {
+					'karma': 15,
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'New Tom Cruise Movie poster',
+			'description': 'New Scientology mockumentary requires poster. Should be Tray Park-level funny.',
+			'chance': 0.5,
+			'requirements': {
+				'design': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 940,
+					'time': 15,
+					'karma': 10,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'COVID animation roll',
+			'description': 'We need some animation rolls to go onto screens at our companies worldwide with a COVID virus being killed by ninjas and the headline appearing: "KEEP CALM". Doable?',
+			'chance': 0.01,
+			'requirements': {
+				'design': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 3000,
+					'time': 16,
+					'karma': -10,
+				},
+				'decline': {
+					'karma': 5,
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Interior design',
+			'description': 'Now that the Capitol has been destoryed we need everything redesigned interior-wise. This is a matter of national urgency.',
+			'chance': 0.04,
+			'requirements': {
+				'design': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 900,
+					'time': 20,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Reproductions',
+			'description': 'We are opening a copy of the Louvre in the middle of Nevada. We need very accurate reproductions of every single painting it contains. We will provide inter-dimensional translations for our visitors.',
+			'chance': 0.3,
+			'requirements': {
+				'design': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 500,
+					'time': 8,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'New traffic signs for our city',
+			'description': 'Kids think traffic signs are no longer hip, no longer flex, no longer yeet. We need to modernize our municipality traffic signs (make them "lit") before them kids get bored.',
+			'chance': 0.1,
+			'requirements': {
+				'design': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 1300,
+					'time': 23,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
 
 		# Accidents
 		{
