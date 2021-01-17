@@ -1,14 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/locations/NewYork.gd" type="Script" id=1]
-[ext_resource path="res://assets/art/backgrounds/newyork.food.png" type="Texture" id=2]
-[ext_resource path="res://assets/art/backgrounds/newyork.tech.png" type="Texture" id=3]
-[ext_resource path="res://assets/art/backgrounds/moscow.bg.jpg" type="Texture" id=4]
-[ext_resource path="res://assets/art/backgrounds/newyork.mood.png" type="Texture" id=5]
-[ext_resource path="res://assets/art/backgrounds/newyork.fg.lights.png" type="Texture" id=6]
-[ext_resource path="res://assets/art/backgrounds/newyork.fg.streets.png" type="Texture" id=7]
+[ext_resource path="res://assets/art/backgrounds/moscow.food.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/backgrounds/moscow.tech.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/backgrounds/moscow.bg.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/backgrounds/moscow.mood.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/backgrounds/moscow.exit.png" type="Texture" id=8]
+[ext_resource path="res://assets/art/backgrounds/moscow.bg.sobor.png" type="Texture" id=9]
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id=9]
 script/source = "extends Sprite
 
 func _on_Food_mouse_entered():
@@ -24,7 +24,7 @@ func _on_Food_input_event(viewport, event, shape_idx):
 					print('food')
 "
 
-[sub_resource type="GDScript" id=7]
+[sub_resource type="GDScript" id=2]
 script/source = "extends Area2D
 
 
@@ -43,23 +43,41 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 47.5849, 37.4269 )
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 38.595, 44.5761 )
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 74.1441, 107.381 )
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 59.1643, 32.7383 )
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 53.5682, 51.061 )
+[sub_resource type="GDScript" id=8]
+script/source = "extends Sprite
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 44.0161, 76.5989 )
+func _on_Food_mouse_entered():
+	$Location/pyongayngbg/pyongaynghunger.modulate = Color(2.0, 2.0, 2.0)
+
+func _on_Food_mouse_exited():
+	$Location/pyongayngbg/pyongaynghunger.modulate = Color(1.0, 1.0, 1.0)
+
+
+func _on_Food_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+			if event.pressed:
+					print('food')
+"
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 44.0161, 34.2012 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 92.5204, 28.2095 )
 
 [node name="Moscow" type="Node2D"]
 position = Vector2( 3.05176e-05, 1.52588e-05 )
 script = ExtResource( 1 )
 
-[node name="Moscow" type="Sprite" parent="."]
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Moscow" type="Sprite" parent="Background"]
 position = Vector2( 400, 300 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
@@ -68,63 +86,58 @@ texture = ExtResource( 4 )
 
 [node name="Food" type="Sprite" parent="Interactive"]
 modulate = Color( 0.764706, 0.729412, 0.72549, 1 )
-position = Vector2( 337.071, 347.197 )
-scale = Vector2( 1.68536, 1.68536 )
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
-script = SubResource( 6 )
+script = SubResource( 9 )
 
 [node name="Area2D" type="Area2D" parent="Interactive/Food"]
 position = Vector2( 467.321, -157.013 )
-script = SubResource( 7 )
+script = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Food/Area2D"]
-position = Vector2( -399.876, 250.026 )
-shape = SubResource( 3 )
+position = Vector2( -629.117, 146.643 )
+shape = SubResource( 10 )
 
-[node name="Exit" type="Sprite" parent="Interactive"]
-position = Vector2( 757.915, 449.315 )
-scale = Vector2( 0.781377, 0.781377 )
-texture = ExtResource( 3 )
-
-[node name="Area2D" type="Area2D" parent="Interactive/Exit"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Exit/Area2D"]
-position = Vector2( -30.6804, 42.1854 )
-shape = SubResource( 8 )
+[node name="Sobor" type="Sprite" parent="Interactive"]
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
 
 [node name="Mood" type="Sprite" parent="Interactive"]
-position = Vector2( 276.14, 392.895 )
-scale = Vector2( 1.3807, 1.3807 )
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="Interactive/Mood"]
 position = Vector2( 147.844, -46.5807 )
-script = SubResource( 7 )
+script = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Mood/Area2D"]
-position = Vector2( -294.999, 128.505 )
-shape = SubResource( 4 )
+position = Vector2( -8.07321, 50.593 )
+shape = SubResource( 11 )
 
 [node name="Tech" type="Sprite" parent="Interactive"]
 modulate = Color( 0.764706, 0.729412, 0.72549, 1 )
-position = Vector2( 294.12, 379.41 )
-scale = Vector2( 1.4706, 1.4706 )
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
-script = SubResource( 6 )
+script = SubResource( 8 )
 
 [node name="Area2D" type="Area2D" parent="Interactive/Tech"]
-script = SubResource( 7 )
+script = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Tech/Area2D"]
-position = Vector2( -37.6045, 51.1736 )
-shape = SubResource( 5 )
+position = Vector2( 31.3176, 1.72948 )
+shape = SubResource( 12 )
 
-[node name="Lights" type="Sprite" parent="."]
+[node name="Exit" type="Sprite" parent="Interactive"]
 position = Vector2( 400, 300 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
-[node name="Streets" type="Sprite" parent="."]
-position = Vector2( 400, 300 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
+[node name="Area2D" type="Area2D" parent="Interactive/Exit"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Exit/Area2D"]
+position = Vector2( 110.16, 70.3973 )
+shape = SubResource( 7 )

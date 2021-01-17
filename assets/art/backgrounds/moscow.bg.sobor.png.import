@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/moscow.bg.jpg-d58be363ab5819d6dae30a73a1011b83.stex"
+path="res://.import/moscow.bg.sobor.png-f747d96a87446640ea4a4a7d026ca736.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/backgrounds/moscow.bg.jpg"
-dest_files=[ "res://.import/moscow.bg.jpg-d58be363ab5819d6dae30a73a1011b83.stex" ]
+source_file="res://assets/art/backgrounds/moscow.bg.sobor.png"
+dest_files=[ "res://.import/moscow.bg.sobor.png-f747d96a87446640ea4a4a7d026ca736.stex" ]
 
 [params]
 

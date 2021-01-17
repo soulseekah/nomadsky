@@ -643,7 +643,7 @@ func click_exit(node: Node):
 			self.error('Not enough money to leave right now. I think I need about $10k')
 			return
 			
-		self.confirm('Okay I\'m ready to leave now, I think.. Pay and fly to Spain?')
+		self.confirm('Okay I\'m ready to leave now, I think.. Pay and take the train to Spain?')
 		action = yield(self, 'confirm_closed')
 		if action == 'cancel':
 			return
