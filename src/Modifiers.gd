@@ -7,6 +7,7 @@ class Location:
 	var bonus: float
 	var name: String
 	var tech
+	var slug: String
 
 	class Pyongyang extends Location:
 		func _init():
@@ -14,6 +15,7 @@ class Location:
 			bonus = 1.0
 			name = 'Pyongyang'
 			tech = Workstation.Red
+			slug = 'pyongyang'
 			
 	class Mongolia extends Location:
 		func _init():
@@ -21,6 +23,7 @@ class Location:
 			bonus = 1.5
 			name = 'Mongolia'
 			tech = Workstation.Renovo
+			slug = 'mongolia'
 			
 	class Moscow extends Location:
 		func _init():
@@ -28,6 +31,7 @@ class Location:
 			bonus = 2.0
 			name = 'Moscow'
 			tech = Workstation.Komputer
+			slug = 'moscow'
 			
 	class Spain extends Location:
 		func _init():
@@ -35,13 +39,15 @@ class Location:
 			bonus = 3.0
 			name = 'Spain'
 			tech = Workstation.LosComputos
+			slug = 'spain'
 			
 	class NewYork extends Location:
 		func _init():
 			cost = 100
-			bonus = 4.0
+			bonus = 5.0
 			name = 'New York'
 			tech = Workstation.Wacbook
+			slug = 'newyork'
 
 # What you do your work on
 class Workstation:

@@ -35,6 +35,12 @@ func pick(types: Array, main: Main) -> Card:
 					
 		if not skilled:
 			continue
+			
+		if card.requirements.has('money') and main.nomad.money < card.requirements['money']:
+			continue
+			
+		if card.requirements.has('location') and main.nomad.location.slug != card.requirements['location']:
+			continue
 
 		valid.append(card)
 		total += int(card.chance * 1000)
