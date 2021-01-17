@@ -2008,7 +2008,7 @@ func _ready():
 		},
 		{
 			'type': 'decision',
-			'title': 'Gooqle',
+			'title': 'Cooqle',
 			'description': "Mr. Nomadsky, come work for us a Cooqle, there's no point in freelancing anymore, is there?",
 			'requirements': {
 				'location': 'newyork',
