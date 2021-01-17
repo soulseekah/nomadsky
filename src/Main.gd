@@ -537,6 +537,7 @@ func do_action(index):
 			'You couldn\'t finish the work in time. Probably in a bad mood.',
 			'You got distracted during work, you screwed up.',
 			'You procrastinated for too long. Tough luck.',
+			'The client didn\'t pay. It happens.',
 		]
 
 		self.error(messages[randi() % messages.size()])
@@ -545,6 +546,9 @@ func do_action(index):
 		time_cost = max(time_cost * nomad.workstation.bonus, 1)
 
 	if current_card.type == 'accident' and action.has('time'):
+		blackout = true
+
+	if current_card.type == 'decision' and action.has('time'):
 		blackout = true
 
 	match action_name:
