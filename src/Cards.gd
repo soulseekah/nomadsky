@@ -2013,10 +2013,11 @@ func _ready():
 				'location': 'newyork',
 				'money': 50000,
 			},
-			'chance': 1,
+			'chance': 1.1,
 			'actions': {
 				'accept': {
-					'money': 1000000,
+					'money': 200000,
+					'end': true,
 				},
 				'decline': {
 					'skip': true,

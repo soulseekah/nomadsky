@@ -6,6 +6,8 @@ signal tech
 signal exit
 signal tooltip
 
+var tooltip_control = ''
+
 func _ready():
 	$Interactive/Food/Area2D.connect('mouse_entered', self, 'food_mouse_in')
 	$Interactive/Food/Area2D.connect('mouse_exited', self, 'food_mouse_out')
@@ -25,11 +27,13 @@ func _ready():
 
 func mood_mouse_in():
 	$Interactive/Mood.modulate = Color(2.0, 2.0, 2.0)
+	tooltip_control = 'mood'
 	emit_signal('tooltip', 'Sightseeing')
 
 func mood_mouse_out():
 	$Interactive/Mood.modulate = Color(1.0, 1.0, 1.0)
-	emit_signal('tooltip', '')
+	if tooltip_control == 'mood':
+		emit_signal('tooltip', '')
 
 func mood_click(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
@@ -37,11 +41,13 @@ func mood_click(viewport, event, shape_idx):
 		
 func food_mouse_in():
 	$Interactive/Food.modulate = Color(2.0, 2.0, 2.0)
+	tooltip_control = 'food'
 	emit_signal('tooltip', 'Yum-yum')
 
 func food_mouse_out():
 	$Interactive/Food.modulate = Color(1.0, 1.0, 1.0)
-	emit_signal('tooltip', '')
+	if tooltip_control == 'food':
+		emit_signal('tooltip', '')
 
 func food_click(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
@@ -49,11 +55,13 @@ func food_click(viewport, event, shape_idx):
 		
 func tech_mouse_in():
 	$Interactive/Tech.modulate = Color(2.0, 2.0, 2.0)
+	tooltip_control = 'tech'
 	emit_signal('tooltip', 'Electronics Megamarket')
 
 func tech_mouse_out():
 	$Interactive/Tech.modulate = Color(1.0, 1.0, 1.0)
-	emit_signal('tooltip', '')
+	if tooltip_control == 'tech':
+		emit_signal('tooltip', '')
 
 func tech_click(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
@@ -61,11 +69,13 @@ func tech_click(viewport, event, shape_idx):
 
 func exit_mouse_in():
 	$Interactive/Exit.modulate = Color(2.0, 2.0, 2.0)
+	tooltip_control = 'exit'
 	emit_signal('tooltip', 'Airport')
 
 func exit_mouse_out():
 	$Interactive/Exit.modulate = Color(1.0, 1.0, 1.0)
-	emit_signal('tooltip', '')
+	if tooltip_control == 'exit':
+		emit_signal('tooltip', '')
 
 func exit_click(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:

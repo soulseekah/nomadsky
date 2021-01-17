@@ -235,11 +235,11 @@ func maybe_pick_card():
 		queued_card = Cards.pick(['info', 'accident', 'gift', 'decision'], self)
 
 func dead(why):
-	print('died')
 	var reasons = {
 		'hunger': 'You so hungry, you so dead.',
 		'health': 'You so unhealthy, you so dead.',
 		'money': 'You no longer a nomad. You a bum.',
+		'end': 'At long last. An office chair and a stable paycheck...',
 	}
 
 	$Death.show()
@@ -339,7 +339,7 @@ func find_work():
 		self.error('Not enough energy to work right now. Maybe I should take a nap...')
 		return
 
-	if nomad.mood < 5:
+	if nomad.mood < 5 and randf() > 0.5:
 		self.error('Not in the mood for working right now.')
 		return
 
@@ -618,9 +618,13 @@ func do_action(index):
 	if not (action.has('skip') && action['skip']):
 		current_card.done = true
 		nomad.stats['cards'] += 1
-
+		
 	current_card = null
 	$Card.hide()
+	
+	if action.has('end'):
+		self.dead('end')
+		return
 
 	if blackout:
 		$Blackout/Label.hide()
