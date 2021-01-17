@@ -34,6 +34,9 @@ func _ready():
 	nomad.workstation = Modifiers.Workstation.Red.new()
 	actions = [$Card/Action1, $Card/Action2, $Card/Action3]
 
+	$BackgroundAudio.stream = load("res://assets/sound/bgm/pyongyang.ogg")
+	$BackgroundAudio.play()
+
 	$Status/Actions.hide()
 	$Workstation.hide()
 
@@ -94,6 +97,8 @@ func _ready():
 	$Locations/Pyongyang.show()
 
 	$Status/Tooltip.text = '';
+
+	yield(get_tree().create_timer(3.0), 'timeout')
 
 	# First card
 	current_card = Cards.pick(['info'], self)
@@ -379,7 +384,7 @@ func show_card(card):
 	if card.type == 'work':
 		var accept = card.actions['accept']
 		var reward = accept['money']
-		
+
 		reward = reward * nomad.location.bonus
 		reward = reward * (1.0 + float(nomad.soft) / 10)
 
