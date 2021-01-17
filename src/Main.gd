@@ -500,6 +500,8 @@ func do_action(index):
 			'You failed the task. Better luck next time.',
 			'You failed the assignment. Maybe it\'s karma...',
 			'You couldn\'t finish the work in time. Probably in a bad mood.',
+			'You got distracted during work, you screwed up.',
+			'You procrastinated for too long. Tough luck.',
 		]
 
 		self.error(messages[randi() % messages.size()])
