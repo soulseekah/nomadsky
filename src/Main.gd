@@ -30,6 +30,7 @@ func _ready():
 	nomad.rating = 0
 
 	nomad.location = Modifiers.Location.Pyongyang.new()
+	nomad.workstation = Modifiers.Workstation.Red.new()
 	actions = [$Card/Action1, $Card/Action2, $Card/Action3]
 	
 	$Status/Actions.hide()
@@ -112,7 +113,9 @@ func tick(amount):
 
 	time += amount
 
-func _process(delta):
+	print('Nomad: %s' % nomad)
+
+func _process(_delta):
 	var day_label = 1
 	var time_label = 0
 	day_label += time / 24
@@ -337,7 +340,8 @@ func show_card(card):
 	if card.type == 'work':
 		var accept = card.actions['accept']
 		var reward = accept['money'] * nomad.location.bonus
-		$Card/Text.bbcode_text += '\n\n$%d, ~%d hrs' % [reward, accept['time']]
+		var time_estimate = max(accept['time'] * nomad.workstation.bonus, 1)
+		$Card/Text.bbcode_text += '\n\n$%d, ~%d hrs' % [reward, time_estimate]
 
 	$Card.show()
 
@@ -463,9 +467,11 @@ func do_action(index):
 	var action_name = actions[index].text.to_lower()
 	var action = current_card.actions[action_name]
 	var energy_cost = 1
+	var time_cost = 1
 	
 	if action.has('time'):
 		energy_cost = action['time'] * 2
+		time_cost = action['time']
 
 	var success: bool = true # TODO: calcs
 	
@@ -474,6 +480,9 @@ func do_action(index):
 		nomad.energy(+10 + energy_cost)
 		nomad.health(-10)
 		self.error('You fell asleep during assignment.')
+		
+	if current_card.type == 'work':
+		time_cost = max(time_cost * nomad.workstation.bonus, 1)
 	
 	match action_name:
 		'ignore': play('ignore')
@@ -482,7 +491,7 @@ func do_action(index):
 		'decline': play('reject')
 
 	if (action.has('time')):
-		self.tick(action['time'])
+		self.tick(time_cost)
 		nomad.energy(-energy_cost)
 		nomad.hunger(-action['time'])
 
@@ -514,7 +523,6 @@ func do_action(index):
 		nomad.mood(-1)
 
 	print('Action: %s' % action)
-	print('Nomad: %s' % nomad)
 	
 	if not (action.has('skip') && action['skip']):
 		current_card.done = true
@@ -531,7 +539,7 @@ func click_exit(node: Node):
 	var next
 
 	if node.name == 'Pyongyang':
-		cost = 1
+		cost = 1000
 
 		if nomad.money < cost:
 			self.error('Doesn\'t look like I have enough money to leave this place. The guards want $1k to look away while I climb the fence.')
@@ -546,7 +554,7 @@ func click_exit(node: Node):
 		next = [Modifiers.Location.Mongolia.new(), $Locations/Mongolia]
 	
 	if node.name == 'Mongolia':
-		cost = 1
+		cost = 3000
 		
 		if nomad.money < cost:
 			self.error('I don\'t have enough money to leave this place. I need about $3k I think.')
@@ -561,7 +569,7 @@ func click_exit(node: Node):
 		next = [Modifiers.Location.Moscow.new(), $Locations/Moscow]
 		
 	if node.name == 'Moscow':
-		cost = 1
+		cost = 10000
 		
 		if nomad.money < cost:
 			self.error('Not enough money to leave right now. I think I need about $10k')
@@ -576,7 +584,7 @@ func click_exit(node: Node):
 		next = [Modifiers.Location.Spain.new(), $Locations/Spain]
 		
 	if node.name == 'Spain':
-		cost = 1
+		cost = 20000
 		
 		if nomad.money < cost:
 			self.error('I need more cash to leave to New York, about $20k I think')
@@ -635,3 +643,26 @@ func click_mood(node: Node):
 func click_tech(node: Node):
 	print('Tech clicked in %s' % node.name)
 	
+	var tech = nomad.location.tech.new()
+	var action
+	
+	if tech.name == nomad.workstation.name:
+		self.error('I already have a %s. They don\'t sell anything better here.' % tech.name)
+		return
+	
+	if tech.cost > nomad.money:
+		self.error('Can\'t afford this new tech right now. I need $%d at least' % tech.cost)
+		return
+
+	self.confirm('I can buy a brand new %s here, it seems, for $%d. I wonder if I should do it. It may help me work faster.' % [tech.name, tech.cost])
+	action = yield(self, 'confirm_closed')
+	if action == 'cancel':
+		return
+
+	nomad.money(-tech.cost)
+	nomad.mood(20)
+	nomad.health(10)
+	nomad.workstation = tech
+
+	self.tick(1)	
+	self.success('New workstation, perfect.')

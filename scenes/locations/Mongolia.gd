@@ -3,6 +3,7 @@ extends Node2D
 signal food
 signal mood
 signal exit
+signal tech
 
 func _ready():
 	$Interactive/Food/Area2D.connect('mouse_entered', self, 'food_mouse_in')

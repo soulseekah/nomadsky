@@ -6,58 +6,79 @@ class Location:
 	var cost: int
 	var bonus: float
 	var name: String
-	
+	var tech
+
 	class Pyongyang extends Location:
 		func _init():
 			cost = 12
 			bonus = 1.0
 			name = 'Pyongyang'
+			tech = Workstation.Red
 			
 	class Mongolia extends Location:
 		func _init():
 			cost = 25
 			bonus = 1.5
 			name = 'Mongolia'
+			tech = Workstation.Renovo
 			
 	class Moscow extends Location:
 		func _init():
 			cost = 50
 			bonus = 2.0
 			name = 'Moscow'
+			tech = Workstation.Komputer
 			
 	class Spain extends Location:
 		func _init():
 			cost = 100
 			bonus = 3.0
 			name = 'Spain'
+			tech = Workstation.LosComputos
 			
 	class NewYork extends Location:
 		func _init():
 			cost = 100
 			bonus = 4.0
 			name = 'New York'
+			tech = Workstation.Wacbook
 
 # What you do your work on
 class Workstation:
 	var cost: int
 	var bonus: float
-	var health: int
+	var name: String
 	
 	class Red extends Workstation:
 		func _init():
 			cost = 5
-			bonus = 0
+			bonus = 1.0
+			name = 'Red'
+			
 	
 	class Renovo extends Workstation:
 		func _init():
-			cost = 10
-			bonus = 0
+			cost = 200
+			bonus = 0.9
+			name = 'Renovo'
+			
+	class Komputer extends Workstation:
+		func _init():
+			cost = 500
+			bonus = 0.9
+			name = 'Komputer'
+		
+	class LosComputos extends Workstation:
+		func _init():
+			cost = 1200
+			bonus = 0.7
+			name = 'Los Computos'
 
 	class Wacbook extends Workstation:
 		func _init():
-			cost = 1000
-			bonus = 30
-
+			cost = 2500
+			bonus = 0.5
+			name = 'Wacbook Pro'
 
 # Where you live
 class Quarters:

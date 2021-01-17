@@ -72,13 +72,14 @@ __meta__ = {
 
 [node name="Loading" type="Label" parent="."]
 visible = false
-margin_left = -112.244
-margin_top = -37.4308
-margin_right = 50.7563
-margin_bottom = -10.4308
-rect_scale = Vector2( 1.93717, 1.93717 )
+margin_left = -124.11
+margin_top = -12.0548
+margin_right = 124.89
+margin_bottom = 14.9452
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Looking for work..."
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
