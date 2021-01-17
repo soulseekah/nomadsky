@@ -9,8 +9,7 @@ class Location:
 	class Pyongyang extends Location:
 		func _init():
 			cost = 100
-			bonus = 10 
-
+			bonus = 10
 
 # What you do your work on
 class Workstation:
@@ -64,13 +63,16 @@ class Quarters:
 class Pet:
 	var cost: int
 	var bonus: float
+	var type: String
 	
 	class Cat extends Pet:
 		func _init():
 			cost = 10
 			bonus = 7
+			type = 'cat'
 
 	class Dog extends Pet:
 		func _init():
 			cost = 20
 			bonus = 14
+			type = 'dog'

@@ -6,7 +6,7 @@ signal confirm_closed(action)
 
 class_name Main
 
-var time: float
+var time: int
 var nomad: Nomad
 
 var location: Modifiers.Location
@@ -85,14 +85,23 @@ func _ready():
 	timer.connect('timeout', self, 'maybe_pick_card')
 	self.add_child(timer)
 	timer.start()
+	
+func tick(amount):
+	if time % 24 + amount > 23:
+		if nomad.pet:
+			print('Pet: %s $%d +%d mood' % [nomad.pet.type, nomad.pet.cost, nomad.pet.bonus])
+			nomad.money(-nomad.pet.cost)
+			nomad.mood(nomad.pet.bonus)
+
+	time += amount
 
 func _process(delta):
 	var day_label = 1
 	var time_label = 0
 	day_label += time / 24
-	time_label = int(time) % 24
+	time_label = time % 24
 
-	$Status/Timer.text = 'Day %d   %d:00' % [day_label, int(time_label)]
+	$Status/Timer.text = 'Day %d   %d:00' % [day_label, time_label]
 	$Status/Stats.text = str(nomad)
 	$Status/Money.text = str(nomad.money)
 	
@@ -201,7 +210,7 @@ func sleep():
 	yield(get_tree().create_timer(3.0), 'timeout')
 	$Blackout/Label.hide()
 	
-	time += 8
+	self.tick(8)
 	nomad.energy(+70)
 	nomad.health(+5)
 	nomad.hunger(-10)
@@ -244,7 +253,7 @@ func click_food(node: Node):
 	yield(get_tree().create_timer(3.0), 'timeout')
 	$Blackout/Label.hide()
 
-	time += 1
+	self.tick(1)
 	nomad.energy(+5)
 	nomad.health(+5)
 	nomad.hunger(+80)
@@ -277,7 +286,7 @@ func find_work():
 	yield(get_tree().create_timer(rng.randf_range(2.0, 4.0)), 'timeout')
 	$Workstation/Loading.hide()
 	
-	time += 1
+	self.tick(1)
 	nomad.energy(-1)
 	nomad.hunger(-1)
 
@@ -454,7 +463,7 @@ func do_action(index):
 		'decline': play('reject')
 
 	if (action.has('time')):
-		time += action['time']
+		self.tick(action['time'])
 		nomad.energy(-energy_cost)
 		nomad.hunger(-action['time'])
 
@@ -467,6 +476,14 @@ func do_action(index):
 
 		if (action.has('mood')):
 			nomad.mood(action['mood'])
+			
+		if (action.has('pet')):
+			var pets = {
+				'cat': Modifiers.Pet.Cat,
+				'dog': Modifiers.Pet.Dog,
+			}
+			
+			nomad.pet = pets[action['pet']].new()
 			
 		nomad.rating(+1)
 	else:
@@ -491,7 +508,7 @@ func click_exit(node: Node):
 	var next
 
 	if node.name == 'Pyongyang':
-		cost = 1
+		cost = 1000
 
 		if nomad.money < cost:
 			self.error('Doesn\'t look like I have enough money to leave this place. The guards want $1k to look away while I climb the fence.')
@@ -515,7 +532,7 @@ func click_exit(node: Node):
 	yield(get_tree().create_timer(3.0), 'timeout')
 	$Blackout/Label.hide()
 
-	time += 8
+	self.tick(8)
 	nomad.money(-cost)
 	nomad.mood(+10)
 	
