@@ -308,6 +308,29 @@ func _ready():
 		},
 		{
 			'type': 'work',
+			'title': 'Optimize my site speed.',
+			'description': 'Hello. I have all the most popular acceleration plugins installed on my site, 314 in total, but it is still slow..',
+			'chance': 0.6,
+			'requirements': {
+				'code': 1,
+			},
+			'actions': {
+				'accept': {
+					'money': 120,
+					'time': 6,
+				},
+				'decline': {
+					'time': 1,
+					'karma': -5,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
 			'title': 'Move our Joomla website from GoDaddy to our own servers...',
 			'description': 'The downtimes have been killing our business. We need to move ASAP!!11!',
 			'chance': 0.3,
@@ -533,6 +556,30 @@ func _ready():
 		},
 		{
 			'type': 'work',
+			'title': 'Root my iPhone.',
+			'description': 'I need this hot new game Nomadsky to run on my iPhone. Can has root, pls?',
+			'chance': 0.2,
+			'requirements': {
+				'code': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 345,
+					'time': 10,
+					'karma': 15,
+				},
+				'decline': {
+					'time': 1,
+					'karma': -10,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
 			'title': 'Setup our server room',
 			'description': 'Our bank requires secure servers to be installed to store and process transaction data. Looking for rockstar engineers.',
 			'chance': 0.3,
@@ -619,133 +666,6 @@ func _ready():
 				},
 			},
 		},
-		{ # Copy
-			'type': 'work',
-			'title': 'Write 6 articles about cheap hosting services.',
-			'description': 'We are a hosting company with a bad rep... we need people to believe us more.',
-			'chance': 0.5,
-			'requirements': {
-				'copywriting': 1,
-			},
-			'actions': {
-				'accept': {
-					'money': 140,
-					'time': 8,
-					'karma': -10,
-				},
-				'decline': {
-					'karma': 5,
-				},
-				'ignore': {
-					'skip': true,
-				},
-			},
-		},
-		{
-			'type': 'work',
-			'title': 'Hi. My website doesnt work!!!!',
-			'description': 'I downloaded a new plugin and now my website is giving me a 500 error.',
-			'chance': 0.1,
-			'requirements': {
-				'code': 1,
-			},
-			'actions': {
-				'accept': {
-					'money': 50,
-					'time': 2,
-				},
-				'decline': {
-					'karma': -5,
-				},
-				'ignore': {
-					'skip': true,
-				},
-			},
-		},
-		{
-			'type': 'work',
-			'title': 'Set up goals in Google Analytics.',
-			'description': 'Set up goals on the site for the sale of original Rolex for $11.89.',
-			'chance': 0.1,
-			'requirements': {
-				'copywriting': 3,
-			},
-			'actions': {
-				'accept': {
-					'money': 30,
-					'time': 1,
-				},
-				'decline': {
-				},
-				'ignore': {
-					'skip': true,
-				},
-			},
-		},
-		{
-			'type': 'work',
-			'title': 'Make 13 simple landing pages as FAST as POSSIBLE!.',
-			'description': 'I sell handmade paper airplanes and want to fully occupy a niche.',
-			'chance': 0.6,
-			'requirements': {
-				'code': 1,
-				'copywriting': 1,
-				'design':1,
-			},
-			'actions': {
-				'accept': {
-					'money': 200,
-					'time': 10,
-				},
-				'decline': {
-				},
-				'ignore': {
-					'skip': true,
-				},
-			},
-		},
-		{
-			'type': 'work',
-			'title': 'Beautifully design a showcase on Instagram.',
-			'description': 'I am just a beautiful girl and I want more followers.',
-			'chance': 0.3,
-			'requirements': {
-				'copywriting': 1,
-				'design': 2,
-			},
-			'actions': {
-				'accept': {
-					'money': 100,
-					'time': 4,
-				},
-				'decline': {
-				},
-				'ignore': {
-					'skip': true,
-				},
-			},
-		},
-		{
-			'type': 'work',
-			'title': 'Optimize my site speed.',
-			'description': 'Hello. I have all the most popular acceleration plugins installed on my site, 314 in total, but it is still slow..',
-			'chance': 0.6,
-			'requirements': {
-				'code': 2,
-			},
-			'actions': {
-				'accept': {
-					'money': 120,
-					'time': 6,
-				},
-				'decline': {
-					'karma': -5,
-				},
-				'ignore': {
-					'skip': true,
-				},
-			},
-		},
 		{
 			'type': 'work',
 			'title': 'Slippery business.',
@@ -761,55 +681,354 @@ func _ready():
 					'karma': -20,
 				},
 				'decline': {
+					'time': 1,
 					'karma': 10,
 				},
 				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{ # Copy
+			'type': 'work',
+			'title': 'Write 6 articles about cheap hosting services.',
+			'description': 'We are a hosting company with a bad rep... we need people to believe us more.',
+			'chance': 0.5,
+			'requirements': {
+				'copywriting': 1,
+			},
+			'actions': {
+				'accept': {
+					'money': 140,
+					'time': 8,
+					'karma': -10,
+				},
+				'decline': {
+					'time': 1,
+					'karma': 5,
+				},
+				'ignore': {
+					'time': 1,
 					'skip': true,
 				},
 			},
 		},
 		{
 			'type': 'work',
-			'title': 'Compress images on the site.',
-			'description': 'So the thing requires some modern image formats. Will you do it?',
+			'title': 'Set up goals in Google Analytics.',
+			'description': 'Set up goals on the site for the sale of original Rolex watches from $11.89',
 			'chance': 0.1,
 			'requirements': {
-				'code': 1,
+				'copywriting': 1,
 			},
 			'actions': {
 				'accept': {
 					'money': 30,
-					'time': 3,
+					'time': 1,
 				},
 				'decline': {
+					'time': 1,
 				},
 				'ignore': {
+					'time': 1,
 					'skip': true,
 				},
 			},
 		},
 		{
 			'type': 'work',
-			'title': 'Root my iPhone.',
-			'description': 'I need this hot new game Nomadsky to run on my iPhone. Can has root, pls?',
-			'chance': 0.2,
+			'title': 'Make 13 simple landing pages as FAST as POSSIBLE!.',
+			'description': 'I sell handmade paper airplanes and want to fully occupy a niche.',
+			'chance': 0.6,
 			'requirements': {
-				'code': 3,
+				'copywriting': 1,
 			},
 			'actions': {
 				'accept': {
-					'money': 345,
-					'time': 10,
-					'karma': 15,
+					'money': 200,
+					'time': 20,
 				},
 				'decline': {
-					'karma': -10,
+					'time': 1,
 				},
 				'ignore': {
+					'time': 1,
 					'skip': true,
 				},
 			},
 		},
+		{
+			'type': 'work',
+			'title': 'Write some insightful text content for my Instagram posts!',
+			'description': 'I am a beautiful girl (that\'s it) and I want more followers.',
+			'chance': 0.3,
+			'requirements': {
+				'copywriting': 1,
+			},
+			'actions': {
+				'accept': {
+					'money': 100,
+					'time': 4,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Translate my article about essential oil benefits',
+			'description': 'Native speakers only. You have until the end of the day.',
+			'chance': 0.1,
+			'requirements': {
+				'copywriting': 1,
+			},
+			'actions': {
+				'accept': {
+					'money': 30,
+					'time': 2,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Take over editorials on our news website.',
+			'description': 'You will need to make sure the writers are doing a solid job every day. We follow local news.',
+			'chance': 0.5,
+			'requirements': {
+				'copywriting': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 340,
+					'time': 8,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Write 14 articles about game development impact on society',
+			'description': 'Half of them should be negative and half of them positive. We still don\'t fully understand the full impact of this thing kids call #gamedev.',
+			'chance': 0.1,
+			'requirements': {
+				'copywriting': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 300,
+					'time': 16,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Write a space exploration manual for KSA',
+			'description': 'Our space agency is looking to attract younglings into space exploration and sciences. Looking for diligent writers. Godspeed.',
+			'chance': 0.04,
+			'requirements': {
+				'copywriting': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 400,
+					'time': 20,
+					'karma': 20,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Rewrite a certain secret field manual on enhanced interrogation techniques.',
+			'description': 'Take out all the bad parts, please. Yours, the FBI.',
+			'chance': 0.3,
+			'requirements': {
+				'copywriting': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 500,
+					'time': 12,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Help my son with his university essay.',
+			'description': 'He is a good buy. Bless his heart. Needs help writing a powerful story (not necessarily "accurate").',
+			'chance': 0.1,
+			'requirements': {
+				'copywriting': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 30,
+					'time': 2,
+					'karma': -10,
+				},
+				'decline': {
+					'karma': 5,
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Finish a sequel to one of my books.',
+			'description': 'This is a ghostwriting assignment. NDA. Thank you. Signed: JKR',
+			'chance': 0.5,
+			'requirements': {
+				'copywriting': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 940,
+					'time': 22,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Write the best speech. The best. o_O',
+			'description': '~ JDT',
+			'chance': 0.01,
+			'requirements': {
+				'copywriting': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 3000,
+					'time': 16,
+					'karma': -10,
+				},
+				'decline': {
+					'karma': 5,
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Our popular TV show requires writers',
+			'description': 'Humor, drama, action. Send samples when applying.',
+			'chance': 0.04,
+			'requirements': {
+				'copywriting': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 900,
+					'time': 20,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Cryptocurrency whitepaper',
+			'description': 'We are doing an ICO and our marketing team said we need some sort of "whitepaper". Turns out it is not literally a white piece of paper. Launch is due tomorrow.',
+			'chance': 0.3,
+			'requirements': {
+				'copywriting': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 500,
+					'time': 8,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'New York Times',
+			'description': 'We are looking for a freelance writer to write about digital nomads and their life during the pandemic. Apply here.',
+			'chance': 0.1,
+			'requirements': {
+				'copywriting': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 300,
+					'time': 4,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{ # Design
+		}
 
 		# Accidents
 		{
