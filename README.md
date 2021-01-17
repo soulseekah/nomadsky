@@ -6,7 +6,7 @@ Nomadsky / Godot Wild Jam 29
 
 ### Art
 
-Merly23
+Merly23, katymelvillle
 
 ### Programming
 
@@ -14,12 +14,8 @@ kovshenin, soulseekah
 
 ### Audio
 
-soulseekah
+soulseekah, FitchChamp, kovshenin
 
 ### Text
 
-FitchChamp, kovshenin, Merly23, soulseekah
-
-### Testing
-
-FitchChamp
+FitchChamp, kovshenin, soulseekah
