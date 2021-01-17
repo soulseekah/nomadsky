@@ -8,7 +8,8 @@ func available(main: Main) -> Array:
 		if course.done:
 			continue
 		
-		# TODO: Requirements
+		if course.level != (main.nomad[course.type] + 1):
+			continue
 		
 		valid.append(course)
 		if valid.size() >= 3:
@@ -22,6 +23,7 @@ class Course:
 	var name: String
 	var type: String
 	var done: bool
+	var level: int
 
 	var cost: int
 
@@ -41,6 +43,7 @@ class Course:
 		name = course['name']
 		type = course['type'] # copywriting, design, code, soft, gamedev
 		cost = course['cost']
+		level = course['level']
 		done = false
 
 		for quiz in course.quiz:
@@ -238,7 +241,7 @@ func _ready():
 					'filler': ['yeah, Ill make a lot of money lol', 'yes, I wont earn anything =('],
 				},
 				{
-					'question': "You've been working all day and you're hungry. Best course of action?', 'answer': 'order a pizza',
+					'question': "You've been working all day and you're hungry. Best course of action?", 'answer': 'order a pizza',
 					'filler': ['cook a 3-course meal', 'ignore everything, keep working'],
 				},
 			],
@@ -286,7 +289,7 @@ func _ready():
 				},
 				{
 					'question': 'Tip your Eats courier:', 'answer': '$1.00',
-					'filler': ['"Don't do anything till you know you're ready."', '"Delete your lawyer, hit the Facebook, buy a gym"'],
+					'filler': ['"Don\'t do anything till you know you\'re ready"', '"Delete your lawyer, hit the Facebook, buy a gym"'],
 				},
 				{
 					'question': 'Your friend tells you about this new cryptocurrency HYIP with 1% returns/day.', 'answer': "Say you're broke",
