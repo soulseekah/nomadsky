@@ -57,6 +57,7 @@ func _ready():
 	$Success/Okay.connect('pressed', self, 'dismiss_success')
 	$Confirm/Cancel.connect('pressed', self, 'confirm_cancel')
 	$Confirm/Okay.connect('pressed', self, 'confirm_okay')
+	$Death/Exit.connect('pressed', self, 'exit_clicked')
 
 	$Card/Action1.connect('pressed', self, 'do_action_1')
 	$Card/Action2.connect('pressed', self, 'do_action_2')
@@ -240,6 +241,14 @@ func dead(why):
 
 	$Death/Label.text = reasons[why]
 	$Death/Label.show()
+	$Death/Stats.show()
+	$Death/Exit	.show()
+	$Death/Sad.show()
+	$Death/Stats.bbcode_text = 'Lived for %d day(s) and %d hour(s)\n' % [time / 24, time % 24]
+	$Death/Stats.bbcode_text += 'Earned $%d\n' % nomad.stats['revenue']
+	$Death/Stats.bbcode_text += 'Spent $%d\n' % nomad.stats['expenses']
+	$Death/Stats.bbcode_text += 'Cards %d of %d\n' % [nomad.stats['cards'], Cards.cards.size()]
+	$Death/Stats.bbcode_text += 'Courses %d of %d\n' % [nomad.stats['courses'], Courses.courses.size()]
 
 func sleep():
 	$Blackout.show()
@@ -489,6 +498,7 @@ func do_course():
 		course.done = true
 		nomad[course.type] += 1
 		nomad.mood(+10)
+		nomad.stats['courses'] += 1
 	else:
 		nomad.mood(-10)
 
@@ -599,6 +609,7 @@ func do_action(index):
 
 	if not (action.has('skip') && action['skip']):
 		current_card.done = true
+		nomad.stats['cards'] += 1
 
 	current_card = null
 	$Card.hide()
@@ -841,3 +852,6 @@ func woof():
 	if randf() > 0.9:
 		nomad.mood(+1)
 		play('woof')
+		
+func exit_clicked():
+	get_tree().change_scene("res://scenes/Intro.tscn")

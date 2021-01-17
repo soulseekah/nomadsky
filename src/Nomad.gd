@@ -32,6 +32,12 @@ var karma: int
 var rating: int
 var energy: int
 
+var stats = {
+	'revenue': 0,
+	'expenses': 0,
+	'cards': 0,
+	'courses': 0,
+}
 
 # Courses
 var courses: Array = []
@@ -43,7 +49,7 @@ func hunger(amount: int):
 	if hunger < 30:
 		main.play('hunger')
 	if hunger == 0:
-		self.health(amount)
+		emit_signal('dead', 'hunger')
 
 func health(amount: int):
 	health = self.limit(health + amount)
@@ -63,6 +69,11 @@ func energy(amount: int):
 	energy = self.limit(energy + amount)
 	
 func money(amount: int):
+	if amount > 0:
+		self.stats['revenue'] += amount
+	else:
+		self.stats['expenses'] += amount * -1
+
 	money += amount
 	if money < 0:
 		money = 0

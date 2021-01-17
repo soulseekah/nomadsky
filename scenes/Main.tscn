@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://src/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/locations/Pyongyang.tscn" type="PackedScene" id=2]
@@ -113,6 +113,10 @@ tracks/1/keys = {
 "update": 0,
 "values": [ -25.0, -70.0 ]
 }
+
+[sub_resource type="DynamicFont" id=19]
+size = 12
+font_data = SubResource( 8 )
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -552,14 +556,55 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -314.0
-margin_top = -49.0
-margin_right = 315.0
-margin_bottom = 50.0
+margin_left = -142.0
+margin_top = -146.0
+margin_right = 271.0
+margin_bottom = -86.0
 custom_fonts/font = ExtResource( 14 )
 text = "Dead"
-align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Stats" type="RichTextLabel" parent="Death"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -142.0
+margin_top = -66.0
+margin_right = 254.0
+margin_bottom = 82.0
+custom_fonts/normal_font = SubResource( 19 )
+text = "Lived for 21 days and 6 hours
+Earned $21219
+Spent $1219
+Cards: 15 of 200
+Courses: 4 of 19"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="Death"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -65.0
+margin_top = 130.0
+margin_right = 68.0
+margin_bottom = 177.0
+custom_fonts/font = ExtResource( 14 )
+text = "Good Stuff"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sad" type="Sprite" parent="Death"]
+visible = false
+position = Vector2( 209, 193 )
+scale = Vector2( 1.8125, 1.8125 )
+texture = ExtResource( 13 )
