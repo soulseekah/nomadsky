@@ -2165,6 +2165,17 @@ func _ready():
 			'requirements': {},
 
 		},
+		{
+			'type': 'info',
+			'title': 'Travel budgeting',
+			'description': "Be careful when travelling, make sure you have enough money left for your first couple of days at a new location.",
+			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {},
+
+		},
 	]: cards.append(Card.new(card))
 
 	cards.sort_custom(Cards, 'sort_cards')
