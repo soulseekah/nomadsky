@@ -2203,6 +2203,17 @@ func _ready():
 			'requirements': {},
 
 		},
+		{
+			'type': 'info',
+			'title': 'Hunger',
+			'description': "Never go to sleep hungry. It may prove to be lethal.",
+			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {},
+
+		},
 	]: cards.append(Card.new(card))
 
 	cards.sort_custom(Cards, 'sort_cards')
