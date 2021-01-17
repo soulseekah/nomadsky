@@ -231,7 +231,7 @@ func confirm_okay():
 	emit_signal('confirm_closed', 'okay')
 
 func maybe_pick_card():
-	if randf() > 0.0 and not queued_card:
+	if randf() > 0.9 and not queued_card:
 		queued_card = Cards.pick(['info', 'accident', 'gift', 'decision'], self)
 
 func dead(why):
