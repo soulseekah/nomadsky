@@ -373,7 +373,11 @@ func show_card(card):
 
 	if card.type == 'work':
 		var accept = card.actions['accept']
-		var reward = accept['money'] * nomad.location.bonus
+		var reward = accept['money']
+		
+		reward = reward * nomad.location.bonus
+		reward = reward * (1.0 + float(nomad.soft) / 10)
+
 		var time_estimate = max(accept['time'] * nomad.workstation.bonus, 1)
 		$Card/Text.bbcode_text += '\n\n$%d, ~%d hrs' % [reward, time_estimate]
 
@@ -557,6 +561,7 @@ func do_action(index):
 			var money = action['money']
 			if money > 0:
 				money = money * nomad.location.bonus
+				money = money * (1.0 + float(nomad.soft) / 10)
 
 			nomad.money(money)
 
