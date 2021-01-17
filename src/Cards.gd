@@ -1530,7 +1530,7 @@ func _ready():
 					'skip': true,
 				},
 			},
-		}
+		},
 
 		# Accidents
 		{
