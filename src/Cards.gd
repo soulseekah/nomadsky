@@ -293,18 +293,333 @@ func _ready():
 			},
 			'actions': {
 				'accept': {
-					'money': 20,
+					'money': 80,
 					'time': 2,
 				},
 				'decline': {
+					'time': 1,
 					'karma': -1,
 				},
 				'ignore': {
+					'time': 1,
 					'skip': true,
 				},
 			},
 		},
 		{
+			'type': 'work',
+			'title': 'Move our Joomla website from GoDaddy to our own servers...',
+			'description': 'The downtimes have been killing our business. We need to move ASAP!!11!',
+			'chance': 0.3,
+			'requirements': {
+				'code': 1,
+			},
+			'actions': {
+				'accept': {
+					'money': 80,
+					'time': 2,
+				},
+				'decline': {
+					'time': 1,
+					'karma': -1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'The site stopped working',
+			'description': 'We have no idea why. IMMEDIATE help is required.',
+			'chance': 0.3,
+			'requirements': {
+				'code': 1,
+			},
+			'actions': {
+				'accept': {
+					'money': 75,
+					'time': 3,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'My printer stopped working',
+			'description': 'ATTN: I WILL NOT PAY UPFRONT. Fix it and you will get your money.',
+			'chance': 0.3,
+			'requirements': {
+				'code': 1,
+			},
+			'actions': {
+				'accept': {
+					'money': 90,
+					'time': 4,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Explain Bitcoin to my family',
+			'description': 'I need a real web developer to explain what crypto is. They won\'t believe me, but they should believe someone who looks smart. See you soon.',
+			'chance': 0.3,
+			'requirements': {
+				'code': 1,
+			},
+			'actions': {
+				'accept': {
+					'money': 80,
+					'time': 2,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Solitaire clone for the command-line',
+			'description': 'Management disabled GUIs on our work machines, we only have msdos to work in. We need a saviour to help our time pass at this office.',
+			'chance': 0.3,
+			'requirements': {
+				'code': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 300,
+					'time': 5,
+					'karma': 5,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Create a CRM backend',
+			'description': 'Our face mask and sanitizer company is growing fast. We need a custom-built or exiting CRM system deployed on our premises.',
+			'chance': 0.04,
+			'requirements': {
+				'code': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 400,
+					'time': 8,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Write a betting automation suite',
+			'description': 'I am looking to automatically bet on certain cricket teams according to a very smart strategy. NDA has to be signed.',
+			'chance': 0.3,
+			'requirements': {
+				'code': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 170,
+					'time': 4,
+				},
+				'decline': {
+					'karma': 5,
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Fine-tune self-driving software for our drone',
+			'description': 'We are an indie film studio. Some of our drones seem to be misbehaving. Can someone check it out?',
+			'chance': 0.3,
+			'requirements': {
+				'code': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 350,
+					'time': 14,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'My former partner screwed us over. HELP!',
+			'description': 'We need the help of a "security pro" to help regain access to our servers after a fallout with a disgruntled employee.',
+			'chance': 0.3,
+			'requirements': {
+				'code': 2,
+			},
+			'actions': {
+				'accept': {
+					'money': 300,
+					'time': 7,
+					'karma': -10,
+				},
+				'decline': {
+					'karma': 5,
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Develop 3d printing software',
+			'description': 'We need a web-based HTML5-powered 3d printing software done in React. We used Vue for a prototype and it seems to work well. Cheers.',
+			'chance': 0.3,
+			'requirements': {
+				'code': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 700,
+					'time': 17,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Setup our server room',
+			'description': 'Our bank requires secure servers to be installed to store and process transaction data. Looking for rockstar engineers.',
+			'chance': 0.3,
+			'requirements': {
+				'code': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 800,
+					'time': 20,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Write a Linux Driver for a weather station',
+			'description': 'We got these home weather stations produced. They are not recognized in Ubuntu machines.',
+			'chance': 0.1,
+			'requirements': {
+				'code': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 600,
+					'time': 7,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Move our MySQL database to a Postgres one',
+			'description': 'We have been using MySQL for a while now and as our data has grown and demands increased we are looking for a more robust and flexible solution. Rewrite our application to work with psql.',
+			'chance': 0.3,
+			'requirements': {
+				'code': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 800,
+					'time': 20,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Reverse engineer this iPhone app',
+			'description': 'We want to be able to figure out how a certain iPhone app works. Can anyone help?',
+			'chance': 0.3,
+			'requirements': {
+				'code': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 300,
+					'time': 8,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{ # Copy
 			'type': 'work',
 			'title': 'Write 6 articles about cheap hosting services.',
 			'description': 'We are a hosting company with a bad rep... we need people to believe us more.',
