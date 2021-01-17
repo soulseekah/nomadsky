@@ -6,7 +6,7 @@ Nomadsky / Godot Wild Jam 29
 
 ### Art
 
-Merly23, katymelvillle
+Merly23, katymelvillle, dinkaseremf46b
 
 ### Programming
 

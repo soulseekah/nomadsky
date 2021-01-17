@@ -33,7 +33,7 @@ func _ready():
 	nomad.location = Modifiers.Location.Pyongyang.new()
 	nomad.workstation = Modifiers.Workstation.Red.new()
 	actions = [$Card/Action1, $Card/Action2, $Card/Action3]
-	
+
 	$BackgroundAudio.stream = load("res://assets/sound/bgm/pyongyang.ogg")
 	$BackgroundAudio.play()
 
@@ -90,7 +90,7 @@ func _ready():
 
 	# The first location
 	$Locations/Pyongyang.show()
-	
+
 	yield(get_tree().create_timer(3.0), 'timeout')
 
 	# First card
@@ -377,7 +377,7 @@ func show_card(card):
 	if card.type == 'work':
 		var accept = card.actions['accept']
 		var reward = accept['money']
-		
+
 		reward = reward * nomad.location.bonus
 		reward = reward * (1.0 + float(nomad.soft) / 10)
 
