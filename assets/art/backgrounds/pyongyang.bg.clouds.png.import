@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pyongayng.hunger.png-aa3e9b9bb4333b98c3e7e6b02a098052.stex"
+path="res://.import/pyongyang.bg.clouds.png-e6287e1967c639232a104de41e6eb675.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/backgrounds/pyongayng.hunger.png"
-dest_files=[ "res://.import/pyongayng.hunger.png-aa3e9b9bb4333b98c3e7e6b02a098052.stex" ]
+source_file="res://assets/art/backgrounds/pyongyang.bg.clouds.png"
+dest_files=[ "res://.import/pyongyang.bg.clouds.png-e6287e1967c639232a104de41e6eb675.stex" ]
 
 [params]
 

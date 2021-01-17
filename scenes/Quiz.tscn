@@ -1,101 +1,103 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/DejaVuSansMono.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/Unibody8ProRegular.tres" type="DynamicFont" id=1]
 
-[sub_resource type="ButtonGroup" id=1]
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://assets/Unibody8Pro-Regular.otf"
 
-[sub_resource type="DynamicFontData" id=2]
-font_path = "res://assets/DejaVuSansMono.ttf"
-
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 20
-font_data = SubResource( 2 )
+font_data = SubResource( 8 )
+
+[sub_resource type="ButtonGroup" id=3]
 
 [node name="Quiz" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_top = 1.0
-margin_right = 378.0
-margin_bottom = 255.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Answer1" type="CheckBox" parent="."]
-margin_left = 36.4183
-margin_top = 101.855
-margin_right = 88.4183
-margin_bottom = 126.855
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-group = SubResource( 1 )
-text = "Yes"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Answer2" type="CheckBox" parent="."]
-margin_left = 36.0
-margin_top = 126.0
-margin_right = 296.0
-margin_bottom = 151.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-group = SubResource( 1 )
-text = "Need to consult with roommate"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Answer3" type="CheckBox" parent="."]
-margin_left = 36.0
-margin_top = 149.272
-margin_right = 304.0
-margin_bottom = 174.272
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-group = SubResource( 1 )
-text = "You still haven't bought them?"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Submit" type="Button" parent="."]
-margin_left = 42.5455
-margin_top = 187.964
-margin_right = 132.546
-margin_bottom = 225.964
-text = "Submit"
+margin_left = 80.0
+margin_top = 100.0
+margin_right = 720.0
+margin_bottom = 500.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 19.6189
-margin_top = 19.2063
-margin_right = 70.6189
-margin_bottom = 45.2063
-custom_fonts/font = SubResource( 3 )
+margin_left = 115.619
+margin_top = 136.206
+margin_right = 177.619
+margin_bottom = 171.206
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Quiz"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Answer1" type="CheckBox" parent="."]
+margin_left = 132.418
+margin_top = 278.855
+margin_right = 195.418
+margin_bottom = 311.855
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+group = SubResource( 3 )
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer2" type="CheckBox" parent="."]
+margin_left = 132.0
+margin_top = 311.0
+margin_right = 392.0
+margin_bottom = 336.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+group = SubResource( 3 )
+text = "Need to consult with roommate"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer3" type="CheckBox" parent="."]
+margin_left = 132.0
+margin_top = 342.272
+margin_right = 466.0
+margin_bottom = 375.272
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+group = SubResource( 3 )
+text = "You still haven't bought them?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Submit" type="Button" parent="."]
+margin_left = 138.546
+margin_top = 404.964
+margin_right = 228.546
+margin_bottom = 442.964
+custom_fonts/font = ExtResource( 1 )
+text = "Submit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Question" type="Label" parent="."]
-margin_left = 19.0
-margin_top = 49.0
-margin_right = 366.0
-margin_bottom = 100.0
+margin_left = 115.0
+margin_top = 194.0
+margin_right = 679.0
+margin_bottom = 279.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Is it worth buying 10,000 links to your post?"

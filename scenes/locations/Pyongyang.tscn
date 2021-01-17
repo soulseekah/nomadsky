@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://assets/art/backgrounds/pyongayng.mood.png" type="Texture" id=1]
 [ext_resource path="res://scenes/locations/Pyongyang.gd" type="Script" id=2]
-[ext_resource path="res://assets/art/backgrounds/pyongayng.hunger.png" type="Texture" id=3]
-[ext_resource path="res://assets/art/backgrounds/pyongayng.exit.png" type="Texture" id=4]
-[ext_resource path="res://assets/art/backgrounds/pyongayng.bg.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/backgrounds/pyongyang.bg.clouds.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/backgrounds/pyongyang.fg.street.png" type="Texture" id=6]
+[ext_resource path="res://assets/art/backgrounds/pyongyang.bg.sky.png" type="Texture" id=7]
+[ext_resource path="res://assets/art/backgrounds/pyongyang.bg.buildings.png" type="Texture" id=8]
+
+[sub_resource type="StreamTexture" id=4]
+flags = 4
+load_path = "res://.import/pyongyang.mood.png-315090b0443fa4747a19a7064dda55a8.stex"
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Area2D
@@ -25,8 +29,19 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 57.2632, 63.7151 )
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 44.6212, 137.493 )
+
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+load_path = "res://.import/pyongyang.exit.png-cfde8a7c66f002b7cb77e7589e150a06.stex"
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 54.6584, 62.0373 )
+
+[sub_resource type="StreamTexture" id=8]
+flags = 4
+load_path = "res://.import/pyongyang.food.png-e2616312def60ab31d2bb16307955a10.stex"
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends Sprite
@@ -44,21 +59,36 @@ func _on_Food_input_event(viewport, event, shape_idx):
 					print('food')
 "
 
-[node name="Mongolia" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 44.6212, 16.2057 )
+
+[node name="Pyongyang" type="Node2D"]
 position = Vector2( 3.05176e-05, 1.52588e-05 )
 script = ExtResource( 2 )
 
-[node name="Background" type="Sprite" parent="."]
-position = Vector2( 322.692, 182.535 )
-scale = Vector2( 1.59184, 1.19722 )
+[node name="Backgnoud" type="Node2D" parent="."]
+
+[node name="Sky" type="Sprite" parent="Backgnoud"]
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="Clouds" type="Sprite" parent="Backgnoud"]
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
+
+[node name="Buildings" type="Sprite" parent="Backgnoud"]
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
 
 [node name="Interactive" type="Node2D" parent="."]
 
 [node name="Mood" type="Sprite" parent="Interactive"]
-position = Vector2( 343.997, 211.222 )
-scale = Vector2( 1.44939, 1.38846 )
-texture = ExtResource( 1 )
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="Interactive/Mood"]
 position = Vector2( 147.844, -46.5807 )
@@ -66,32 +96,37 @@ scale = Vector2( 1.09828, 0.862262 )
 script = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Mood/Area2D"]
-position = Vector2( -143.761, 66.37 )
-shape = SubResource( 2 )
+position = Vector2( -181.277, 77.6647 )
+shape = SubResource( 5 )
 
 [node name="Exit" type="Sprite" parent="Interactive"]
-position = Vector2( 323.438, 167.665 )
-scale = Vector2( 1.59184, 1.19722 )
-texture = ExtResource( 4 )
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 6 )
 
 [node name="Area2D" type="Area2D" parent="Interactive/Exit"]
 position = Vector2( 288.875, -5.1109 )
 script = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Exit/Area2D"]
-position = Vector2( -143.761, 66.37 )
-shape = SubResource( 2 )
+position = Vector2( -145.259, 86.5972 )
+shape = SubResource( 7 )
 
 [node name="Food" type="Sprite" parent="Interactive"]
 modulate = Color( 0.764706, 0.729412, 0.72549, 1 )
-position = Vector2( 323.281, 161.546 )
-scale = Vector2( 1.59184, 1.19722 )
-texture = ExtResource( 3 )
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 8 )
 script = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="Interactive/Food"]
 script = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Food/Area2D"]
-position = Vector2( -143.761, 66.37 )
+position = Vector2( -157.246, 123.306 )
 shape = SubResource( 2 )
+
+[node name="Street" type="Sprite" parent="."]
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )

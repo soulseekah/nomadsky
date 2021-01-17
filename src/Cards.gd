@@ -17,6 +17,14 @@ func pick(types: Array, main: Main) -> Card:
 
 		if card.requirements.has('time') and card.requirements['time'] > main.time:
 			continue
+			
+		if card.requirements.has('pet'):
+			if card.requirements['pet'] == '!dog;!cat' and main.nomad.pet:
+				continue
+			
+			if card.requirements['pet'] == 'cat' or card.requirements['pet'] == 'dog':
+				if not main.nomad.pet or main.nomad.pet.type != card.requirements['pet']:
+					continue
 
 		valid.append(card)
 		total += int(card.chance * 1000)
@@ -224,7 +232,7 @@ func _ready():
 		{
 			'type': 'work',
 			'title': 'Email a list of people',
-			'description': 'I need to send a message to a list of about 7000 email addresses. Use at least 1 new email account per 100 emails sent.'
+			'description': 'I need to send a message to a list of about 7000 email addresses. Use at least 1 new email account per 100 emails sent.',
 			'requirements': {},
 			'chance': 0.02,
 			'actions': {

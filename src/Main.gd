@@ -6,7 +6,7 @@ signal confirm_closed(action)
 
 class_name Main
 
-var time: float
+var time: int
 var nomad: Nomad
 
 var location: Modifiers.Location
@@ -25,18 +25,18 @@ func _ready():
 	nomad.health = 90
 	nomad.karma = 50
 	nomad.energy = 90
-	nomad.hunger = 10
+	nomad.hunger = 90
 	nomad.mood = 80
 	nomad.rating = 0
 
 	location = Modifiers.Location.Pyongyang.new()
 	actions = [$Card/Action1, $Card/Action2, $Card/Action3]
 	
-	$Actions.hide()
+	$Status/Actions.hide()
 	$Workstation.hide()
 	
-	$Actions/Work.connect('pressed', self, 'workstation_open')
-	$Actions/Sleep.connect('pressed', self, 'sleep')
+	$Status/Actions/Work.connect('pressed', self, 'workstation_open')
+	$Status/Actions/Sleep.connect('pressed', self, 'sleep')
 	
 	$Workstation/Actions/Shutdown.connect('pressed', self, 'workstation_close')
 	$Workstation/Actions/Work.connect('pressed', self, 'find_work')
@@ -77,7 +77,7 @@ func _ready():
 	self.show_card(current_card)
 	
 	yield(self, 'card_closed')
-	$Actions.show()
+	$Status/Actions.show()
 	
 	var timer = Timer.new()
 	timer.set_wait_time(5.0)
@@ -85,12 +85,44 @@ func _ready():
 	timer.connect('timeout', self, 'maybe_pick_card')
 	self.add_child(timer)
 	timer.start()
+	
+func tick(amount):
+	if time % 24 + amount > 23:
+		if nomad.pet:
+			print('Pet: %s $%d +%d mood' % [nomad.pet.type, nomad.pet.cost, nomad.pet.bonus])
+			nomad.money(-nomad.pet.cost)
+			nomad.mood(nomad.pet.bonus)
 
-	$Timer.text = str(time);
+	time += amount
 
 func _process(delta):
-	$Timer.text = 'Time: %s' % str(int(time))
-	$Stats.text = str(nomad)
+	var day_label = 1
+	var time_label = 0
+	day_label += time / 24
+	time_label = time % 24
+
+	$Status/Timer.text = 'Day %d   %d:00' % [day_label, time_label]
+	$Status/Stats.text = str(nomad)
+	$Status/Money.text = str(nomad.money)
+	
+	if nomad.mood >= 60:
+		$Status/Mood/Happy.show()
+		$Status/Mood/Indifferent.hide()
+		$Status/Mood/Sad.hide()
+	elif nomad.mood >= 30:
+		$Status/Mood/Happy.hide()
+		$Status/Mood/Indifferent.show()
+		$Status/Mood/Sad.hide()
+	else:
+		$Status/Mood/Happy.hide()
+		$Status/Mood/Indifferent.hide()
+		$Status/Mood/Sad.show()
+		
+	$Status/Energy.value = nomad.energy
+	if nomad.energy <= 30:
+		$Status/Energy.get('custom_styles/fg').bg_color = Color(0.7, 0, 0)
+	else:
+		$Status/Energy.get('custom_styles/fg').bg_color = Color(0, 0.7, 0)
 	
 	if queued_card and self.is_idle():
 		current_card = queued_card
@@ -98,7 +130,7 @@ func _process(delta):
 		if $Workstation.visible:
 			$Workstation/Actions.hide()
 		else:
-			$Actions.hide()
+			$Status/Actions.hide()
 		
 		self.show_card(current_card)
 		yield(self, 'card_closed')
@@ -107,7 +139,7 @@ func _process(delta):
 		if $Workstation.visible:
 			$Workstation/Actions.show()
 		else:
-			$Actions.show()
+			$Status/Actions.show()
 
 func is_idle():
 	if $Blackout.visible:
@@ -178,7 +210,7 @@ func sleep():
 	yield(get_tree().create_timer(3.0), 'timeout')
 	$Blackout/Label.hide()
 	
-	time += 8
+	self.tick(8)
 	nomad.energy(+70)
 	nomad.health(+5)
 	nomad.hunger(-10)
@@ -221,7 +253,7 @@ func click_food(node: Node):
 	yield(get_tree().create_timer(3.0), 'timeout')
 	$Blackout/Label.hide()
 
-	time += 1
+	self.tick(1)
 	nomad.energy(+5)
 	nomad.health(+5)
 	nomad.hunger(+80)
@@ -254,7 +286,7 @@ func find_work():
 	yield(get_tree().create_timer(rng.randf_range(2.0, 4.0)), 'timeout')
 	$Workstation/Loading.hide()
 	
-	time += 1
+	self.tick(1)
 	nomad.energy(-1)
 	nomad.hunger(-1)
 
@@ -272,7 +304,7 @@ func show_card(card):
 		if card.type == 'work':
 			play('work')
 	
-	$Card/Text.bbcode_text = '[b]%s[/b]\n\n%s' % [card.title, card.description]
+	$Card/Text.bbcode_text = '%s\n\n%s' % [card.title, card.description]
 
 	# Hide all actions
 	for action in actions:
@@ -297,7 +329,7 @@ func workstation_open():
 	call_deferred('play', 'click1')
 
 	$Workstation.show()
-	$Actions.hide()
+	$Status/Actions.hide()
 
 func workstation_close():
 	call_deferred('play', 'click2')
@@ -306,7 +338,7 @@ func workstation_close():
 		return
 
 	$Workstation.hide()
-	$Actions.show()
+	$Status/Actions.show()
 	
 func show_courses():
 	call_deferred('play', 'click1')
@@ -431,7 +463,7 @@ func do_action(index):
 		'decline': play('reject')
 
 	if (action.has('time')):
-		time += action['time']
+		self.tick(action['time'])
 		nomad.energy(-energy_cost)
 		nomad.hunger(-action['time'])
 
@@ -444,6 +476,14 @@ func do_action(index):
 
 		if (action.has('mood')):
 			nomad.mood(action['mood'])
+			
+		if (action.has('pet')):
+			var pets = {
+				'cat': Modifiers.Pet.Cat,
+				'dog': Modifiers.Pet.Dog,
+			}
+			
+			nomad.pet = pets[action['pet']].new()
 			
 		nomad.rating(+1)
 	else:
@@ -468,7 +508,7 @@ func click_exit(node: Node):
 	var next
 
 	if node.name == 'Pyongyang':
-		cost = 1
+		cost = 1000
 
 		if nomad.money < cost:
 			self.error('Doesn\'t look like I have enough money to leave this place. The guards want $1k to look away while I climb the fence.')
@@ -492,7 +532,7 @@ func click_exit(node: Node):
 	yield(get_tree().create_timer(3.0), 'timeout')
 	$Blackout/Label.hide()
 
-	time += 8
+	self.tick(8)
 	nomad.money(-cost)
 	nomad.mood(+10)
 	
