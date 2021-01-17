@@ -33,6 +33,9 @@ func _ready():
 	nomad.location = Modifiers.Location.Pyongyang.new()
 	nomad.workstation = Modifiers.Workstation.Red.new()
 	actions = [$Card/Action1, $Card/Action2, $Card/Action3]
+	
+	$BackgroundAudio.stream = load("res://assets/sound/bgm/pyongyang.ogg")
+	$BackgroundAudio.play()
 
 	$Status/Actions.hide()
 	$Workstation.hide()
@@ -87,8 +90,8 @@ func _ready():
 
 	# The first location
 	$Locations/Pyongyang.show()
-
-	#yield(get_tree().create_timer(3.0), 'timeout')
+	
+	yield(get_tree().create_timer(3.0), 'timeout')
 
 	# First card
 	current_card = Cards.pick(['info'], self)
