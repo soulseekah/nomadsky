@@ -65,28 +65,35 @@ func _ready():
 	$Locations/Pyongyang.connect('food', self, 'click_food')
 	$Locations/Pyongyang.connect('mood', self, 'click_mood')
 	$Locations/Pyongyang.connect('exit', self, 'click_exit')
+	$Locations/Pyongyang.connect('tooltip', self, 'tooltip')
 
 	$Locations/Mongolia.connect('food', self, 'click_food')
 	$Locations/Mongolia.connect('mood', self, 'click_mood')
 	$Locations/Mongolia.connect('tech', self, 'click_tech')
 	$Locations/Mongolia.connect('exit', self, 'click_exit')
+	$Locations/Mongolia.connect('tooltip', self, 'tooltip')
 
 	$Locations/Moscow.connect('food', self, 'click_food')
 	$Locations/Moscow.connect('mood', self, 'click_mood')
 	$Locations/Moscow.connect('tech', self, 'click_tech')
 	$Locations/Moscow.connect('exit', self, 'click_exit')
+	$Locations/Moscow.connect('tooltip', self, 'tooltip')
 
 	$Locations/Spain.connect('food', self, 'click_food')
 	$Locations/Spain.connect('mood', self, 'click_mood')
 	$Locations/Spain.connect('tech', self, 'click_tech')
 	$Locations/Spain.connect('exit', self, 'click_exit')
+	$Locations/Spain.connect('tooltip', self, 'tooltip')
 
 	$Locations/NewYork.connect('food', self, 'click_food')
 	$Locations/NewYork.connect('mood', self, 'click_mood')
 	$Locations/NewYork.connect('tech', self, 'click_tech')
+	$Locations/NewYork.connect('tooltip', self, 'tooltip')
 
 	# The first location
 	$Locations/Pyongyang.show()
+
+	$Status/Tooltip.text = '';
 
 	# First card
 	current_card = Cards.pick(['info'], self)
@@ -836,3 +843,6 @@ func woof():
 	if randf() > 0.9:
 		nomad.mood(+1)
 		play('woof')
+
+func tooltip(text: String):
+	$Status/Tooltip.text = text if text else ''
