@@ -7,6 +7,7 @@ var cards: Array = []
 func pick(types: Array, main: Main) -> Card:
 	var valid = []
 	var total = 0
+	var skilled
 
 	for card in cards:
 		if card.done:
@@ -25,6 +26,15 @@ func pick(types: Array, main: Main) -> Card:
 			if card.requirements['pet'] == 'cat' or card.requirements['pet'] == 'dog':
 				if not main.nomad.pet or main.nomad.pet.type != card.requirements['pet']:
 					continue
+		
+		skilled = true
+		for skill in ['code', 'gamedev', 'soft', 'design', 'copywriting']:
+			if card.requirements.has(skill) and main.nomad[skill] < card.requirements[skill]:
+				skilled = false
+				break
+					
+		if not skilled:
+			continue
 
 		valid.append(card)
 		total += int(card.chance * 1000)

@@ -144,6 +144,20 @@ func _process(_delta):
 	else:
 		$Status/Energy.get('custom_styles/fg').bg_color = Color(0, 0.7, 0)
 	
+	$Status/Hunger.value = nomad.hunger
+	if nomad.hunger <= 30:
+		$Status/Hunger.get('custom_styles/fg').bg_color = Color(0.7, 0, 0)
+	else:
+		$Status/Hunger.get('custom_styles/fg').bg_color = Color(0, 0.7, 0)
+	
+	$Status/Health.value = nomad.health
+	if nomad.health <= 30:
+		$Status/Health.get('custom_styles/fg').bg_color = Color(0.7, 0, 0)
+	else:
+		$Status/Health.get('custom_styles/fg').bg_color = Color(0, 0.7, 0)
+	
+	
+	
 	if queued_card and self.is_idle():
 		current_card = queued_card
 		
@@ -322,6 +336,11 @@ func find_work():
 
 	# Pick a card
 	current_card = Cards.pick(['work'], self)
+	if not current_card:
+		self.error('Doesn\'t look like there\'s work at this time. Perhaps I should level up my skills.')
+		$Workstation/Actions.show()
+		return
+
 	self.show_card(current_card)
 	
 	yield(self, 'card_closed')
