@@ -4,6 +4,7 @@ signal food
 signal mood
 signal exit
 signal tech
+signal tooltip
 
 func _ready():
 	$Interactive/Food/Area2D.connect('mouse_entered', self, 'food_mouse_in')
@@ -24,9 +25,11 @@ func _ready():
 
 func mood_mouse_in():
 	$Interactive/Mood.modulate = Color(2.0, 2.0, 2.0)
+	emit_signal('tooltip', 'Arrow range')
 
 func mood_mouse_out():
 	$Interactive/Mood.modulate = Color(1.0, 1.0, 1.0)
+	emit_signal('tooltip', '')
 
 func mood_click(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
@@ -34,9 +37,11 @@ func mood_click(viewport, event, shape_idx):
 		
 func food_mouse_in():
 	$Interactive/Food.modulate = Color(2.0, 2.0, 2.0)
+	emit_signal('tooltip', 'Farm food')
 
 func food_mouse_out():
 	$Interactive/Food.modulate = Color(1.0, 1.0, 1.0)
+	emit_signal('tooltip', '')
 
 func food_click(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
@@ -44,9 +49,11 @@ func food_click(viewport, event, shape_idx):
 		
 func tech_mouse_in():
 	$Interactive/Tech.modulate = Color(2.0, 2.0, 2.0)
+	emit_signal('tooltip', 'Laptops & Phones')
 
 func tech_mouse_out():
 	$Interactive/Tech.modulate = Color(1.0, 1.0, 1.0)
+	emit_signal('tooltip', '')
 
 func tech_click(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
@@ -54,9 +61,11 @@ func tech_click(viewport, event, shape_idx):
 		
 func exit_mouse_in():
 	$Interactive/Exit.modulate = Color(2.0, 2.0, 2.0)
+	emit_signal('tooltip', 'Leave by horse and cart')
 
 func exit_mouse_out():
 	$Interactive/Exit.modulate = Color(1.0, 1.0, 1.0)
+	emit_signal('tooltip', '')
 
 func exit_click(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
