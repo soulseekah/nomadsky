@@ -1381,9 +1381,7 @@ func _ready():
 			'title': 'Battery 0%',
 			'description': 'Your laptop battery is flat. Go find a charger!',
 			'chance': 0.1,
-			'requirements': {
-				'quarters': 'camping',
-			},
+			'requirements': {},
 			'actions': {
 				'okay': {
 					'time': 8,
@@ -1397,9 +1395,7 @@ func _ready():
 			'title': 'Lights out!',
 			'description': "Another electricity blackout :( you won't be able to work for a while.",
 			'chance': 0.05,
-			'requirements': {
-				'quarters': '!camping',
-			},
+			'requirements': {},
 			'actions': {
 				'okay': {
 					'time': 2,
@@ -1424,6 +1420,115 @@ func _ready():
 				},
 			},
 			'sound': 'lostcat',
+		},
+		{
+			'type': 'accident',
+			'title': 'HAVE YOU SEEN SPARKY?',
+			'description': "Your dog ran away :( You try go finding it to no avail.",
+			'chance': 0.01,
+			'requirements': {
+				'pet': 'dog',
+			},
+			'actions': {
+				'okay': {
+					'time': 8,
+					'mood': -10,
+					'karma': -5,
+				},
+			},
+			'sound': 'lostdog',
+		},
+		{
+			'type': 'accident',
+			'title': 'Spoiled food',
+			'description': 'Looks like that food was not that fresh... Puke it out and try again.',
+			'chance': 0.08,
+			'requirements': {},
+			'actions': {
+				'okay': {
+					'time': 6,
+					'mood': -15,
+					'health': -10,
+					'hunger': -50,
+				},
+			},
+			'sound': 'puke',
+		},
+		{
+			'type': 'accident',
+			'title': "Slip n' fall, roll and crawl",
+			'description': 'Was it a banana peel? Was it a turd? Nobody knows. But you are quite hurt.',
+			'chance': 0.08,
+			'requirements': {},
+			'actions': {
+				'okay': {
+					'time': 3,
+					'mood': -15,
+					'health': -20,
+				},
+			},
+			'sound': 'tumble',
+		},
+		{
+			'type': 'accident',
+			'title': 'Your digital wallet has been hacked!',
+			'description': 'Luckily, as a nomad, you never keep all your eggs in one basket.',
+			'chance': 0.08,
+			'requirements': {},
+			'actions': {
+				'okay': {
+					'time': 6,
+					'mood': -15,
+					'money': -40,
+				},
+			},
+			'sound': 'hack',
+		},
+		{
+			'type': 'accident',
+			'title': 'It starts raining!',
+			'description': 'Your laptop gets wet. Dry it rice, take it to the repair shop.',
+			'chance': 0.01,
+			'requirements': {},
+			'actions': {
+				'okay': {
+					'time': 8,
+					'mood': -15,
+					'money': -100,
+				},
+			},
+			'sound': 'puke',
+		},
+		{
+			'type': 'accident',
+			'title': 'Watch out!',
+			'description': "You get hit by a car. It's a hit and run. Police might find him... not.",
+			'chance': 0.03,
+			'requirements': {},
+			'actions': {
+				'okay': {
+					'time': 12,
+					'mood': -25,
+					'health': -70,
+				},
+			},
+			'sound': 'car',
+		},
+		{
+			'type': 'accident',
+			'title': '"Cuff 'em up!"',
+			'description': 'Police take you in for squatting. There will be fines...',
+			'chance': 0.08,
+			'requirements': {},
+			'actions': {
+				'okay': {
+					'time': 8,
+					'mood': -50,
+					'money': -50,
+					'health': -10,
+				},
+			},
+			'sound': 'police',
 		},
 
 		# Gifts
