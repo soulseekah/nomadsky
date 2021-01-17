@@ -356,11 +356,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tooltip" type="Label" parent="Status"]
-margin_left = 16.0
-margin_top = 50.0
-margin_right = 132.0
-margin_bottom = 79.0
+[node name="Tooltip" type="ColorRect" parent="Status"]
+margin_top = 40.0
+margin_right = 382.0
+margin_bottom = 80.0
+color = Color( 0, 0, 0, 0.776471 )
+
+[node name="Label" type="Label" parent="Status/Tooltip"]
+margin_left = 14.0
+margin_top = 5.0
+margin_right = 130.0
+margin_bottom = 34.0
 custom_fonts/font = SubResource( 17 )
 text = "Monument"
 __meta__ = {

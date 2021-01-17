@@ -97,7 +97,8 @@ func _ready():
 	# The first location
 	$Locations/Pyongyang.show()
 
-	$Status/Tooltip.text = '';
+	$Status/Tooltip/Label.text = '';
+	$Status/Tooltip.hide()
 
 	yield(get_tree().create_timer(3.0), 'timeout')
 
@@ -861,7 +862,11 @@ func woof():
 		play('woof')
 
 func tooltip(text: String):
-	$Status/Tooltip.text = text if text else ''
+	if text:
+		$Status/Tooltip/Label.text = text
+		$Status/Tooltip.show()
+	else:
+		$Status/Tooltip.hide()
 
 func exit_clicked():
 	get_tree().change_scene("res://scenes/Intro.tscn")
