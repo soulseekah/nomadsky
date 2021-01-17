@@ -258,8 +258,17 @@ func click_food(node: Node):
 			cost = 10
 			message = 'You got some bread...'
 		'Mongolia':
-			cost = 50
+			cost = 20
 			message = 'This horse milk is good.'
+		'Moscow':
+			cost = 50
+			message = 'Some pelmeni with some soviet dumplings. Horosho.'
+		'Spain':
+			cost = 80
+			message = 'Patatas bravas. Okay.'
+		'NewYork':
+			cost = 100
+			message = 'An overpriced pizza. How nice.'
 
 	if nomad.money < cost:
 		self.error('You can\'t afford to eat.')
