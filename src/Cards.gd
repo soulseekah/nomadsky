@@ -1985,6 +1985,16 @@ func _ready():
 			},
 			'requirements': {},
 		},
+		{
+			'type': 'info',
+			'title': 'Soft skills',
+			'description': "Who would have thought that people pay more to people they like?",
+			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {},
+		},
 	]: cards.append(Card.new(card))
 
 	cards.sort_custom(Cards, 'sort_cards')
