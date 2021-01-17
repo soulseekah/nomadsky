@@ -33,8 +33,11 @@ _global_script_class_icons={
 [application]
 
 config/name="Nomadsky"
-config/description="Godot Wild Jam #29"
+config/description="Godot Wild Jam #29
+
+https://soulseekah.itch.io/nomadsky"
 run/main_scene="res://scenes/Intro.tscn"
+boot_splash/image="res://assets/boot.png"
 
 [autoload]
 
