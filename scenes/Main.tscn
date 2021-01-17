@@ -346,6 +346,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Tooltip" type="Label" parent="Status"]
+margin_left = 16.0
+margin_top = 50.0
+margin_right = 132.0
+margin_bottom = 79.0
+custom_fonts/font = ExtResource( 14 )
+text = "Monument"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Blackout" type="ColorRect" parent="."]
 visible = false
 anchor_right = 1.0
