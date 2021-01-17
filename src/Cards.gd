@@ -2192,6 +2192,17 @@ func _ready():
 			'requirements': {},
 
 		},
+		{
+			'type': 'info',
+			'title': 'Idling',
+			'description': "Sometimes it pays to stop and enjoy your surroundings by doing nothing at all.",
+			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {},
+
+		},
 	]: cards.append(Card.new(card))
 
 	cards.sort_custom(Cards, 'sort_cards')

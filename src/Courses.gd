@@ -238,7 +238,7 @@ func _ready():
 				},
 				{
 					'question': 'As a programmer, would you develop a computer game?', 'answer': 'no',
-					'filler': ['yeah, Ill make a lot of money lol', 'yes, I wont earn anything =('],
+					'filler': ['yeah, I\'ll make a lot of money l0l', 'yes, but I won\'t earn anything :('],
 				},
 				{
 					'question': "You've been working all day and you're hungry. Best course of action?", 'answer': 'order a pizza',
@@ -276,7 +276,7 @@ func _ready():
 				},
 				{
 					'question': 'A co-worker is acting like an asshole', 'answer': 'Voice your concerns privately, work it out',
-					'filler': ['Set her up and get her fired', "Call her out publically, while keeping her in a wrestling chokehold"],
+					'filler': ['Set her up and get her fired', "Call her out publically, in a wrestling chokehold"],
 				},
 			],
 		},
@@ -305,7 +305,7 @@ func _ready():
 					'filler': ["Pee ya' pants.", "Pretend to be an employee of this place and skip queue"],
 				},
 				{
-					'question': 'Making a friends is easy:', 'answer': 'name repetition, personality mirroring and never breaking off a handshake',
+					'question': 'Making a friends is easy:', 'answer': 'name repetition, personality mirroring',
 					'filler': ['jump to conclusions, complain and interrupt', 'keep quiet and just listen, listen, listen'],
 				},
 				{
