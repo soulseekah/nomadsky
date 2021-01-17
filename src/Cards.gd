@@ -26,19 +26,22 @@ func pick(types: Array, main: Main) -> Card:
 			if card.requirements['pet'] == 'cat' or card.requirements['pet'] == 'dog':
 				if not main.nomad.pet or main.nomad.pet.type != card.requirements['pet']:
 					continue
-		
+
+			if card.requirements['pet'] == 'cat;dog' and not main.nomad.pet:
+				continue
+
 		skilled = true
 		for skill in ['code', 'gamedev', 'soft', 'design', 'copywriting']:
 			if card.requirements.has(skill) and main.nomad[skill] < card.requirements[skill]:
 				skilled = false
 				break
-					
+
 		if not skilled:
 			continue
-			
+
 		if card.requirements.has('money') and main.nomad.money < card.requirements['money']:
 			continue
-			
+
 		if card.requirements.has('location') and main.nomad.location.slug != card.requirements['location']:
 			continue
 
@@ -2012,7 +2015,7 @@ func _ready():
 			'requirements': {
 				'pet': 'cat;dog',
 			},
-	
+
 		},
 	]: cards.append(Card.new(card))
 

@@ -567,10 +567,16 @@ func do_action(index):
 			var pets = {
 				'cat': [Modifiers.Pet.Cat, $Status/Actions/Pet/Cat],
 				'dog': [Modifiers.Pet.Dog, $Status/Actions/Pet/Dog],
+				'null': false,
 			}
 
-			nomad.pet = pets[action['pet']][0].new()
-			pets[action['pet']][1].show()
+			if pets[action['pet']]:
+				nomad.pet = pets[action['pet']][0].new()
+				pets[action['pet']][1].show()
+			else:
+				nomad.pet = null
+				$Status/Actions/Pet/Cat.hide()
+				$Status/Actions/Pet/Dog.hide()
 
 		nomad.rating(+1)
 	else:
