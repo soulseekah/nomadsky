@@ -6,11 +6,11 @@
 [ext_resource path="res://assets/art/backgrounds/pyongyang.bg.sky.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/backgrounds/pyongyang.bg.buildings.png" type="Texture" id=8]
 
-[sub_resource type="StreamTexture" id=4]
+[sub_resource type="StreamTexture" id=1]
 flags = 4
 load_path = "res://.import/pyongyang.mood.png-315090b0443fa4747a19a7064dda55a8.stex"
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id=2]
 script/source = "extends Area2D
 
 
@@ -29,21 +29,21 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 44.6212, 137.493 )
 
-[sub_resource type="StreamTexture" id=6]
+[sub_resource type="StreamTexture" id=4]
 flags = 4
 load_path = "res://.import/pyongyang.exit.png-cfde8a7c66f002b7cb77e7589e150a06.stex"
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 54.6584, 62.0373 )
 
-[sub_resource type="StreamTexture" id=8]
+[sub_resource type="StreamTexture" id=6]
 flags = 4
 load_path = "res://.import/pyongyang.food.png-e2616312def60ab31d2bb16307955a10.stex"
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=7]
 script/source = "extends Sprite
 
 func _on_Food_mouse_entered():
@@ -59,7 +59,7 @@ func _on_Food_input_event(viewport, event, shape_idx):
 					print('food')
 "
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 44.6212, 16.2057 )
 
 [node name="Pyongyang" type="Node2D"]
@@ -88,43 +88,43 @@ texture = ExtResource( 8 )
 [node name="Mood" type="Sprite" parent="Interactive"]
 position = Vector2( 400, 300 )
 scale = Vector2( 2, 2 )
-texture = SubResource( 4 )
+texture = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="Interactive/Mood"]
 position = Vector2( 147.844, -46.5807 )
 scale = Vector2( 1.09828, 0.862262 )
-script = SubResource( 1 )
+script = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Mood/Area2D"]
 position = Vector2( -181.277, 77.6647 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="Exit" type="Sprite" parent="Interactive"]
 position = Vector2( 400, 300 )
 scale = Vector2( 2, 2 )
-texture = SubResource( 6 )
+texture = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="Interactive/Exit"]
 position = Vector2( 288.875, -5.1109 )
-script = SubResource( 1 )
+script = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Exit/Area2D"]
 position = Vector2( -145.259, 86.5972 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="Food" type="Sprite" parent="Interactive"]
 modulate = Color( 0.764706, 0.729412, 0.72549, 1 )
 position = Vector2( 400, 300 )
 scale = Vector2( 2, 2 )
-texture = SubResource( 8 )
-script = SubResource( 3 )
+texture = SubResource( 6 )
+script = SubResource( 7 )
 
 [node name="Area2D" type="Area2D" parent="Interactive/Food"]
-script = SubResource( 1 )
+script = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Food/Area2D"]
 position = Vector2( -157.246, 123.306 )
-shape = SubResource( 2 )
+shape = SubResource( 8 )
 
 [node name="Street" type="Sprite" parent="."]
 position = Vector2( 400, 300 )

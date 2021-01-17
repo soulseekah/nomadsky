@@ -9,9 +9,9 @@ var money: int
 
 # Properties
 var quarters: Modifiers.Quarters
-var pet: Modifiers.Pet
-var location: Modifiers.Location
-var workstation: Modifiers.Workstation
+var pet
+var location
+var workstation
 
 
 # Skills
@@ -60,8 +60,8 @@ func energy(amount: int):
 	
 func money(amount: int):
 	money += amount
-	if money <= 0:
-		emit_signal('dead', 'money')
+	if money < 0:
+		money = 0
 
 func _to_string():
 	return JSON.print({
@@ -73,6 +73,13 @@ func _to_string():
 		'rating': rating,
 		'energy': energy,
 		'location': location.name,
+		'workstation': workstation.name,
+
+		'copywriting': copywriting,
+		'design': design,
+		'code': code,
+		'gamedev': gamedev,
+		'soft': soft,
 	})
 
 # Limit a value between 0 and 100

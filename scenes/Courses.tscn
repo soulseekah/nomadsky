@@ -124,9 +124,9 @@ __meta__ = {
 
 [node name="Label2" type="Label" parent="Doing/ColorRect"]
 margin_left = 241.071
-margin_top = 184.927
+margin_top = 168.927
 margin_right = 373.071
-margin_bottom = 213.927
+margin_bottom = 197.927
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Learning..."
