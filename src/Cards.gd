@@ -1861,7 +1861,7 @@ func _ready():
 			'title': 'Gooqle',
 			'description': "Mr. Nomadsky, come work for us a Cooqle, there's no point in freelancing anymore, is there?",
 			'requirements': {
-				'location': 'newyork'
+				'location': 'newyork',
 				'money': 100000,
 			},
 			'chance': 1,

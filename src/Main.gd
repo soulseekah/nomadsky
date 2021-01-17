@@ -21,6 +21,7 @@ func _ready():
 	randomize()
 
 	nomad = Nomad.new()
+	nomad.main = self
 	nomad.money = 200
 	nomad.health = 90
 	nomad.karma = 50

@@ -2,6 +2,8 @@ extends Node
 
 class_name Nomad
 
+var main
+
 signal dead(why)
 
 # C.R.E.A.M
@@ -38,6 +40,8 @@ var courses: Array = []
 
 func hunger(amount: int):
 	hunger = self.limit(hunger + amount)
+	if hunger < 30:
+		main.play('hunger')
 	if hunger == 0:
 		self.health(amount)
 
@@ -84,11 +88,4 @@ func _to_string():
 
 # Limit a value between 0 and 100
 func limit(value: int):
-	if value < 0:
-		return 0
-		
-	if value > 100:
-		return 100
-		
-	return value
-
+	return clamp(value, 0, 100)
