@@ -238,7 +238,7 @@ func _ready():
 				},
 				{
 					'question': 'As a programmer, would you develop a computer game?', 'answer': 'no',
-					'filler': ['yeah, Ill make a lot of money lol', 'yes, I wont earn anything =('],
+					'filler': ['yeah, I\'ll make a lot of money l0l', 'yes, but I won\'t earn anything :('],
 				},
 				{
 					'question': "You've been working all day and you're hungry. Best course of action?", 'answer': 'order a pizza',
