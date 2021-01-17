@@ -1995,6 +1995,19 @@ func _ready():
 			},
 			'requirements': {},
 		},
+		{
+			'type': 'info',
+			'title': 'Pets',
+			'description': "Don't forget to pet your pet :) they'll love it. Click the icon in the UI to pet ;)",
+			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {
+				'pet': 'cat;dog',
+			},
+	
+		},
 	]: cards.append(Card.new(card))
 
 	cards.sort_custom(Cards, 'sort_cards')
