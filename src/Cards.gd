@@ -42,8 +42,11 @@ func pick(types: Array, main: Main) -> Card:
 		if card.requirements.has('money') and main.nomad.money < card.requirements['money']:
 			continue
 
-		if card.requirements.has('location') and main.nomad.location.slug != card.requirements['location']:
-			continue
+		if card.requirements.has('location'):
+			if card.requirements['location'] == 'spain;newyork' and (main.nomad.location.slug != 'spain' and main.nomad.location.slug != 'newyork'):
+				continue
+			elif main.nomad.location.slug != card.requirements['location']:
+				continue
 
 		valid.append(card)
 		total += int(card.chance * 1000)
