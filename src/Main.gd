@@ -548,6 +548,9 @@ func do_action(index):
 	if current_card.type == 'accident' and action.has('time'):
 		blackout = true
 
+	if current_card.type == 'decision' and action.has('time'):
+		blackout = true
+
 	match action_name:
 		'ignore': play('ignore')
 		'accept': play('click2')
