@@ -1507,7 +1507,7 @@ func _ready():
 					'money': -100,
 				},
 			},
-			'sound': 'puke',
+			'sound': 'rain',
 		},
 		{
 			'type': 'accident',
@@ -1856,6 +1856,24 @@ func _ready():
 				},
 			},
 		},
+		{
+			'type': 'decision',
+			'title': 'Gooqle',
+			'description': "Mr. Nomadsky, come work for us a Cooqle, there's no point in freelancing anymore, is there?",
+			'requirements': {
+				'location': 'newyork'
+				'money': 100000,
+			},
+			'chance': 1,
+			'actions': {
+				'accept': {
+					'money': 1000000,
+				},
+				'decline': {
+					'skip': true,
+				},
+			},
+		},
 
 		# Tutorial
 		{
@@ -1893,6 +1911,18 @@ func _ready():
 			},
 			'requirements': {
 				'location': 'mongolia',
+			},
+		},
+		{
+			'type': 'info',
+			'title': 'Freedom',
+			'description': "$100000 is all it really takes...",
+			'chance': 2.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {
+				'location': 'newyork',
 			},
 		},
 		{
@@ -1938,7 +1968,7 @@ func _ready():
 		{
 			'type': 'info',
 			'title': 'Failure',
-			'description': "There's no such thing as 100% success. Be ready to fail at work.",
+			'description': "There's no such thing as 100% success. Be ready to fail at work. Mood, hunger, karma, rating affect success rates.",
 			'chance': 1.0,
 			'actions': {
 				'okay': {}
