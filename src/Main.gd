@@ -88,8 +88,6 @@ func _ready():
 	# The first location
 	$Locations/Pyongyang.show()
 
-	#yield(get_tree().create_timer(3.0), 'timeout')
-
 	# First card
 	current_card = Cards.pick(['info'], self)
 	self.show_card(current_card)
