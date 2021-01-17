@@ -1811,8 +1811,8 @@ func _ready():
 		},
 		{
 			'type': 'decision',
-			'title': 'Price hike'
-			'description': 'This hotel has ridiculous prices, there's no other place to go but be outside. Accept expensive lodging?",
+			'title': 'Price hike',
+			'description': "This hotel has ridiculous prices, there's no other place to go but be outside. Accept expensive lodging?",
 			'chance': 0.05,
 			'actions': {
 				'accept': {
@@ -1823,6 +1823,26 @@ func _ready():
 				'decline': {
 					'time': 8,
 					'mood': -15,
+				},
+			},
+		},
+		{
+			'type': 'decision',
+			'title': 'No pets allowed',
+			'description': "You won't be able to leave with your pet... unless you pay more for your ticket.",
+			'requirements': {
+				'location': 'spain'
+			},
+			'chance': 0.01,
+			'actions': {
+				'accept': {
+					'mood': -10,
+					'money': -500
+				},
+				'decline': {
+					'pet': 'null',
+					'mood': -15,
+					'karma': -15,
 				},
 			},
 		},
@@ -1864,6 +1884,66 @@ func _ready():
 			'requirements': {
 				'location': 'mongolia',
 			},
+		},
+		{
+			'type': 'info',
+			'title': 'Pets',
+			'description': "Pet companions will improve mood",
+			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {},
+		},
+		{
+			'type': 'info',
+			'title': 'Karma',
+			'description': "It's real. Don't do evil.",
+			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {},
+		},
+		{
+			'type': 'info',
+			'title': 'Death',
+			'description': "You lose money - you ded. You lose health - you ded. Simple.",
+			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {},
+		},
+		{
+			'type': 'info',
+			'title': 'Butterfly effect',
+			'description': "Anything you do here will affect the world around you. Choose carefully.",
+			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {},
+		},
+		{
+			'type': 'info',
+			'title': 'Failure',
+			'description': "There's no such thing as 100% success. Be ready to fail at work.",
+			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {},
+		},
+		{
+			'type': 'info',
+			'title': 'Rating',
+			'description': "Performing work affects your freelancer rating. Don't decline outright.",
+			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {},
 		},
 	]: cards.append(Card.new(card))
 
