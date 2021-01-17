@@ -305,7 +305,7 @@ func _ready():
 					'filler': ["Pee ya' pants.", "Pretend to be an employee of this place and skip queue"],
 				},
 				{
-					'question': 'Making a friends is easy:', 'answer': 'name repetition, personality mirroring and never breaking off a handshake',
+					'question': 'Making a friends is easy:', 'answer': 'name repetition, personality mirroring',
 					'filler': ['jump to conclusions, complain and interrupt', 'keep quiet and just listen, listen, listen'],
 				},
 				{
