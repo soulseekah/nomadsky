@@ -263,6 +263,9 @@ func success(message: String):
 	$Success.show()
 
 func click_food(node: Node):
+	if current_card or $Workstation.visible:
+		return
+
 	print('Food clicked in %s' % node.name)
 	var cost = 0
 	var message = ''
@@ -279,7 +282,7 @@ func click_food(node: Node):
 			message = 'Some pelmeni with some soviet dumplings. Horosho.'
 		'Spain':
 			cost = 80
-			message = 'Patatas bravas. Okay.'
+			message = 'Patatas bravas. Mmmmmm....'
 		'NewYork':
 			cost = 100
 			message = 'An overpriced pizza. How nice.'
@@ -600,6 +603,9 @@ func do_action(index):
 	emit_signal('card_closed')
 	
 func click_exit(node: Node):
+	if current_card or $Workstation.visible:
+		return
+
 	print('Exit clicked in %s' % node.name)
 	var cost = 0
 	var action = ''
@@ -648,7 +654,7 @@ func click_exit(node: Node):
 		if action == 'cancel':
 			return
 			
-		message = 'Flying to Spain'
+		message = 'Heading to Spain'
 		next = [Modifiers.Location.Spain.new(), $Locations/Spain]
 		
 	if node.name == 'Spain':
@@ -706,9 +712,76 @@ func do_action_3():
 	return self.do_action(2)
 
 func click_mood(node: Node):
+	if current_card or $Workstation.visible:
+		return
+
 	print('Mood clicked in %s' % node.name)
+	var message
+	var cost
+
+	match node.name:
+		'Pyongyang':
+			message = 'You praise THE LEADER. Your mood doesn\'t seem to have improved.'
+			self.tick(1)
+		'Mongolia':
+			cost = 5
+			if nomad.money < cost:
+				self.error('I need $5 to shoot some arrows.')
+				return
+
+			message = 'Pew pew! Pew pew pew pew! This was fun.'
+			nomad.mood(+25)
+			nomad.money(-cost)
+			self.tick(1)
+		'Moscow':
+			cost = 20
+			if nomad.money < cost:
+				self.error('I need $20 to get some vodka.')
+				return
+
+			message = 'Laaaaaaaaaaalalalalalalala. Ugh.'
+			nomad.mood(+25)
+			nomad.health(-5)
+			nomad.money(-cost)
+			self.tick(2)
+		'Spain':
+			cost = 50
+			if nomad.money < cost:
+				self.error('I need $50 to get in.')
+				return
+
+			message = 'Hmm. This looks nice.'
+			nomad.mood(+25)
+			nomad.money(-cost)
+			self.tick(1)
+		'NewYork':
+			cost = 200
+			if nomad.money < cost:
+				self.error('I need at least $200 to get in this place.')
+				return
+
+			message = 'Hello ladies...'
+			nomad.mood(+25)
+			nomad.money(-cost)
+			self.tick(4)
+			
+	$Blackout.show()
+	$Blackout/Fade.play('Fade')
+	yield($Blackout/Fade, 'animation_finished')
 	
+	$Blackout/Label.text = message
+	$Blackout/Label.show()
+	yield(get_tree().create_timer(3.0), 'timeout')
+	$Blackout/Label.hide()
+		
+	$Blackout/Fade.play_backwards('Fade')
+	yield($Blackout/Fade, 'animation_finished')
+	$Blackout.hide()
+
 func click_tech(node: Node):
+	if current_card or $Workstation.visible:
+		return
+
 	print('Tech clicked in %s' % node.name)
 	
 	var tech = nomad.location.tech.new()
