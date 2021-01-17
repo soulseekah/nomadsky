@@ -18,7 +18,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="computer" type="Sprite" parent="Computer"]
+[node name="Comp" type="Sprite" parent="Computer"]
 position = Vector2( 4.67937, 20.0687 )
 scale = Vector2( 1.70708, 1.70708 )
 texture = ExtResource( 1 )

@@ -54,37 +54,43 @@ class Workstation:
 	var cost: int
 	var bonus: float
 	var name: String
+	var color: Color
 	
 	class Red extends Workstation:
 		func _init():
 			cost = 5
 			bonus = 1.0
 			name = 'Red'
+			color = Color(1.0, 0.97, 0.62)
 			
-	
 	class Renovo extends Workstation:
 		func _init():
 			cost = 200
 			bonus = 0.9
 			name = 'Renovo'
+			color = Color(0.3, 0.3, 0.3)
+			
 			
 	class Komputer extends Workstation:
 		func _init():
 			cost = 500
 			bonus = 0.9
 			name = 'Komputer'
+			color = Color(1.8, 1.0, 1.0)
 		
 	class LosComputos extends Workstation:
 		func _init():
 			cost = 1200
 			bonus = 0.7
 			name = 'Los Computos'
+			color = Color(1.0, 1.0, 1.6)
 
 	class Wacbook extends Workstation:
 		func _init():
 			cost = 2500
 			bonus = 0.5
 			name = 'Wacbook Pro'
+			color = Color(1.0, 1.0, 1.0)
 
 # Where you live
 class Quarters:

@@ -2182,7 +2182,7 @@ func _ready():
 		},
 		{
 			'type': 'info',
-			'title': "Don't worry. Be happy.,
+			'title': 'Don\'t worry. Be happy.',
 			'description': "Mood is important and affects how you work. Keep it up!",
 			'chance': 1.0,
 			'actions': {

@@ -22,7 +22,7 @@ func _ready():
 
 	nomad = Nomad.new()
 	nomad.main = self
-	nomad.money = 200
+	nomad.money = 200000
 	nomad.health = 90
 	nomad.karma = 100
 	nomad.energy = 90
@@ -39,6 +39,7 @@ func _ready():
 
 	$Status/Actions.hide()
 	$Workstation.hide()
+	$Workstation/Computer/Comp.modulate = nomad.workstation.color
 
 	$Status/Actions/Work.connect('pressed', self, 'workstation_open')
 	$Status/Actions/Sleep.connect('pressed', self, 'sleep')
@@ -508,7 +509,7 @@ func do_course():
 		nomad.mood(+10)
 		nomad.stats['courses'] += 1
 	else:
-		nomad.mood(-50)
+		nomad.mood(-10)
 
 	$Workstation/Courses/Quiz.hide()
 	$Workstation/Courses.hide()
@@ -611,7 +612,7 @@ func do_action(index):
 		nomad.rating(+1)
 	else:
 		nomad.rating(-1)
-		nomad.mood(-20)
+		nomad.mood(-1)
 
 	print('Action: %s' % action)
 
@@ -851,6 +852,8 @@ func click_tech(node: Node):
 	nomad.mood(20)
 	nomad.health(10)
 	nomad.workstation = tech
+	
+	$Workstation/Computer/Comp.modulate = nomad.workstation.color
 
 	self.tick(1)
 	self.success('New workstation, perfect.')
