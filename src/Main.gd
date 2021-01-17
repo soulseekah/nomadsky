@@ -411,7 +411,7 @@ func show_courses():
 		
 	var i = 0
 	for course in valid_courses:
-		placeholders[i].text = '%s, $%d' % [course.name, course.cost]
+		placeholders[i].text = '%s: %s, $%d' % [course.type.capitalize(), course.name, course.cost]
 		placeholders[i].show()
 		i += 1
 
