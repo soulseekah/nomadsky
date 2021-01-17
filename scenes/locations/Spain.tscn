@@ -51,7 +51,7 @@ func _ready():
 extents = Vector2( 41.555, 51.4765 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 38.1804, 93.6489 )
+extents = Vector2( 38.1804, 54.6489 )
 
 [sub_resource type="StreamTexture" id=9]
 flags = 4
@@ -81,7 +81,7 @@ func _on_Food_input_event(viewport, event, shape_idx):
 "
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 44.0161, 15.6371 )
+extents = Vector2( 264.604, 248.028 )
 
 [node name="Spain" type="Node2D"]
 position = Vector2( 3.05176e-05, 1.52588e-05 )
@@ -134,7 +134,7 @@ texture = ExtResource( 11 )
 [node name="Area2D" type="Area2D" parent="Interactive/Exit"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Exit/Area2D"]
-position = Vector2( -160.68, 5.1854 )
+position = Vector2( -156.18, -50.8146 )
 shape = SubResource( 12 )
 
 [node name="Mood" type="Sprite" parent="Interactive"]
@@ -153,7 +153,7 @@ shape = SubResource( 14 )
 [node name="Tech" type="Sprite" parent="Interactive"]
 modulate = Color( 0.764706, 0.729412, 0.72549, 1 )
 position = Vector2( 400, 300 )
-scale = Vector2( 2, 2 )
+scale = Vector2( 0.5, 0.5 )
 texture = SubResource( 10 )
 script = SubResource( 11 )
 
@@ -161,7 +161,7 @@ script = SubResource( 11 )
 script = SubResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Tech/Area2D"]
-position = Vector2( -156.604, 120.174 )
+position = Vector2( -364.604, 290.174 )
 shape = SubResource( 5 )
 
 [node name="Street" type="Sprite" parent="."]
