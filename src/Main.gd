@@ -693,7 +693,7 @@ func click_exit(node: Node):
 	node.hide()
 	next[1].show()
 	
-	$BackgroundAudio.stream = load("res://assets/sound/bgm/%s.ogg" % next[1].name.to_lower())
+	$BackgroundAudio.stream = load("res://assets/sound/bgm/%s.ogg" % next[0].slug)
 	$BackgroundAudio.play()
 
 	$Blackout/Fade.play_backwards('Fade')
