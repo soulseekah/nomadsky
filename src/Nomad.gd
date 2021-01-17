@@ -73,7 +73,13 @@ func _to_string():
 		'rating': rating,
 		'energy': energy,
 		'location': location.name,
-		'workstation': workstation.name
+		'workstation': workstation.name,
+
+		'copywriting': copywriting,
+		'design': design,
+		'code': code,
+		'gamedev': gamedev,
+		'soft': soft,
 	})
 
 # Limit a value between 0 and 100

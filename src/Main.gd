@@ -455,12 +455,15 @@ func do_course():
 	# Correct answer
 	if answers[0].is_pressed():
 		course.done = true
+		nomad[course.type] += 1
 		nomad.mood(+10)
 	else:
 		nomad.mood(-10)
 
 	$Workstation/Courses/Quiz.hide()
 	$Workstation/Courses.hide()
+	
+	self.tick(2)
 
 	if course.done:
 		self.success('You passed the course. Congrats!')
