@@ -477,6 +477,7 @@ func do_action(index):
 	var action = current_card.actions[action_name]
 	var energy_cost = 1
 	var time_cost = 1
+	var blackout = false
 	
 	if action.has('time'):
 		energy_cost = action['time'] * 2
@@ -485,8 +486,8 @@ func do_action(index):
 	var success: bool = true
 	var rate = 100
 	
-	rate = rate - (100 - nomad.mood) * 0.25
-	rate = rate - (100 - nomad.karma) * 0.25
+	rate = rate - (100 - nomad.mood) * 0.20
+	rate = rate - (100 - nomad.karma) * 0.20
 
 	if current_card.type == 'work' and nomad.energy < energy_cost and action_name == 'accept':
 		success = false
@@ -509,16 +510,14 @@ func do_action(index):
 	if current_card.type == 'work':
 		time_cost = max(time_cost * nomad.workstation.bonus, 1)
 	
+	if current_card.type == 'accident' and action.has('time'):
+		blackout = true
+	
 	match action_name:
 		'ignore': play('ignore')
 		'accept': play('click2')
 		'okay': play('ignore')
 		'decline': play('reject')
-
-	if (action.has('time')):
-		self.tick(time_cost)
-		nomad.energy(-energy_cost)
-		nomad.hunger(-action['time'])
 
 	if success:
 		if (action.has('karma')):
@@ -554,6 +553,28 @@ func do_action(index):
 
 	current_card = null
 	$Card.hide()
+	
+	if blackout:
+		$Blackout/Label.hide()
+		$Blackout.show()
+		$Blackout/Fade.play('Fade')
+		yield($Blackout/Fade, 'animation_finished')
+
+		$Blackout/Label.text = 'Tick... Tock...'
+		$Blackout/Label.show()
+		yield(get_tree().create_timer(3.0), 'timeout')
+		$Blackout/Label.hide()
+	
+	if (action.has('time')):
+		self.tick(time_cost)
+		nomad.energy(-energy_cost)
+		nomad.hunger(-action['time'])
+
+	if blackout:
+		$Blackout/Fade.play_backwards('Fade')
+		yield($Blackout/Fade, 'animation_finished')
+		$Blackout.hide()
+	
 	emit_signal('card_closed')
 	
 func click_exit(node: Node):
