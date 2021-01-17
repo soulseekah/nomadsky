@@ -1544,6 +1544,110 @@ func _ready():
 				},
 			},
 		},
+		{
+			'type': 'gift',
+			'title': "It's your birthday",
+			'description': 'Collect $10 from all around you',
+			'chance': 0.05,
+			'actions': {
+				'okay': {
+					'mood': 10,
+					'money': 30,
+				},
+			},
+		},
+		{
+			'type': 'gift',
+			'title': 'BTC is up',
+			'description': 'Time to unHODL the HODLs.',
+			'chance': 0.05,
+			'actions': {
+				'okay': {
+					'mood': 20,
+					'money': 1000,
+				},
+			},
+		},
+		{
+			'type': 'gift',
+			'title': 'Godot!',
+			'description': 'You discover the greatest gift to mankind.',
+			'chance': 0.1,
+			'actions': {
+				'okay': {
+					'mood': 50,
+				},
+			},
+		},
+		{
+			'type': 'gift',
+			'title': 'COVID shot',
+			'description': 'Immunize. Neutralize. Prosper.',
+			'chance': 0.1,
+			'actions': {
+				'okay': {
+					'health': 50,
+				},
+			},
+		},
+		{
+			'type': 'gift',
+			'title': 'Freelance Awards',
+			'description': 'You placed 9th!',
+			'chance': 0.1,
+			'actions': {
+				'okay': {
+					'mood': 5,
+					'money': 20,
+				},
+			},
+		},
+		{
+			'type': 'gift',
+			'title': 'Allelujah!',
+			'description': 'You feel blessed! Things are bound to work out from here onwards.',
+			'chance': 0.1,
+			'actions': {
+				'okay': {
+					'mood': 5,
+					'karma': 50,
+				},
+			},
+		},
+		{
+			'type': 'gift',
+			'title': '"Dinner's on me"',
+			'description': 'Your friends treat you to a nice dinner. Yum!',
+			'chance': 0.1,
+			'actions': {
+				'okay': {
+					'mood': 5,
+					'hunger': -50,
+				},
+			},
+		},
+		{
+			'type': 'gift',
+			'title': 'Unexpected Inheritance!',
+			'description': "A rich businessman with your last name died in South Africa. You don't believe it.",
+			'chance': 0.05,
+			'actions': {
+				'okay': {
+				},
+			},
+		},
+		{
+			'type': 'gift',
+			'title': 'Cashback.',
+			'description': 'Ka-ching! ',
+			'chance': 0.1,
+			'actions': {
+				'okay': {
+					'mood': 5,
+					'money': 10,
+				},
+			},
+		},
 
 		# Decisions
 		{
