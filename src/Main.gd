@@ -339,7 +339,7 @@ func find_work():
 		self.error('Not enough energy to work right now. Maybe I should take a nap...')
 		return
 
-	if nomad.mood < 5:
+	if nomad.mood < 5 and randf() > 0.5:
 		self.error('Not in the mood for working right now.')
 		return
 
