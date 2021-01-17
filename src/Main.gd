@@ -482,13 +482,27 @@ func do_action(index):
 		energy_cost = action['time'] * 2
 		time_cost = action['time']
 
-	var success: bool = true # TODO: calcs
+	var success: bool = true
+	var rate = 100
 	
-	if current_card.type == 'work' and nomad.energy < energy_cost:
+	rate = rate - (100 - nomad.mood) * 0.25
+	rate = rate - (100 - nomad.karma) * 0.25
+
+	if current_card.type == 'work' and nomad.energy < energy_cost and action_name == 'accept':
 		success = false
 		nomad.energy(+10 + energy_cost)
 		nomad.health(-10)
 		self.error('You fell asleep during assignment.')
+
+	if current_card.type == 'work' and success and action_name == 'accept' and randf() > float(rate) / 100:
+		success = false
+		var messages = [
+			'You failed the task. Better luck next time.',
+			'You failed the assignment. Maybe it\'s karma...',
+			'You couldn\'t finish the work in time. Probably in a bad mood.',
+		]
+
+		self.error(messages[randi() % messages.size()])
 		
 	if current_card.type == 'work':
 		time_cost = max(time_cost * nomad.workstation.bonus, 1)
