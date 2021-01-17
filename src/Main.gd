@@ -231,15 +231,15 @@ func confirm_okay():
 	emit_signal('confirm_closed', 'okay')
 
 func maybe_pick_card():
-	if randf() > 0.9 and not queued_card:
+	if randf() > 0.0 and not queued_card:
 		queued_card = Cards.pick(['info', 'accident', 'gift', 'decision'], self)
 
 func dead(why):
-	print('died')
 	var reasons = {
 		'hunger': 'You so hungry, you so dead.',
 		'health': 'You so unhealthy, you so dead.',
 		'money': 'You no longer a nomad. You a bum.',
+		'end': 'At long last. An office chair and a stable paycheck...',
 	}
 
 	$Death.show()
@@ -618,9 +618,13 @@ func do_action(index):
 	if not (action.has('skip') && action['skip']):
 		current_card.done = true
 		nomad.stats['cards'] += 1
-
+		
 	current_card = null
 	$Card.hide()
+	
+	if action.has('end'):
+		self.dead('end')
+		return
 
 	if blackout:
 		$Blackout/Label.hide()
