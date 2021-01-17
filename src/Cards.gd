@@ -1396,6 +1396,141 @@ func _ready():
 				},
 			},
 		},
+		{ # Mixed
+			'type': 'work',
+			'title': 'Website',
+			'description': 'Our company requires a website. Design, code, copy, everything!',
+			'chance': 0.001,
+			'requirements': {
+				'location': 'spain;newyork',
+				'design': 3,
+				'code': 3,
+				'copywriting': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 5300,
+					'time': 18,
+					'skip': true,
+				},
+				'decline': {
+					'time': 1,
+					'skip': true,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Game Jam with us',
+			'description': "If you know Godot, you're the right person for our job. Let's meet in Discord.",
+			'chance': 0.001,
+			'requirements': {
+				'location': 'spain;newyork',
+				'design': 3,
+				'code': 3,
+				'copywriting': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 1500,
+					'time': 12,
+					'skip': true,
+				},
+				'decline': {
+					'time': 1,
+					'skip': true,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Make a Facebook clone',
+			'description': "We're calling it Asspaper. ASAP.",
+			'chance': 0.001,
+			'requirements': {
+				'location': 'spain;newyork',
+				'design': 3,
+				'code': 3,
+				'copywriting': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 2500,
+					'time': 18,
+					'skip': true,
+				},
+				'decline': {
+					'time': 1,
+					'skip': true,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Help us mine some crypto$$$',
+			'description': "You seen the prices? We need your computing power.",
+			'chance': 0.001,
+			'requirements': {
+				'location': 'spain;newyork',
+				'design': 3,
+				'code': 3,
+				'copywriting': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 1500,
+					'time': 8,
+					'skip': true,
+				},
+				'decline': {
+					'time': 1,
+					'skip': true,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Consulting',
+			'description': "We need about 24 hours of your time. Our IT team has been fired for not working as a team and we launch tomorrow.",
+			'chance': 0.001,
+			'requirements': {
+				'location': 'spain;newyork',
+				'design': 3,
+				'code': 3,
+				'copywriting': 3,
+			},
+			'actions': {
+				'accept': {
+					'money': 7500,
+					'time': 24,
+					'skip': true,
+				},
+				'decline': {
+					'time': 1,
+					'skip': true,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				},
+			},
+		}
 
 		# Accidents
 		{
@@ -2020,6 +2155,28 @@ func _ready():
 			'requirements': {
 				'pet': 'cat;dog',
 			},
+
+		},
+		{
+			'type': 'info',
+			'title': 'Location, location, location',
+			'description': "Move onward as soon as you can...",
+			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {},
+
+		},
+		{
+			'type': 'info',
+			'title': 'Travel budgeting',
+			'description': "Be careful when travelling, make sure you have enough money left for your first couple of days at a new location.",
+			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {},
 
 		},
 	]: cards.append(Card.new(card))
