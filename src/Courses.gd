@@ -276,7 +276,7 @@ func _ready():
 				},
 				{
 					'question': 'A co-worker is acting like an asshole', 'answer': 'Voice your concerns privately, work it out',
-					'filler': ['Set her up and get her fired', "Call her out publically, while keeping her in a wrestling chokehold"],
+					'filler': ['Set her up and get her fired', "Call her out publically, in a wrestling chokehold"],
 				},
 			],
 		},
