@@ -508,7 +508,7 @@ func do_course():
 		nomad.mood(+10)
 		nomad.stats['courses'] += 1
 	else:
-		nomad.mood(-10)
+		nomad.mood(-50)
 
 	$Workstation/Courses/Quiz.hide()
 	$Workstation/Courses.hide()
@@ -611,7 +611,7 @@ func do_action(index):
 		nomad.rating(+1)
 	else:
 		nomad.rating(-1)
-		nomad.mood(-1)
+		nomad.mood(-20)
 
 	print('Action: %s' % action)
 

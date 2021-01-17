@@ -1091,7 +1091,7 @@ func _ready():
 				'accept': {
 					'money': 90,
 					'time': 24,
-					'mood': -5,
+					'mood': -25,
 				},
 				'decline': {
 					'time': 1,
@@ -1556,7 +1556,7 @@ func _ready():
 			'actions': {
 				'okay': {
 					'time': 2,
-					'mood': -5,
+					'mood': -25,
 				},
 			},
 			'sound': 'blackout',
@@ -1572,7 +1572,7 @@ func _ready():
 			'actions': {
 				'okay': {
 					'time': 8,
-					'mood': -10,
+					'mood': -40,
 					'karma': -5,
 					'pet': 'null',
 				},
@@ -1590,7 +1590,7 @@ func _ready():
 			'actions': {
 				'okay': {
 					'time': 8,
-					'mood': -10,
+					'mood': -40,
 					'karma': -5,
 					'pet': 'null',
 				},
@@ -1606,7 +1606,7 @@ func _ready():
 			'actions': {
 				'okay': {
 					'time': 6,
-					'mood': -15,
+					'mood': -35,
 					'health': -10,
 					'hunger': -50,
 				},
@@ -1622,7 +1622,7 @@ func _ready():
 			'actions': {
 				'okay': {
 					'time': 3,
-					'mood': -15,
+					'mood': -45,
 					'health': -20,
 				},
 			},
@@ -1637,7 +1637,7 @@ func _ready():
 			'actions': {
 				'okay': {
 					'time': 6,
-					'mood': -15,
+					'mood': -25,
 					'money': -40,
 				},
 			},
@@ -1652,7 +1652,7 @@ func _ready():
 			'actions': {
 				'okay': {
 					'time': 8,
-					'mood': -15,
+					'mood': -25,
 					'money': -100,
 				},
 			},
@@ -1698,7 +1698,7 @@ func _ready():
 			'chance': 0.5,
 			'actions': {
 				'okay': {
-					'mood': 5,
+					'mood': 50,
 					'money': 10,
 				},
 			},
@@ -1710,7 +1710,7 @@ func _ready():
 			'chance': 0.05,
 			'actions': {
 				'okay': {
-					'mood': 10,
+					'mood': 70,
 					'money': 30,
 				},
 			},
@@ -1722,7 +1722,7 @@ func _ready():
 			'chance': 0.05,
 			'actions': {
 				'okay': {
-					'mood': 20,
+					'mood': 40,
 					'money': 1000,
 				},
 			},
@@ -1756,7 +1756,7 @@ func _ready():
 			'chance': 0.1,
 			'actions': {
 				'okay': {
-					'mood': 5,
+					'mood': 50,
 					'money': 20,
 				},
 			},
@@ -1768,7 +1768,7 @@ func _ready():
 			'chance': 0.1,
 			'actions': {
 				'okay': {
-					'mood': 5,
+					'mood': 50,
 					'karma': 50,
 				},
 			},
@@ -1780,7 +1780,7 @@ func _ready():
 			'chance': 0.1,
 			'actions': {
 				'okay': {
-					'mood': 5,
+					'mood': 50,
 					'hunger': -50,
 				},
 			},
@@ -1802,7 +1802,7 @@ func _ready():
 			'chance': 0.1,
 			'actions': {
 				'okay': {
-					'mood': 5,
+					'mood': 50,
 					'money': 10,
 				},
 			},
@@ -1824,7 +1824,7 @@ func _ready():
 				},
 				'decline': {
 					'karma': -20,
-					'mood': -5,
+					'mood': -50,
 				},
 			},
 			'sound': 'meow',
@@ -1844,7 +1844,7 @@ func _ready():
 				},
 				'decline': {
 					'karma': -10,
-					'mood': -10,
+					'mood': -50,
 				},
 			},
 			'sound': 'woof',
@@ -1857,10 +1857,10 @@ func _ready():
 			'actions': {
 				'accept': {
 					'time': 4,
-					'mood': -10,
+					'mood': -50,
 				},
 				'decline': {
-					'mood': -1,
+					'mood': -40,
 				},
 			},
 		},
@@ -1872,7 +1872,7 @@ func _ready():
 			'actions': {
 				'accept': {
 					'time': 14,
-					'mood': -10,
+					'mood': -30,
 					'money': -1500
 				},
 				'decline': {
@@ -1889,7 +1889,7 @@ func _ready():
 			'actions': {
 				'accept': {
 					'time': 2,
-					'mood': -50,
+					'mood': -100,
 					'money': -800
 				},
 				'decline': {
@@ -1908,10 +1908,10 @@ func _ready():
 			'actions': {
 				'accept': {
 					'time': 6,
-					'mood': -10,
+					'mood': -50,
 				},
 				'decline': {
-					'mood': 5,
+					'mood': 25,
 					'karma': 10,
 				},
 			},
@@ -1941,11 +1941,11 @@ func _ready():
 			'actions': {
 				'accept': {
 					'time': 1,
-					'mood': 10,
+					'mood': 40,
 					'karma': 20,
 				},
 				'decline': {
-					'mood': -5,
+					'mood': -15,
 					'karma': -10,
 				},
 			},
@@ -1976,7 +1976,7 @@ func _ready():
 			'actions': {
 				'accept': {
 					'time': 1,
-					'mood': -10,
+					'mood': -60,
 					'money': -200
 				},
 				'decline': {
@@ -1995,12 +1995,12 @@ func _ready():
 			'chance': 0.01,
 			'actions': {
 				'accept': {
-					'mood': -10,
+					'mood': -20,
 					'money': -500
 				},
 				'decline': {
 					'pet': 'null',
-					'mood': -15,
+					'mood': -85,
 					'karma': -15,
 				},
 			},
@@ -2011,7 +2011,7 @@ func _ready():
 			'description': "Mr. Nomadsky, come work for us a Cooqle, there's no point in freelancing anymore, is there?",
 			'requirements': {
 				'location': 'newyork',
-				'money': 100000,
+				'money': 50000,
 			},
 			'chance': 1,
 			'actions': {
@@ -2065,7 +2065,7 @@ func _ready():
 		{
 			'type': 'info',
 			'title': 'Freedom',
-			'description': "$100000 is all it really takes...",
+			'description': "$50000 is all it really takes...",
 			'chance': 2.0,
 			'actions': {
 				'okay': {}
@@ -2172,6 +2172,17 @@ func _ready():
 			'type': 'info',
 			'title': 'Travel budgeting',
 			'description': "Be careful when travelling, make sure you have enough money left for your first couple of days at a new location.",
+			'chance': 1.0,
+			'actions': {
+				'okay': {}
+			},
+			'requirements': {},
+
+		},
+		{
+			'type': 'info',
+			'title': "Don't worry. Be happy.,
+			'description': "Mood is important and affects how you work. Keep it up!",
 			'chance': 1.0,
 			'actions': {
 				'okay': {}

@@ -301,8 +301,8 @@ func _ready():
 			'name': 'Skills softer than Vicuna wool', 'type': 'soft', 'cost': 30, 'level': 3,
 			'quiz': [
 				{
-					'question': 'You need to pee. Real hard. The queue is huge.', 'answer': 'Stand on a table and announce the problem, the reprecussions, the solution.',
-					'filler': ["Pee ya' pants.", "Pretend to be an employee of this place and use the management's toilet"],
+					'question': 'You need to pee. Real hard. The queue is huge.', 'answer': 'Stand on a table and announce the problem and solution.',
+					'filler': ["Pee ya' pants.", "Pretend to be an employee of this place and skip queue"],
 				},
 				{
 					'question': 'Making a friends is easy:', 'answer': 'name repetition, personality mirroring and never breaking off a handshake',
