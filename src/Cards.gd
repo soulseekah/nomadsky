@@ -71,10 +71,11 @@ class Card:
 func _ready():
 	for card in [
 		# Work
-		{
+		{ # No skills
 			'type': 'work',
 			'title': 'Post my comment to 500 blogs',
 			'description': "I'm trying to get people to buy my new game. I need someone to advertise a link to it on gaming blogs. Help!",
+			'requirements': {},
 			'chance': 0.1,
 			'actions': {
 				'accept': {
@@ -83,6 +84,7 @@ func _ready():
 					'karma': -10,
 				},
 				'decline': {
+					'time': 1,
 					'karma': 5,
 				},
 				'ignore': {
@@ -92,6 +94,196 @@ func _ready():
 			},
 		},
 		{
+			'type': 'work',
+			'title': 'Virtual assistant (visually unimpaired)',
+			'description': 'We want to send you images with random letters and numbers. You need to quickly tell us what is writtein them.',
+			'requirements': {},
+			'chance': 0.1,
+			'actions': {
+				'accept': {
+					'money': 60,
+					'time': 8,
+					'karma': -10,
+				},
+				'decline': {
+					'time': 1,
+					'karma': 5,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				}
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Easy money.',
+			'description': "I will pay you to run some special software on your computer 24/7. It may heat up a bit.",
+			'requirements': {},
+			'chance': 0.1,
+			'actions': {
+				'accept': {
+					'money': 10,
+					'time': 24,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				}
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Click ads on my site',
+			'description': 'We need someone to click on advertisement links on our sites.',
+			'requirements': {},
+			'chance': 0.1,
+			'actions': {
+				'accept': {
+					'money': 100,
+					'time': 8,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				}
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Teach my nana computer basics',
+			'description': 'My dear nana keeps getting scammed into buying gift cards for tech support. Teach her some computer basics once and for all.',
+			'requirements': {},
+			'chance': 0.05,
+			'actions': {
+				'accept': {
+					'money': 200,
+					'time': 16,
+					'karma': 10,
+				},
+				'decline': {
+					'time': 1,
+					'karma': -20,
+				},
+				'ignore': {
+					'time': 1,
+					'karma': -1,
+					'skip': true,
+				}
+			},
+		},
+		{
+			'type': 'work',
+			'title': "Let me use your Steam account for a bit.",
+			'description': 'I need to quickly perform a couple of trades on Steam (skins and items), I need an intermediary account.',
+			'requirements': {},
+			'chance': 0.03,
+			'actions': {
+				'accept': {
+					'money': 50,
+					'time': 2,
+					'karma': -10,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				}
+			},
+		},
+		{
+			'type': 'work',
+			'title': "Help me sell my investment program online",
+			'description': 'Message your contacts with amazing opportunities and make them message their contacts.',
+			'requirements': {},
+			'chance': 0.03,
+			'actions': {
+				'accept': {
+					'money': 30,
+					'time': 12,
+					'karma': -10,
+				},
+				'decline': {
+					'time': 1,
+					'karma': 5,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				}
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Email a list of people',
+			'description': 'I need to send a message to a list of about 7000 email addresses. Use at least 1 new email account per 100 emails sent.'
+			'requirements': {},
+			'chance': 0.02,
+			'actions': {
+				'accept': {
+					'money': 100,
+					'time': 18,
+					'karma': -30,
+				},
+				'decline': {
+					'time': 1,
+					'karma': 5,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				}
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Customer support',
+			'description': 'We are a dropshipping company. We need sales and customer support done.',
+			'requirements': {},
+			'chance': 0.05,
+			'actions': {
+				'accept': {
+					'money': 70,
+					'time': 13,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				}
+			},
+		},
+		{
+			'type': 'work',
+			'title': 'Clean up a list of addresses',
+			'description': 'I have about 1000 addresses in an Excel file, I need them verified and cleaned up to match the UPS format, please.',
+			'requirements': {},
+			'chance': 0.04,
+			'actions': {
+				'accept': {
+					'money': 60,
+					'time': 8,
+				},
+				'decline': {
+					'time': 1,
+				},
+				'ignore': {
+					'time': 1,
+					'skip': true,
+				}
+			},
+		},
+		{ # Code
 			'type': 'work',
 			'title': 'Install a WordPress site',
 			'description': 'We need you to setup WordPress on our server.',
