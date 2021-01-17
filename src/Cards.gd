@@ -1705,6 +1705,127 @@ func _ready():
 				},
 			},
 		},
+		{
+			'type': 'decision',
+			'title': 'HYIP get rich quick',
+			'description': 'Referral bonus, not an MLM! 1% per hour return!',
+			'chance': 0.05,
+			'actions': {
+				'accept': {
+					'time': 14,
+					'mood': -10,
+					'money': -1500
+				},
+				'decline': {
+					'mood': 5,
+					'karma': 10,
+				},
+			},
+		},
+		{
+			'type': 'decision',
+			'title': 'Bad part of town',
+			'description': "You're held up at gunpoint and it's not even Brazil. Give them your money?",
+			'chance': 0.05,
+			'actions': {
+				'accept': {
+					'time': 2,
+					'mood': -50,
+					'money': -800
+				},
+				'decline': {
+					'time': 4,
+					'health': -40,
+					'mood': -100,
+					'money': -800
+				},
+			},
+		},
+		{
+			'type': 'decision',
+			'title': 'Facebook notification',
+			'description': 'You have a new message! Spend some time on Facebook?',
+			'chance': 0.05,
+			'actions': {
+				'accept': {
+					'time': 6,
+					'mood': -10,
+				},
+				'decline': {
+					'mood': 5,
+					'karma': 10,
+				},
+			},
+		},
+		{
+			'type': 'decision',
+			'title': 'Godot Wild Jam',
+			'description': "Looks like you can participate in the next jam. What are you going to do?",
+			'chance': 0.05,
+			'actions': {
+				'accept': {
+					'time': 8,
+					'mood': 30,
+					'karma': 30,
+				},
+				'decline': {
+					'mood': -5,
+					'karma': -10,
+				},
+			},
+		},
+		{
+			'type': 'decision',
+			'title': 'Crossing oldies',
+			'description': 'An old lady is trying to cross the street. Help her?',
+			'chance': 0.05,
+			'actions': {
+				'accept': {
+					'time': 1,
+					'mood': 10,
+					'karma': 20,
+				},
+				'decline': {
+					'mood': -5,
+					'karma': -10,
+				},
+			},
+		},
+		{
+			'type': 'decision',
+			'title': 'The package',
+			'description': 'A shady looking man in street asks you to deliver a package for him. It is good money.',
+			'chance': 0.05,
+			'actions': {
+				'accept': {
+					'time': 2,
+					'money': 1000,
+					'karma': -50,
+					'health': -20,
+				},
+				'decline': {
+					'mood': 5,
+					'karma': 10,
+				},
+			},
+		},
+		{
+			'type': 'decision',
+			'title': 'Price hike'
+			'description': 'This hotel has ridiculous prices, there's no other place to go but be outside. Accept expensive lodging?",
+			'chance': 0.05,
+			'actions': {
+				'accept': {
+					'time': 1,
+					'mood': -10,
+					'money': -200
+				},
+				'decline': {
+					'time': 8,
+					'mood': -15,
+				},
+			},
+		},
 
 		# Tutorial
 		{
