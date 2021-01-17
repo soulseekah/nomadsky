@@ -21,6 +21,7 @@ func _ready():
 	randomize()
 
 	nomad = Nomad.new()
+	nomad.main = self
 	nomad.money = 200
 	nomad.health = 90
 	nomad.karma = 50
@@ -520,7 +521,7 @@ func do_action(index):
 		success = false
 		nomad.energy(+10 + energy_cost)
 		nomad.health(-10)
-		self.error('You fell asleep during assignment.')
+		self.error('You fell asleep during the assignment.')
 
 	if current_card.type == 'work' and success and action_name == 'accept' and randf() > float(rate) / 100:
 		success = false
