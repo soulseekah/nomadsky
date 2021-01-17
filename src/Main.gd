@@ -633,7 +633,7 @@ func do_action(index):
 		nomad.rating(+1)
 	else:
 		nomad.rating(-1)
-		nomad.mood(-1)
+		nomad.mood(-20)
 
 	print('Action: %s' % action)
 
