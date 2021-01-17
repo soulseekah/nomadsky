@@ -506,6 +506,7 @@ func do_action(index):
 	var energy_cost = 1
 	var time_cost = 1
 	var blackout = false
+	var blackout_message = 'Tick... Tock...'
 
 	if action.has('time'):
 		energy_cost = action['time'] * 2
@@ -521,7 +522,8 @@ func do_action(index):
 		success = false
 		nomad.energy(+10 + energy_cost)
 		nomad.health(-10)
-		self.error('You fell asleep during the assignment.')
+		blackout = true
+		blackout_message = 'You fell asleep during the assignment.'
 
 	if current_card.type == 'work' and success and action_name == 'accept' and randf() > float(rate) / 100:
 		success = false
@@ -589,7 +591,7 @@ func do_action(index):
 		$Blackout/Fade.play('Fade')
 		yield($Blackout/Fade, 'animation_finished')
 
-		$Blackout/Label.text = 'Tick... Tock...'
+		$Blackout/Label.text = blackout_message
 		$Blackout/Label.show()
 		yield(get_tree().create_timer(3.0), 'timeout')
 		$Blackout/Label.hide()
