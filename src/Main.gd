@@ -537,6 +537,7 @@ func do_action(index):
 			'You couldn\'t finish the work in time. Probably in a bad mood.',
 			'You got distracted during work, you screwed up.',
 			'You procrastinated for too long. Tough luck.',
+			'The client didn\'t pay. It happens.',
 		]
 
 		self.error(messages[randi() % messages.size()])
