@@ -29,6 +29,27 @@ func _ready():
 	nomad.hunger = 90
 	nomad.mood = 90
 	nomad.rating = 0
+	
+	nomad.stats = {
+		'revenue': 0,
+		'expenses': 0,
+		'cards': 0,
+		'courses': 0,
+	}
+	
+	nomad.code = 0
+	nomad.design = 0
+	nomad.soft = 0
+	nomad.copywriting = 0
+	nomad.gamedev = 0
+	
+	for card in Cards.cards:
+		card.done = false
+		
+	for course in Courses.courses:
+		course.done = false
+		
+	time = 0
 
 	nomad.location = Modifiers.Location.Pyongyang.new()
 	nomad.workstation = Modifiers.Workstation.Red.new()
