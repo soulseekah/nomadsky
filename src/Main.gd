@@ -831,8 +831,10 @@ func click_tech(node: Node):
 
 func meow():
 	if randf() > 0.9:
+		nomad.mood(+1)
 		play('meow')
 
 func woof():
 	if randf() > 0.9:
+		nomad.mood(+1)
 		play('woof')

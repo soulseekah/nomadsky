@@ -970,7 +970,7 @@ func _ready():
 		{
 			'type': 'work',
 			'title': 'Write the best speech. The best. o_O',
-			'description': '~ JDT',
+			'description': '~ DJT',
 			'chance': 0.01,
 			'requirements': {
 				'copywriting': 3,
