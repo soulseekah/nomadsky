@@ -77,7 +77,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Intermediate Level English: Greetings', 'type': 'copywriting', 'cost': 15, 'level': 2,
+			'name': 'Intermediate Level English: Greetings', 'type': 'copywriting', 'cost': 129, 'level': 2,
 			'quiz': [
 				{
 					'question': 'What html tag is used to wrap the first title in the text?', 'answer': 'h1',
@@ -94,7 +94,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'God Level English: ‘Ello, gov’nor!', 'type': 'copywriting', 'cost': 30, 'level': 3,
+			'name': 'God Level English: ‘Ello, gov’nor!', 'type': 'copywriting', 'cost': 299, 'level': 3,
 			'quiz': [
 				{
 					'question': 'How often should a keyword appear in the text?', 'answer': 'every word should be key',
@@ -128,7 +128,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Intermediate Gamedev: Hello Games', 'type': 'gamedev', 'cost': 15, 'level': 2,
+			'name': 'Intermediate Gamedev: Hello Games', 'type': 'gamedev', 'cost': 129, 'level': 2,
 			'quiz': [
 				{
 					'question': "What's the name of the lady who's always raiding tombs?", 'answer': 'Lara Croft',
@@ -145,7 +145,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'God Level Gamedev: GabeN', 'type': 'gamedev', 'cost': 30, 'level': 3,
+			'name': 'God Level Gamedev: GabeN', 'type': 'gamedev', 'cost': 299, 'level': 3,
 			'quiz': [
 				{
 					'question': 'Are mirrors hard to implement?', 'answer': 'yes',
@@ -179,7 +179,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Asperite', 'type': 'design', 'cost': 15, 'level': 2,
+			'name': 'Asperite', 'type': 'design', 'cost': 129, 'level': 2,
 			'quiz': [
 				{
 					'question': 'What should pixel art never contain?', 'answer': 'double pixels',
@@ -196,7 +196,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'hexdump to .asperite', 'type': 'design', 'cost': 30, 'level': 3,
+			'name': 'hexdump to .asperite', 'type': 'design', 'cost': 299, 'level': 3,
 			'quiz': [
 				{
 					'question': 'How many shades of gray are there in 50 Shades of Gray?', 'answer': '50',
@@ -230,7 +230,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Intermediate: Darknet', 'type': 'code', 'cost': 15, 'level': 2,
+			'name': 'Intermediate: Darknet', 'type': 'code', 'cost': 129, 'level': 2,
 			'quiz': [
 				{
 					'question': 'Which programming language hisses?', 'answer': 'C++',
@@ -247,7 +247,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'God Level: 0x29efebb39e5cbaf0e8', 'type': 'code', 'cost': 30, 'level': 3,
+			'name': 'God Level: 0x29efebb39e5cbaf0e8', 'type': 'code', 'cost': 299, 'level': 3,
 			'quiz': [
 				{
 					'question': 'How many processors are there in an 8 core processor?', 'answer': '1',
@@ -281,7 +281,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Softskills: 201', 'type': 'soft', 'cost': 15, 'level': 2,
+			'name': 'Softskills: 201', 'type': 'soft', 'cost': 129, 'level': 2,
 			'quiz': [
 				{
 					'question': 'You have more work than you can handle...', 'answer': "Don't bite more than you can't chew",
@@ -298,7 +298,7 @@ func _ready():
 			],
 		},
 		{
-			'name': 'Skills softer than Vicuna wool', 'type': 'soft', 'cost': 30, 'level': 3,
+			'name': 'Skills softer than Vicuna wool', 'type': 'soft', 'cost': 299, 'level': 3,
 			'quiz': [
 				{
 					'question': 'You need to pee. Real hard. The queue is huge.', 'answer': 'Stand on a table and announce the problem and solution.',
