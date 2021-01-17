@@ -1,13 +1,33 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://assets/art/backgrounds/mongolia.bg.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/backgrounds/mongolia.bg.smth.png" type="Texture" id=1]
 [ext_resource path="res://scenes/locations/Pyongyang.gd" type="Script" id=2]
 [ext_resource path="res://assets/art/backgrounds/mongolia.exit.png" type="Texture" id=3]
 [ext_resource path="res://assets/art/backgrounds/mongolia.mood.png" type="Texture" id=4]
 [ext_resource path="res://assets/art/backgrounds/mongolia.food.png" type="Texture" id=5]
 [ext_resource path="res://assets/art/backgrounds/mongolia.tech.png" type="Texture" id=6]
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/mongolia.bg.png-fa26e3e1700f96da78c61ae5b61ecbcf.stex"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Sprite
+
+func _on_Food_mouse_entered():
+	$Location/pyongayngbg/pyongaynghunger.modulate = Color(2.0, 2.0, 2.0)
+
+func _on_Food_mouse_exited():
+	$Location/pyongayngbg/pyongaynghunger.modulate = Color(1.0, 1.0, 1.0)
+
+
+func _on_Food_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+			if event.pressed:
+					print('food')
+"
+
+[sub_resource type="GDScript" id=3]
 script/source = "extends Area2D
 
 
@@ -26,93 +46,85 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 44.1695, 36.2336 )
-
-[sub_resource type="GDScript" id=3]
-script/source = "extends Sprite
-
-func _on_Food_mouse_entered():
-	$Location/pyongayngbg/pyongaynghunger.modulate = Color(2.0, 2.0, 2.0)
-
-func _on_Food_mouse_exited():
-	$Location/pyongayngbg/pyongaynghunger.modulate = Color(1.0, 1.0, 1.0)
-
-
-func _on_Food_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-			if event.pressed:
-					print('food')
-"
-
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 53.4019, 37.4269 )
+extents = Vector2( 779.694, 354.401 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 44.0161, 29.9595 )
+extents = Vector2( 1018.59, 678.964 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 201.625, 344.302 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 588.841, 344.302 )
 
 [node name="Mongolia" type="Node2D"]
 position = Vector2( 3.05176e-05, 1.52588e-05 )
 script = ExtResource( 2 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 322.692, 182.535 )
-scale = Vector2( 1.59184, 1.19722 )
-texture = ExtResource( 1 )
+position = Vector2( 206.566, 265.286 )
+scale = Vector2( 0.233132, 0.175338 )
+texture = SubResource( 1 )
 
 [node name="Interactive" type="Node2D" parent="."]
 
-[node name="Mood" type="Sprite" parent="Interactive"]
-position = Vector2( 168.49, 242.403 )
-scale = Vector2( 1.44939, 1.38846 )
-texture = ExtResource( 4 )
-
-[node name="Area2D" type="Area2D" parent="Interactive/Mood"]
-position = Vector2( 147.844, -46.5807 )
-script = SubResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Mood/Area2D"]
-position = Vector2( -121.759, 46.3273 )
-shape = SubResource( 2 )
-
-[node name="Exit" type="Sprite" parent="Interactive"]
-position = Vector2( 80.2226, 299.963 )
-scale = Vector2( 1.51158, 1.51467 )
-texture = ExtResource( 3 )
-
-[node name="Area2D" type="Area2D" parent="Interactive/Exit"]
-position = Vector2( 288.875, -5.1109 )
-script = SubResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Exit/Area2D"]
-position = Vector2( -292.781, 8.64807 )
-shape = SubResource( 2 )
-
 [node name="Food" type="Sprite" parent="Interactive"]
 modulate = Color( 0.764706, 0.729412, 0.72549, 1 )
-position = Vector2( 396.335, 250.636 )
-scale = Vector2( 1.59184, 1.19722 )
+position = Vector2( 361.43, 472.701 )
+scale = Vector2( 0.178236, 0.178236 )
 texture = ExtResource( 5 )
-script = SubResource( 3 )
+script = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="Interactive/Food"]
 position = Vector2( 467.321, -157.013 )
-script = SubResource( 1 )
+script = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Food/Area2D"]
-position = Vector2( -472.845, 164.596 )
+position = Vector2( -952.152, 305.018 )
 shape = SubResource( 4 )
 
 [node name="Tech" type="Sprite" parent="Interactive"]
 modulate = Color( 0.764706, 0.729412, 0.72549, 1 )
-position = Vector2( 547.05, 206.928 )
-scale = Vector2( 1.59184, 1.19722 )
+position = Vector2( 628.224, 390.145 )
+scale = Vector2( 0.154397, 0.154397 )
 texture = ExtResource( 6 )
-script = SubResource( 3 )
+script = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="Interactive/Tech"]
-script = SubResource( 1 )
+script = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Tech/Area2D"]
-position = Vector2( 4.32571, -5.04864 )
+position = Vector2( 52.4138, -60.0062 )
 shape = SubResource( 5 )
+
+[node name="Mood" type="Sprite" parent="Interactive"]
+position = Vector2( 48.56, 493.192 )
+scale = Vector2( 0.247911, 0.237489 )
+texture = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="Interactive/Mood"]
+position = Vector2( 147.844, -46.5807 )
+script = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Mood/Area2D"]
+position = Vector2( -124.611, 46.3273 )
+shape = SubResource( 6 )
+
+[node name="mongoliabgsmth" type="Sprite" parent="Interactive"]
+position = Vector2( 636.89, 527.745 )
+scale = Vector2( 0.128651, 0.128651 )
+texture = ExtResource( 1 )
+
+[node name="Exit" type="Sprite" parent="Interactive"]
+position = Vector2( 532.218, 541.242 )
+scale = Vector2( 0.173852, 0.173852 )
+texture = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="Interactive/Exit"]
+position = Vector2( 288.875, -5.1109 )
+script = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Exit/Area2D"]
+position = Vector2( -292.781, 47.0819 )
+shape = SubResource( 7 )

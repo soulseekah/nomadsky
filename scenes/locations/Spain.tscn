@@ -1,0 +1,170 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://scenes/locations/NewYork.gd" type="Script" id=1]
+[ext_resource path="res://assets/art/backgrounds/spain.fg.street.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/backgrounds/spain.bg.back.png" type="Texture" id=6]
+[ext_resource path="res://assets/art/backgrounds/spain.bg.clouds.png" type="Texture" id=8]
+[ext_resource path="res://assets/art/backgrounds/spain.bg.sky.png" type="Texture" id=9]
+[ext_resource path="res://assets/art/backgrounds/spain.bg.front.png" type="Texture" id=10]
+[ext_resource path="res://assets/art/backgrounds/spain.exit.png" type="Texture" id=11]
+
+[sub_resource type="StreamTexture" id=15]
+flags = 4
+load_path = "res://.import/spain.food.png-00553fb49459d2512da983ab94b022b6.stex"
+
+[sub_resource type="GDScript" id=16]
+script/source = "extends Sprite
+
+func _on_Food_mouse_entered():
+	$Location/pyongayngbg/pyongaynghunger.modulate = Color(2.0, 2.0, 2.0)
+
+func _on_Food_mouse_exited():
+	$Location/pyongayngbg/pyongaynghunger.modulate = Color(1.0, 1.0, 1.0)
+
+
+func _on_Food_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+			if event.pressed:
+					print('food')
+"
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends Area2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 41.555, 51.4765 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 38.1804, 93.6489 )
+
+[sub_resource type="StreamTexture" id=9]
+flags = 4
+load_path = "res://.import/spain.mood.png-fca46f89278146dd35749abe10905a7e.stex"
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 26.155, 87.3878 )
+
+[sub_resource type="StreamTexture" id=10]
+flags = 4
+load_path = "res://.import/spain.tech.png-622b2cfae50427ff0fc73ba7a01952a5.stex"
+
+[sub_resource type="GDScript" id=11]
+script/source = "extends Sprite
+
+func _on_Food_mouse_entered():
+	$Location/pyongayngbg/pyongaynghunger.modulate = Color(2.0, 2.0, 2.0)
+
+func _on_Food_mouse_exited():
+	$Location/pyongayngbg/pyongaynghunger.modulate = Color(1.0, 1.0, 1.0)
+
+
+func _on_Food_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+			if event.pressed:
+					print('food')
+"
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 44.0161, 15.6371 )
+
+[node name="Spain" type="Node2D"]
+position = Vector2( 3.05176e-05, 1.52588e-05 )
+script = ExtResource( 1 )
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sky" type="Sprite" parent="Background"]
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+
+[node name="Clouds" type="Sprite" parent="Background"]
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+
+[node name="Back" type="Sprite" parent="Background"]
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="Front" type="Sprite" parent="Background"]
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+
+[node name="Interactive" type="Node2D" parent="."]
+
+[node name="Food" type="Sprite" parent="Interactive"]
+modulate = Color( 0.764706, 0.729412, 0.72549, 1 )
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 15 )
+script = SubResource( 16 )
+
+[node name="Area2D" type="Area2D" parent="Interactive/Food"]
+position = Vector2( 467.321, -157.013 )
+script = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Food/Area2D"]
+position = Vector2( -413.376, 242.526 )
+shape = SubResource( 13 )
+
+[node name="Exit" type="Sprite" parent="Interactive"]
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+
+[node name="Area2D" type="Area2D" parent="Interactive/Exit"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Exit/Area2D"]
+position = Vector2( -160.68, 5.1854 )
+shape = SubResource( 12 )
+
+[node name="Mood" type="Sprite" parent="Interactive"]
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 9 )
+
+[node name="Area2D" type="Area2D" parent="Interactive/Mood"]
+position = Vector2( 147.844, -46.5807 )
+script = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Mood/Area2D"]
+position = Vector2( 28.001, 101.505 )
+shape = SubResource( 14 )
+
+[node name="Tech" type="Sprite" parent="Interactive"]
+modulate = Color( 0.764706, 0.729412, 0.72549, 1 )
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 10 )
+script = SubResource( 11 )
+
+[node name="Area2D" type="Area2D" parent="Interactive/Tech"]
+script = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Tech/Area2D"]
+position = Vector2( -156.604, 120.174 )
+shape = SubResource( 5 )
+
+[node name="Street" type="Sprite" parent="."]
+position = Vector2( 400, 300 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )

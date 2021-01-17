@@ -5,11 +5,37 @@ class_name Modifiers
 class Location:
 	var cost: int
 	var bonus: float
+	var name: String
 	
 	class Pyongyang extends Location:
 		func _init():
+			cost = 12
+			bonus = 1.0
+			name = 'Pyongyang'
+			
+	class Mongolia extends Location:
+		func _init():
+			cost = 25
+			bonus = 1.5
+			name = 'Mongolia'
+			
+	class Moscow extends Location:
+		func _init():
+			cost = 50
+			bonus = 2.0
+			name = 'Moscow'
+			
+	class Spain extends Location:
+		func _init():
 			cost = 100
-			bonus = 10
+			bonus = 3.0
+			name = 'Spain'
+			
+	class NewYork extends Location:
+		func _init():
+			cost = 100
+			bonus = 4.0
+			name = 'New York'
 
 # What you do your work on
 class Workstation:

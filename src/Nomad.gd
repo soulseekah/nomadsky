@@ -60,6 +60,8 @@ func energy(amount: int):
 	
 func money(amount: int):
 	money += amount
+	if money <= 0:
+		emit_signal('dead', 'money')
 
 func _to_string():
 	return JSON.print({
@@ -70,6 +72,7 @@ func _to_string():
 		'karma': karma,
 		'rating': rating,
 		'energy': energy,
+		'location': location.name,
 	})
 
 # Limit a value between 0 and 100

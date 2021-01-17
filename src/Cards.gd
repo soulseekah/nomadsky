@@ -11,27 +11,27 @@ func pick(types: Array, main: Main) -> Card:
 	for card in cards:
 		if card.done:
 			continue
-		
+
 		if types and not card.type in types:
 			continue
 
 		if card.requirements.has('time') and card.requirements['time'] > main.time:
 			continue
-			
+
 		if card.requirements.has('pet'):
 			if card.requirements['pet'] == '!dog;!cat' and main.nomad.pet:
 				continue
-			
+
 			if card.requirements['pet'] == 'cat' or card.requirements['pet'] == 'dog':
 				if not main.nomad.pet or main.nomad.pet.type != card.requirements['pet']:
 					continue
 
 		valid.append(card)
 		total += int(card.chance * 1000)
-		
+
 	if not valid.front():
 		return null
-		
+
 	if valid.front().chance >= 1.0:
 		return valid.front()
 
@@ -42,7 +42,7 @@ func pick(types: Array, main: Main) -> Card:
 			return card
 
 	return null
-	
+
 func sort_cards(a, b):
 	return a.chance > b.chance
 
@@ -68,7 +68,7 @@ class Card:
 		actions = card.get('actions', {})
 
 		requirements = card.get('requirements', {})
-		
+
 		if card.get('sound'):
 			sound = card.get('sound')
 
@@ -1516,7 +1516,7 @@ func _ready():
 		},
 		{
 			'type': 'accident',
-			'title': '"Cuff 'em up!"',
+			'title': '"Cuff \'em up!"',
 			'description': 'Police take you in for squatting. There will be fines...',
 			'chance': 0.08,
 			'requirements': {},
@@ -1616,7 +1616,7 @@ func _ready():
 		},
 		{
 			'type': 'gift',
-			'title': '"Dinner's on me"',
+			'title': '"Dinner\'s on me"',
 			'description': 'Your friends treat you to a nice dinner. Yum!',
 			'chance': 0.1,
 			'actions': {
@@ -1745,5 +1745,5 @@ func _ready():
 			},
 		},
 	]: cards.append(Card.new(card))
-	
+
 	cards.sort_custom(Cards, 'sort_cards')
