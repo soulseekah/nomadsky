@@ -43,8 +43,9 @@ func pick(types: Array, main: Main) -> Card:
 			continue
 
 		if card.requirements.has('location'):
-			if card.requirements['location'] == 'spain;newyork' and (main.nomad.location.slug != 'spain' and main.nomad.location.slug != 'newyork'):
-				continue
+			if card.requirements['location'] == 'spain;newyork':
+				if main.nomad.location.slug != 'spain' and main.nomad.location.slug != 'newyork':
+					continue
 			elif main.nomad.location.slug != card.requirements['location']:
 				continue
 
