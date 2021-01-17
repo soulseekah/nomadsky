@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://src/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/locations/Pyongyang.tscn" type="PackedScene" id=2]
@@ -14,6 +14,10 @@
 [ext_resource path="res://assets/indifferent.png" type="Texture" id=12]
 [ext_resource path="res://assets/sad.png" type="Texture" id=13]
 [ext_resource path="res://assets/Unibody8ProRegular.tres" type="DynamicFont" id=14]
+[ext_resource path="res://scenes/locations/Moscow.gd" type="Script" id=15]
+[ext_resource path="res://scenes/locations/Moscow.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/locations/Spain.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/locations/Spain.gd" type="Script" id=18]
 
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 10 )
@@ -104,6 +108,14 @@ script = ExtResource( 7 )
 
 [node name="NewYork" parent="Locations" instance=ExtResource( 8 )]
 visible = false
+
+[node name="Moscow" parent="Locations" instance=ExtResource( 16 )]
+visible = false
+script = ExtResource( 15 )
+
+[node name="Spain" parent="Locations" instance=ExtResource( 17 )]
+visible = false
+script = ExtResource( 18 )
 
 [node name="Workstation" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -416,9 +428,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -258.0
-margin_top = -73.0
+margin_top = -81.0
 margin_right = 259.0
-margin_bottom = 26.0
+margin_bottom = 18.0
 custom_fonts/font = ExtResource( 14 )
 text = "Something went right"
 align = 1
@@ -434,9 +446,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -89.1369
-margin_top = 10.0
+margin_top = 26.0
 margin_right = -9.1369
-margin_bottom = 38.0
+margin_bottom = 57.0
 custom_fonts/font = ExtResource( 14 )
 text = "Okay"
 __meta__ = {
@@ -449,9 +461,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 11.6567
-margin_top = 10.0
+margin_top = 26.0
 margin_right = 91.6567
-margin_bottom = 38.0
+margin_bottom = 57.0
 custom_fonts/font = ExtResource( 14 )
 text = "Cancel"
 __meta__ = {
@@ -462,7 +474,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -476,10 +488,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -94.5
-margin_top = -49.5
-margin_right = 94.5
-margin_bottom = 49.5
+margin_left = -314.0
+margin_top = -49.0
+margin_right = 315.0
+margin_bottom = 50.0
 custom_fonts/font = ExtResource( 14 )
 text = "Dead"
 align = 1

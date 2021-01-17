@@ -29,7 +29,7 @@ func _ready():
 	nomad.mood = 80
 	nomad.rating = 0
 
-	location = Modifiers.Location.Pyongyang.new()
+	nomad.location = Modifiers.Location.Pyongyang.new()
 	actions = [$Card/Action1, $Card/Action2, $Card/Action3]
 	
 	$Status/Actions.hide()
@@ -64,8 +64,22 @@ func _ready():
 
 	$Locations/Mongolia.connect('food', self, 'click_food')
 	$Locations/Mongolia.connect('mood', self, 'click_mood')
-	$Locations/Mongolia.connect('mood', self, 'click_tech')
+	$Locations/Mongolia.connect('tech', self, 'click_tech')
 	$Locations/Mongolia.connect('exit', self, 'click_exit')
+	
+	$Locations/Moscow.connect('food', self, 'click_food')
+	$Locations/Moscow.connect('mood', self, 'click_mood')
+	$Locations/Moscow.connect('tech', self, 'click_tech')
+	$Locations/Moscow.connect('exit', self, 'click_exit')
+	
+	$Locations/Spain.connect('food', self, 'click_food')
+	$Locations/Spain.connect('mood', self, 'click_mood')
+	$Locations/Spain.connect('tech', self, 'click_tech')
+	$Locations/Spain.connect('exit', self, 'click_exit')
+	
+	$Locations/NewYork.connect('food', self, 'click_food')
+	$Locations/NewYork.connect('mood', self, 'click_mood')
+	$Locations/NewYork.connect('tech', self, 'click_tech')
 
 	# The first location
 	$Locations/Pyongyang.show()
@@ -89,9 +103,12 @@ func _ready():
 func tick(amount):
 	if time % 24 + amount > 23:
 		if nomad.pet:
-			print('Pet: %s $%d +%d mood' % [nomad.pet.type, nomad.pet.cost, nomad.pet.bonus])
+			print('Pet modifier: %s $%d +%d mood' % [nomad.pet.type, nomad.pet.cost, nomad.pet.bonus])
 			nomad.money(-nomad.pet.cost)
 			nomad.mood(nomad.pet.bonus)
+			
+		print('Location modifier: $%d' % nomad.location.cost)
+		nomad.money(-nomad.location.cost)
 
 	time += amount
 
@@ -189,7 +206,8 @@ func dead(why):
 	print('died')
 	var reasons = {
 		'hunger': 'You so hungry, you so dead.',
-		'health': 'You so unhealthy, you so dead.'
+		'health': 'You so unhealthy, you so dead.',
+		'money': 'You no longer a nomad. You a bum.',
 	}
 
 	$Death.show()
@@ -318,7 +336,8 @@ func show_card(card):
 
 	if card.type == 'work':
 		var accept = card.actions['accept']
-		$Card/Text.bbcode_text += '\n\n$%d, ~%d hrs' % [accept['money'], accept['time']]
+		var reward = accept['money'] * nomad.location.bonus
+		$Card/Text.bbcode_text += '\n\n$%d, ~%d hrs' % [reward, accept['time']]
 
 	$Card.show()
 
@@ -472,7 +491,11 @@ func do_action(index):
 			nomad.karma(action['karma'])
 			
 		if (action.has('money')):
-			nomad.money(action['money'])
+			var money = action['money']
+			if money > 0:
+				money = money * nomad.location.bonus
+
+			nomad.money(money)
 
 		if (action.has('mood')):
 			nomad.mood(action['mood'])
@@ -508,7 +531,7 @@ func click_exit(node: Node):
 	var next
 
 	if node.name == 'Pyongyang':
-		cost = 1000
+		cost = 1
 
 		if nomad.money < cost:
 			self.error('Doesn\'t look like I have enough money to leave this place. The guards want $1k to look away while I climb the fence.')
@@ -520,7 +543,52 @@ func click_exit(node: Node):
 			return
 
 		message = 'Heading to Mongolia'
-		next = $Locations/Mongolia
+		next = [Modifiers.Location.Mongolia.new(), $Locations/Mongolia]
+	
+	if node.name == 'Mongolia':
+		cost = 1
+		
+		if nomad.money < cost:
+			self.error('I don\'t have enough money to leave this place. I need about $3k I think.')
+			return
+			
+		self.confirm('I think I\'m ready to leave now. Pay and ride the horses to Moscow?')
+		action = yield(self, 'confirm_closed')
+		if action == 'cancel':
+			return
+			
+		message = 'Heading to Moscow'
+		next = [Modifiers.Location.Moscow.new(), $Locations/Moscow]
+		
+	if node.name == 'Moscow':
+		cost = 1
+		
+		if nomad.money < cost:
+			self.error('Not enough money to leave right now. I think I need about $10k')
+			return
+			
+		self.confirm('Okay I\'m ready to leave now, I think.. Pay and fly to Spain?')
+		action = yield(self, 'confirm_closed')
+		if action == 'cancel':
+			return
+			
+		message = 'Flying to Spain'
+		next = [Modifiers.Location.Spain.new(), $Locations/Spain]
+		
+	if node.name == 'Spain':
+		cost = 1
+		
+		if nomad.money < cost:
+			self.error('I need more cash to leave to New York, about $20k I think')
+			return
+			
+		self.confirm('I think I\'m ready to go. Pay and board the plane to New York?')
+		action = yield(self, 'confirm_closed')
+		if action == 'cancel':
+			return
+			
+		message = 'All the way to New York'
+		next = [Modifiers.Location.NewYork.new(), $Locations/NewYork]
 
 	$Blackout/Label.hide()
 	$Blackout.show()
@@ -535,11 +603,12 @@ func click_exit(node: Node):
 	self.tick(8)
 	nomad.money(-cost)
 	nomad.mood(+10)
+	nomad.location = next[0]
 	
 	node.hide()
-	next.show()
+	next[1].show()
 	
-	$BackgroundAudio.stream = load("res://assets/sound/bgm/%s.ogg" % next.name.to_lower())
+	$BackgroundAudio.stream = load("res://assets/sound/bgm/%s.ogg" % nomad.location.name.to_lower())
 	$BackgroundAudio.play()
 
 	$Blackout/Fade.play_backwards('Fade')
