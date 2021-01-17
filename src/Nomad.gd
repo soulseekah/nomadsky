@@ -39,7 +39,7 @@ var courses: Array = []
 func hunger(amount: int):
 	hunger = self.limit(hunger + amount)
 	if hunger == 0:
-		emit_signal('dead', 'hunger')
+		self.health(amount)
 
 func health(amount: int):
 	health = self.limit(health + amount)

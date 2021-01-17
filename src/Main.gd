@@ -25,18 +25,18 @@ func _ready():
 	nomad.health = 90
 	nomad.karma = 50
 	nomad.energy = 90
-	nomad.hunger = 10
+	nomad.hunger = 90
 	nomad.mood = 80
 	nomad.rating = 0
 
 	location = Modifiers.Location.Pyongyang.new()
 	actions = [$Card/Action1, $Card/Action2, $Card/Action3]
 	
-	$Actions.hide()
+	$Status/Actions.hide()
 	$Workstation.hide()
 	
-	$Actions/Work.connect('pressed', self, 'workstation_open')
-	$Actions/Sleep.connect('pressed', self, 'sleep')
+	$Status/Actions/Work.connect('pressed', self, 'workstation_open')
+	$Status/Actions/Sleep.connect('pressed', self, 'sleep')
 	
 	$Workstation/Actions/Shutdown.connect('pressed', self, 'workstation_close')
 	$Workstation/Actions/Work.connect('pressed', self, 'find_work')
@@ -77,7 +77,7 @@ func _ready():
 	self.show_card(current_card)
 	
 	yield(self, 'card_closed')
-	$Actions.show()
+	$Status/Actions.show()
 	
 	var timer = Timer.new()
 	timer.set_wait_time(5.0)
@@ -86,11 +86,34 @@ func _ready():
 	self.add_child(timer)
 	timer.start()
 
-	$Timer.text = str(time);
-
 func _process(delta):
-	$Timer.text = 'Time: %s' % str(int(time))
-	$Stats.text = str(nomad)
+	var day_label = 1
+	var time_label = 0
+	day_label += time / 24
+	time_label = int(time) % 24
+
+	$Status/Timer.text = 'Day %d   %d:00' % [day_label, int(time_label)]
+	$Status/Stats.text = str(nomad)
+	$Status/Money.text = str(nomad.money)
+	
+	if nomad.mood >= 60:
+		$Status/Mood/Happy.show()
+		$Status/Mood/Indifferent.hide()
+		$Status/Mood/Sad.hide()
+	elif nomad.mood >= 30:
+		$Status/Mood/Happy.hide()
+		$Status/Mood/Indifferent.show()
+		$Status/Mood/Sad.hide()
+	else:
+		$Status/Mood/Happy.hide()
+		$Status/Mood/Indifferent.hide()
+		$Status/Mood/Sad.show()
+		
+	$Status/Energy.value = nomad.energy
+	if nomad.energy <= 30:
+		$Status/Energy.get('custom_styles/fg').bg_color = Color(0.7, 0, 0)
+	else:
+		$Status/Energy.get('custom_styles/fg').bg_color = Color(0, 0.7, 0)
 	
 	if queued_card and self.is_idle():
 		current_card = queued_card
@@ -98,7 +121,7 @@ func _process(delta):
 		if $Workstation.visible:
 			$Workstation/Actions.hide()
 		else:
-			$Actions.hide()
+			$Status/Actions.hide()
 		
 		self.show_card(current_card)
 		yield(self, 'card_closed')
@@ -107,7 +130,7 @@ func _process(delta):
 		if $Workstation.visible:
 			$Workstation/Actions.show()
 		else:
-			$Actions.show()
+			$Status/Actions.show()
 
 func is_idle():
 	if $Blackout.visible:
@@ -272,7 +295,7 @@ func show_card(card):
 		if card.type == 'work':
 			play('work')
 	
-	$Card/Text.bbcode_text = '[b]%s[/b]\n\n%s' % [card.title, card.description]
+	$Card/Text.bbcode_text = '%s\n\n%s' % [card.title, card.description]
 
 	# Hide all actions
 	for action in actions:
@@ -297,7 +320,7 @@ func workstation_open():
 	call_deferred('play', 'click1')
 
 	$Workstation.show()
-	$Actions.hide()
+	$Status/Actions.hide()
 
 func workstation_close():
 	call_deferred('play', 'click2')
@@ -306,7 +329,7 @@ func workstation_close():
 		return
 
 	$Workstation.hide()
-	$Actions.show()
+	$Status/Actions.show()
 	
 func show_courses():
 	call_deferred('play', 'click1')

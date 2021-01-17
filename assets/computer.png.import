@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pyongayng.bg.png-6768570c943231b52239a0f87409bbdd.stex"
+path="res://.import/computer.png-5a2aaacb00eb8d8044a6a7f9284d5600.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/backgrounds/pyongayng.bg.png"
-dest_files=[ "res://.import/pyongayng.bg.png-6768570c943231b52239a0f87409bbdd.stex" ]
+source_file="res://assets/computer.png"
+dest_files=[ "res://.import/computer.png-5a2aaacb00eb8d8044a6a7f9284d5600.stex" ]
 
 [params]
 
